@@ -20,11 +20,11 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used by this page)-->
-		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{% static 'dashboard/assets/plugins/custom/datatables/datatables.bundle.css ' %}" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{% static 'dashboard/assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'dashboard/assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<!--Begin::Google Tag Manager -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5FS8GGP');</script>
@@ -53,7 +53,7 @@
 						<!--begin::Logo-->
 						<div class="aside-logo d-none d-lg-flex flex-column align-items-center flex-column-auto pt-10" id="kt_aside_logo">
 							<a href="index.html">
-								<img alt="Logo" src="assets/media/logos/logo-default.svg" class="h-55px" />
+								<img alt="Logo" src="{% static 'dashboard/assets/media/logos/logo-default.svg' %}" class="h-55px" />
 							</a>
 						</div>
 						<!--end::Logo-->
@@ -1603,7 +1603,7 @@
 								<!--end::Aside mobile toggle-->
 								<!--begin::Logo-->
 								<a href="index.html" class="d-flex align-items-center">
-									<img alt="Logo" src="assets/media/logos/logo-default.svg" class="max-h-40px" />
+									<img alt="Logo" src="{% static 'dashboard/assets/media/logos/logo-default.svg' %}" class="max-h-40px" />
 								</a>
 								<!--end::Logo-->
 							</div>
@@ -1707,7 +1707,7 @@
 														<a href="index.html#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-6.jpg" alt="" />
+																<img src="{% static 'dashboard/assets/media/avatars/300-6.jpg' %}" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -1722,7 +1722,7 @@
 														<a href="index.html#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-2.jpg" alt="" />
+																<img src="{% static 'dashboard/assets/media/avatars/300-2.jpg' %}" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -1737,7 +1737,7 @@
 														<a href="index.html#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-9.jpg" alt="" />
+																<img src="{% static 'dashboard/assets/media/avatars/300-9.jpg' %}" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -1752,7 +1752,7 @@
 														<a href="index.html#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-14.jpg" alt="" />
+																<img src="{% static 'dashboard/assets/media/avatars/300-14.jpg' % }" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -1767,7 +1767,7 @@
 														<a href="index.html#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-11.jpg" alt="" />
+																<img src="{% static 'dashboard/assets/media/avatars/300-11.jpg' %}" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -1786,7 +1786,7 @@
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/volicity-9.svg" alt="" />
+																	<img class="w-20px h-20px" src="{% static 'dashboard/assets/media/svg/brand-logos/volicity-9.svg' %}" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
