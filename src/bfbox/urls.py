@@ -4,6 +4,7 @@ from django.urls import include, path
 from bfbox import settings
 
 urlpatterns = [
+                  path('clients/', include('clients.urls', namespace='clients')),
                   path('admin/', admin.site.urls),
                   path('', include('dashboard.urls')),
                   path('appointments/', include('appointments.urls')),
