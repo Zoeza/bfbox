@@ -30,16 +30,17 @@ ALLOWED_HOSTS = ['192.168.64.7']
 # Application definition
 
 INSTALLED_APPS = [
+    'dashboard',
+    'clients',
+    'appointments',
+    'reports',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dashboard',
-    'clients',
-    'appointments',
-    'reports',
+
 ]
 
 MIDDLEWARE = [
