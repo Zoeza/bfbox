@@ -3,7 +3,7 @@ from django.db import models
 from datetime import date
 
 
-class Client(models.Model, ):
+class Client(models.Model):
     objects = models.Manager()
     name = models.CharField(max_length=100)
     email = models.EmailField()
