@@ -31,8 +31,7 @@ ALLOWED_HOSTS = ['192.168.64.7']
 
 INSTALLED_APPS = [
     'dashboard',
-    'appointments',
-    'reports',
+    'clients',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
