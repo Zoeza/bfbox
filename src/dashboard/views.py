@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 
 def dashboard(request):
-    return render(request, "dashboard/dashboard.html", {})
+    return render(request, "clients/list_client.html", {})
