@@ -148,11 +148,22 @@
                             <!--begin::Date=-->
                             <td>14 Dec 2020, 8:43 pm</td>
                             <!--end::Date=-->
+
+                            <!--edit client action-->
+                            <td class="text-end">
+                                <a href="{% url 'inventory-edit' 'product_view' product.sku 0 %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="edit product">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                            <!--end edit client action-->
+
+                            <!--delete client action-->
                             <td class="text-end">
                                 <a href="" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="delete client">
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>
+                            <!--end delete client action-->
 
 
                         </tr>
