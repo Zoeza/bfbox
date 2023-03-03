@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Client
 
 
-def add_client(request):
-    return render(request, {})
+
+
 
 
 def manage_client(request):
