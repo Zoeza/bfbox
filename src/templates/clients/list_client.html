@@ -263,12 +263,11 @@
                 <!--begin::Modal content-->
                 <div class="modal-content">
                     <!--begin::Form-->
-
                     <form class="form" action="list.html#" id="kt_modal_add_customer_form" data-kt-redirect="/jet-html-pro/apps/customers/list.html">
                         <!--begin::Modal header-->
                         <div class="modal-header" id="kt_modal_add_customer_header">
                             <!--begin::Modal title-->
-                            <h2 class="fw-bold">Add a Client</h2>
+                            <h2 class="fw-bold">Add a Customer</h2>
                             <!--end::Modal title-->
                             <!--begin::Close-->
                             <div id="kt_modal_add_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -285,7 +284,57 @@
                         </div>
                         <!--end::Modal header-->
 
-                        <!--begin::Billing form-->
+                        <!--begin::Modal body-->
+                        <!--begin::Modal body-->
+											<div class="modal-body py-10 px-lg-17">
+												<!--begin::Scroll-->
+												<div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px">
+													<!--begin::Input group-->
+													<div class="fv-row mb-7">
+														<!--begin::Label-->
+														<label class="required fs-6 fw-semibold mb-2">Name</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Sean Bean" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Input group-->
+													<div class="fv-row mb-7">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">
+															<span class="required">Email</span>
+															<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="email" class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Input group-->
+													<div class="fv-row mb-15">
+														<!--begin::Label-->
+														<label class="fs-6 fw-semibold mb-2">Description</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<input type="text" class="form-control form-control-solid" placeholder="" name="description" />
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Billing toggle-->
+													<div class="fw-bold fs-3 rotate collapsible mb-7" data-bs-toggle="collapse" href="#kt_modal_add_customer_billing_info" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">Shipping Information
+													<span class="ms-2 rotate-180">
+														<!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+														<span class="svg-icon svg-icon-3">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+															</svg>
+														</span>
+														<!--end::Svg Icon-->
+													</span></div>
+													<!--end::Billing toggle-->
+													<!--begin::Billing form-->
 													<div id="kt_modal_add_customer_billing_info" class="collapse show">
 														<!--begin::Input group-->
 														<div class="d-flex flex-column mb-7 fv-row">
@@ -610,50 +659,10 @@
 														<!--end::Input group-->
 													</div>
 													<!--end::Billing form-->
-
-                        <!--begin::Modal body-->
-                        <div class="modal-body py-10 px-lg-17">
-                            <!--begin::Scroll-->
-                            <div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px">
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="required fs-6 fw-semibold mb-2">Client Name</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Sean Bean" />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">
-                                        <span class="required">Email</span>
-                                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="email" class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-
-                                <!--begin::Input group-->
-                                    <div class="d-flex flex-column mb-7 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="required fs-6 fw-semibold mb-2">Address </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-                                        <input class="form-control form-control-solid" placeholder="" name="address1" value="101, Collins Street" />
-                                        <!--end::Input-->
-                                    </div>
-                                    <!--end::Input group-->
-
-                            </div>
-                            <!--end::Scroll-->
-                        </div>
+												</div>
+												<!--end::Scroll-->
+											</div>
+											<!--end::Modal body-->
                         <!--end::Modal body-->
                         <!--begin::Modal footer-->
                         <div class="modal-footer flex-center">
@@ -675,9 +684,7 @@
             </div>
         </div>
         <!--end::Modal - Customers - Add-->
-
-
-
+        
     </div>
     <!--end::Container-->
 </div>
