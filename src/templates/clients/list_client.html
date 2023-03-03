@@ -74,13 +74,7 @@
                         </button>
                     </div>
                     <!--end::Toolbar-->
-                    <!--begin::Group actions-->
-                    <div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
-                        <div class="fw-bold me-5">
-                        <span class="me-2" data-kt-customer-table-select="selected_count"></span>Selected</div>
-                        <button type="button" class="btn btn-danger" data-kt-customer-table-select="delete_selected">Delete Selected</button>
-                    </div>
-                    <!--end::Group actions-->
+
                 </div>
                 <!--end::Card toolbar-->
             </div>
@@ -171,9 +165,18 @@
                                         <a href="view.html" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
+
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="list.html#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a>
+                                        <button class="btn btn-icon btn-active-light-primary w-30px h-30px" data-kt-customer-table-filter="delete_row">
+
+                                        <a href="list.html#" class="menu-link px-3" data-kt-customer-table-filter="delete_row">Delete</a> </button>
+                                    </div>
+                                    <!--end::Menu item-->
+
+                                     <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="list.html#" class="menu-link px-3" >Update</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
