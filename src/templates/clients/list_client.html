@@ -166,7 +166,7 @@
             <!--begin::Card body-->
             <div class="card-body pt-0">
                 <!--Client table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-5" id="add_new_client">
+                <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
                     <!--begin::Table head-->
                     <thead>
                         <!--begin::Table row-->
@@ -253,16 +253,19 @@
         <!--end::Card-->
 
         <!--add new client modal-->
-
         <div class="modal fade" id="add_new_client" tabindex="-1" aria-hidden="true">
+            <!--begin::Modal dialog-->
             <div class="modal-dialog modal-dialog-centered mw-650px">
+                <!--begin::Modal content-->
                 <div class="modal-content">
-                    <!--add client general information form-->
-                    <form class="form" action="list.html#" id="add_new_client_form" data-kt-redirect="/jet-html-pro/apps/customers/list.html">
-                        <div class="modal-header" id="add_new_client_header">
-                            <h2 class="fw-bold">Add a Client</h2>
-
-                            <!--close-->
+                    <!--begin::Form-->
+                    <form class="form" action="list.html#" id="kt_modal_add_customer_form" data-kt-redirect="/jet-html-pro/apps/customers/list.html">
+                        <!--begin::Modal header-->
+                        <div class="modal-header" id="kt_modal_add_customer_header">
+                            <!--begin::Modal title-->
+                            <h2 class="fw-bold">Add a Customer</h2>
+                            <!--end::Modal title-->
+                            <!--begin::Close-->
                             <div id="kt_modal_add_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                                 <span class="svg-icon svg-icon-1">
@@ -273,7 +276,7 @@
                                 </span>
                                 <!--end::Svg Icon-->
                             </div>
-                            <!--end close-->
+                            <!--end::Close-->
                         </div>
                         <!--end::Modal header-->
                         <!--begin::Modal body-->
@@ -673,6 +676,8 @@
                 </div>
             </div>
         </div>
+
+
 
 
 
