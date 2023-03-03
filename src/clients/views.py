@@ -11,4 +11,4 @@ def manage_client(request):
     context = {
         'clients': Client.objects.all(),
     }
-    return render(request, "clients/add_client.html", context)
+    return render(request, "clients/manage_client.html", context)
