@@ -4,7 +4,7 @@ from .models import Client
 
 
 def add_client(request):
-    return render(request, "clients/add_client.html", {})
+    return render(request, {})
 
 
 def manage_client(request):
