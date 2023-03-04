@@ -111,13 +111,7 @@
                     <tbody class="fw-semibold text-gray-600">
                     {% for client in clients %}
                         <tr>
-                            <!--begin::Checkbox-->
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                </div>
-                            </td>
-                            <!--end::Checkbox-->
+                            
                             <!--Client name=-->
                              <td>{{client.name}}</td>
                             <!--Client Email=-->
@@ -155,13 +149,6 @@
                             </td>
                             <!--end delete client action-->
 
-                            <!--delete client action-->
-                            <td class="text-end">
-                                <a href="" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="delete client">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                            </td>
-                            <!--end delete client action-->
 
                         </tr>
                         {% endfor %}
