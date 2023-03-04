@@ -171,7 +171,7 @@
             <div class="modal-dialog modal-dialog-centered mw-650px">
                 <div class="modal-content">
                      <!--add client general information form-->
-                    <form class="form" action=" {% url 'clients: add-client' %} " id="kt_modal_add_customer_form" data-kt-redirect="/jet-html-pro/apps/customers/list.html">
+                    <form class="form" action="{% url 'clients:add-client' %}" id="kt_modal_add_customer_form" data-kt-redirect="/jet-html-pro/apps/customers/list.html">
                         {% csrf_token %}
                         <div class="modal-header" id="kt_modal_add_customer_header">
                             <h2 class="fw-bold">Add a Client</h2>
