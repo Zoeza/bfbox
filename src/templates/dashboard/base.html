@@ -86,152 +86,47 @@
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--begin:Menu link-->
 										<!--menu title client management-->
-									<div class="menu-item py-2">
-										<a class="menu-link menu-center" href="{% url 'clients:manage-client' %}" title="Client-Management" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
-											<span class="menu-icon me-0">
-												<!--user management icon-->
-												<span class="menu-link menu-center">
-													<span class="menu-icon me-0">
-														<i class="bi bi-people" style="font-size: 2rem;"></i>
+										<div class="menu-item py-2">
+											<a class="menu-link menu-center" href="{% url 'clients:manage-client' %}" title="Client-Management" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+												<span class="menu-icon me-0">
+													<!--user management icon-->
+													<span class="menu-link menu-center">
+														<span class="menu-icon me-0">
+															<i class="bi bi-people" style="font-size: 2rem;"></i>
+														</span>
 													</span>
+													<!--end client management icon-->
 												</span>
-												<!--end client management icon-->
-											</span>
-										</a>
-									</div>
-									<!--end menu title user management-->
+											</a>
+										</div>
+										<!--end menu title client management-->
 
 										<!--end:Menu link-->
-										<!--begin:Menu sub-->
-										<!--end:Menu sub-->
 									</div>
 									<!--end:Menu item-->
-									<!--begin:Menu item-->
+
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--begin:Menu link-->
-										<span class="menu-link menu-center">
-											<span class="menu-icon me-0">
-												<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-												<span class="svg-icon svg-icon-2x">
-													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-														<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="currentColor" />
-														<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="currentColor" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->
-											</span>
-										</span>
-										<!--end:Menu link-->
-										<!--begin:Menu sub-->
-										<div class="menu-sub menu-sub-indention menu-sub-dropdown w-225px px-2 py-4">
-											<!--begin:Menu item-->
-											<div class="menu-item">
-												<!--begin:Menu content-->
-												<div class="menu-content">
-													<span class="menu-section fs-5 fw-bold ps-1 py-1">User Management</span>
-												</div>
-												<!--end:Menu content-->
-											</div>
-											<!--end:Menu item-->
-											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="click" class="menu-item menu-accordion mb-1">
-												<!--begin:Menu link-->
-												<span class="menu-link">
-													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
+										<!--menu title user management-->
+										<div class="menu-item py-2">
+											<a class="menu-link menu-center" href="{% url 'clients:manage-client' %}" title="User Management" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+												<span class="menu-icon me-0">
+													<!--user management icon-->
+													<span class="menu-link menu-center">
+														<span class="menu-icon me-0">
+															<i class="bi bi-person-lock" style="font-size: 2rem;"></i>
+														</span>
 													</span>
-													<span class="menu-title">Users</span>
-													<span class="menu-arrow"></span>
+													<!--end user management icon-->
 												</span>
-												<!--end:Menu link-->
-												<!--begin:Menu sub-->
-												<div class="menu-sub menu-sub-accordion">
-													<!--begin:Menu item-->
-													<div class="menu-item">
-														<!--begin:Menu link-->
-														<a class="menu-link" href="../apps/user-management/users/list.html">
-															<span class="menu-bullet">
-																<span class="bullet bullet-dot"></span>
-															</span>
-															<span class="menu-title">Users List</span>
-														</a>
-														<!--end:Menu link-->
-													</div>
-													<!--end:Menu item-->
-													<!--begin:Menu item-->
-													<div class="menu-item">
-														<!--begin:Menu link-->
-														<a class="menu-link" href="../apps/user-management/users/view.html">
-															<span class="menu-bullet">
-																<span class="bullet bullet-dot"></span>
-															</span>
-															<span class="menu-title">View User</span>
-														</a>
-														<!--end:Menu link-->
-													</div>
-													<!--end:Menu item-->
-												</div>
-												<!--end:Menu sub-->
-											</div>
-											<!--end:Menu item-->
-											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-												<!--begin:Menu link-->
-												<span class="menu-link">
-													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
-													</span>
-													<span class="menu-title">Roles</span>
-													<span class="menu-arrow"></span>
-												</span>
-												<!--end:Menu link-->
-												<!--begin:Menu sub-->
-												<div class="menu-sub menu-sub-accordion">
-													<!--begin:Menu item-->
-													<div class="menu-item">
-														<!--begin:Menu link-->
-														<a class="menu-link" href="../apps/user-management/roles/list.html">
-															<span class="menu-bullet">
-																<span class="bullet bullet-dot"></span>
-															</span>
-															<span class="menu-title">Roles List</span>
-														</a>
-														<!--end:Menu link-->
-													</div>
-													<!--end:Menu item-->
-													<!--begin:Menu item-->
-													<div class="menu-item">
-														<!--begin:Menu link-->
-														<a class="menu-link" href="../apps/user-management/roles/view.html">
-															<span class="menu-bullet">
-																<span class="bullet bullet-dot"></span>
-															</span>
-															<span class="menu-title">View Role</span>
-														</a>
-														<!--end:Menu link-->
-													</div>
-													<!--end:Menu item-->
-												</div>
-												<!--end:Menu sub-->
-											</div>
-											<!--end:Menu item-->
-											<!--begin:Menu item-->
-											<div class="menu-item">
-												<!--begin:Menu link-->
-												<a class="menu-link" href="../apps/user-management/permissions.html">
-													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
-													</span>
-													<span class="menu-title">Permissions</span>
-												</a>
-												<!--end:Menu link-->
-											</div>
-											<!--end:Menu item-->
+											</a>
 										</div>
-										<!--end:Menu sub-->
+										<!--end menu title client management-->
 
+										<!--end:Menu link-->
 									</div>
 									<!--end:Menu item-->
+
 
 
 									<!--begin:Menu item-->
