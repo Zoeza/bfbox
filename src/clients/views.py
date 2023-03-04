@@ -5,12 +5,12 @@ from .models import Client
 
 def add_client(request):
     if request.method == 'POST':
-        name = request.POST.get('name', False)
-        email = request.POST.get('email', False)
-        birthday = request.POST.get('birthday', False)
-        address = request.POST.get('address', False)
-        town = request.POST.get('town', False)
-        lawyer = request.POST.get('lawyer', False)
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        birthday = request.POST.get('birthday')
+        address = request.POST.get('address')
+        town = request.POST.get('town')
+        lawyer = request.POST.get('lawyer')
         Client(name=name,
                email=email,
                birthday=birthday,
