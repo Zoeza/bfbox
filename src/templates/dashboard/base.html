@@ -86,7 +86,7 @@
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--begin:Menu link-->
 										<span class="menu-link menu-center">
-											<span class="menu-icon me-0">
+											<span href="{% url 'clients:manage-client' %}" class="menu-icon me-0">
 												<!--begin::Svg Icon | path: icons/duotune/technology/teh004.svg-->
 												<span class="svg-icon svg-icon-2x">
 													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,16 +99,7 @@
 										</span>
 										<!--end:Menu link-->
 										<!--begin:Menu sub-->
-										<div class="menu-item">
-												<!--begin:Menu link-->
-												<a class="menu-link" href="{% url 'clients:manage-client' %}">
-													<span class="menu-bullet">
-														
-													</span>
 
-												</a>
-												<!--end:Menu link-->
-											</div>
 										<!--end:Menu sub-->
 									</div>
 									<!--end:Menu item-->
