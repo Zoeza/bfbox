@@ -53,8 +53,9 @@ def update_client(request, sku):
         if lawyer:
             selected_client.lawyer = lawyer
         selected_client.save()
-
-    return redirect('clients:manage-client')
+        return redirect('clients:manage-client')
+    else:
+        return redirect('clients:update-client')
 
 
 # ------------------ delete client --------------------- #
