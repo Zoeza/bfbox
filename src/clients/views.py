@@ -30,8 +30,8 @@ def add_client(request):
 
 # ------------------ update client ---------------------- #
 
-def update_client(request,sku):
-    selected_client = Client.objects.all().get(sku=sku)
+def update_client(request,id):
+    selected_client = Client.objects.all().get(id=id)
     if request.method == 'POST':
         name = request.POST.get('name', False)
         email = request.POST.get('email', False)
@@ -40,19 +40,14 @@ def update_client(request,sku):
         town = request.POST.get('town', False)
         lawyer = request.POST.get('lawyer', False)
 
-        if name:
-            selected_client.name = name
-        if email:
-            selected_client.email = email
-        if birthday:
-            selected_client.birthday = birthday
-        if address:
-            selected_client.address = address
-        if town:
-            selected_client.town = town
-        if lawyer:
-            selected_client.lawyer = lawyer
-        selected_client.save()
+        selected_client(name=name,
+                        email=email,
+                        birthday=birthday,
+                        address=address,
+                        town=town,
+                        lawyer=lawyer,
+                        ).save()
+
         return redirect('clients:manage-client')
     else:
         return redirect('clients:update-client')
