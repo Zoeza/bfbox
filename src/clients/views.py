@@ -30,8 +30,8 @@ def add_client(request):
 
 # ------------------ update client ---------------------- #
 
-def update_client(request, id):
-    selected_client = Client.objects.all().get(id=id)
+def update_client(request,sku):
+    selected_client = Client.objects.all().get(sku=sku)
     if request.method == 'POST':
         name = request.POST.get('name', False)
         email = request.POST.get('email', False)
