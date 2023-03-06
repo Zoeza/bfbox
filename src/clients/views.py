@@ -50,8 +50,6 @@ def update_client(request, sku):
                         ).save()
 
         return redirect('clients:manage-client')
-    else:
-        return redirect('clients:update-client')
 
 
 # ------------------ delete client --------------------- #
