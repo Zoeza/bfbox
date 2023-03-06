@@ -21,6 +21,15 @@ def add_client(request):
     return redirect('clients:manage-client')
 
 
+def delete_client(request, id):
+    obj = Client.objects.get(id=id)
+    obj.delete()
+    context = {
+        "clients": Client.objects.all()
+    }
+    return render(request, "clients/clients-list.html", context)
+
+
 def manage_client(request):
     context = {
         'clients': Client.objects.all(),
