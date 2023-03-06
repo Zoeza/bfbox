@@ -6,6 +6,7 @@ import string
 
 
 # ------------------ add client ---------------------- #
+
 def add_client(request):
     if request.method == 'POST':
         name = request.POST.get('name', False)
@@ -28,6 +29,7 @@ def add_client(request):
 
 
 # ------------------ update client ---------------------- #
+
 def update_client(request, sku):
     selected_client = Client.objects.all().get(sku=sku)
     if request.method == 'POST':
@@ -51,12 +53,13 @@ def update_client(request, sku):
         if lawyer:
             selected_client.lawyer = lawyer
         selected_client.save()
-        return redirect('clients:update-client')
+        return redirect('clients:manage-client')
 
     return redirect('clients:update-client')
 
 
 # ------------------ delete client --------------------- #
+
 def delete_client(request, sku):
     Client.objects.all().get(sku=sku).delete()
 
@@ -64,6 +67,7 @@ def delete_client(request, sku):
 
 
 # ------------------ manage client -------------------- #
+
 def manage_client(request):
     context = {
         'clients': Client.objects.all(),
