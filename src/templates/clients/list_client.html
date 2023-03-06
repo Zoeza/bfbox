@@ -31,14 +31,13 @@
     <!--end::Breadcrumb-->
 {% endblock %}
 
-<!------------------------------- list client --------------------------------------------->
+<!-------------------------------  client  management --------------------------------------------->
 
 {% block content %}
 <!--begin::Content-->
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Container-->
     <div class="container-xxl" id="kt_content_container">
-        <!--begin::Card-->
         <div class="card">
             <!--begin::Card header-->
             <div class="card-header border-0 pt-6">
@@ -82,9 +81,11 @@
             </div>
             <!--end::Card header-->
 
+        <!-------------------------------  client  listing ---------------------------------------------->
             <div class="card-body pt-0">
-                <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+                <!--client table-->
+                 <div class="table-responsive">
+                <table class="table table-row-bordered gy-7 gs-7" >
                     <!--begin::Table head-->
                     <thead>
                         <!--begin::Table row-->
@@ -157,11 +158,13 @@
                     </tbody>
                     <!--end::Table body-->
                 </table>
+                 </div>
                 <!--end::Table-->
             </div>
-
+        <!-------------------------------  end client  listing ------------------------------------------>
         </div>
 
+        <!-------------------------------  client  adding --------------------------------------------->
 
           <!--add new client modal-->
         <div class="modal fade" id="kt_modal_add_customer" tabindex="-1" aria-hidden="true">
@@ -284,10 +287,13 @@
             </div>
         </div>
         <!--end add new client modal-->
+        <!-------------------------------  end client  adding --------------------------------------------->
+
 
     </div>
     <!--end::Container-->
 </div>
 <!--end::Content-->
-
 {% endblock %}
+
+<!------------------------------- end  client management --------------------------------------------->
