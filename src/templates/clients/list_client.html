@@ -31,7 +31,9 @@
     <!--end::Breadcrumb-->
 {% endblock %}
 
-{% block row_1 %}
+<!------------------------------- list client --------------------------------------------->
+
+{% block content %}
 <!--begin::Content-->
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Container-->
@@ -79,7 +81,7 @@
                 <!--end::Card toolbar-->
             </div>
             <!--end::Card header-->
-            <!--begin::Card body-->
+
             <div class="card-body pt-0">
                 <!--begin::Table-->
                 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
@@ -109,25 +111,19 @@
                     <tbody class="fw-semibold text-gray-600">
                     {% for client in clients %}
                         <tr>
-
                             <!--end::Checkbox-->
                             <!--Client name=-->
                              <td>{{client.name}}</td>
                             <!--Client Email=-->
                             <td>{{client.email}}</td>
-
                             <!--Client birthday=-->
                              <td>{{client.birthday}}</td>
-
                             <!--Client Address -->
                              <td>{{client.address}}</td>
-
                             <!--Client Town -->
                              <td>{{client.town}}</td>
-
                             <!--Client Lawyer-->
                            <td>{{client.lawyer}}</td>
-
                             <!--Client created date=-->
                             <td>{{client.created_date}}</td>
                             <!--end::Date=-->
@@ -163,7 +159,7 @@
                 </table>
                 <!--end::Table-->
             </div>
-            <!--end::Card body-->
+
         </div>
 
 
