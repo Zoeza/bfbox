@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Client
 
-
+# ------------------ add client
 def add_client(request):
     if request.method == 'POST':
         name = request.POST.get('name', False)
@@ -20,16 +20,19 @@ def add_client(request):
                ).save()
     return redirect('clients:manage-client')
 
+# ------------------ edit client
+def edit_client(request, id):
 
+
+
+
+# ------------------ delete client
 def delete_client(request, id):
-    obj = Client.objects.get(id=id)
-    obj.delete()
-    context = {
-        "clients": Client.objects.all()
-    }
+    Client.objects.all().get(id=id).delete()
+
     return redirect('clients:manage-client')
 
-
+# ------------------ manage client
 def manage_client(request):
     context = {
         'clients': Client.objects.all(),
