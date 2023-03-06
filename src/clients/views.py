@@ -46,7 +46,8 @@ def update_client(request, sku):
                         address=address,
                         town=town,
                         lawyer=lawyer,
-                        id=id,
+                        sku=sku,
+
                         ).save()
 
         return redirect('clients:manage-client')
