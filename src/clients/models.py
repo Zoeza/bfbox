@@ -10,6 +10,7 @@ class Client(models.Model):
     address = models.CharField(max_length=100)
     town = models.CharField(max_length=100)
     lawyer = models.CharField(max_length=100)
+    sku = models.CharField(max_length=20, unique=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     update = models.DateTimeField(auto_now=True)
