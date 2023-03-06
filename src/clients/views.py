@@ -58,7 +58,7 @@ def update_client(request, sku):
 
 # ------------------ delete client --------------------- #
 def delete_client(request, sku):
-    Client.objects.all().get(id=id).delete()
+    Client.objects.all().get(sku=sku).delete()
 
     return redirect('clients:manage-client')
 
