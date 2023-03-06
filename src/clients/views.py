@@ -30,7 +30,7 @@ def add_client(request):
 
 # ------------------ update client ---------------------- #
 
-def update_client(request,id):
+def update_client(request, id):
     selected_client = Client.objects.all().get(id=id)
     if request.method == 'POST':
         name = request.POST.get('name', False)
