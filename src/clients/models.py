@@ -11,8 +11,8 @@ class Client(models.Model):
     town = models.CharField(max_length=100)
     lawyer = models.CharField(max_length=100)
     sku = models.CharField(max_length=20, unique=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=False, null=True)
+    updated_at = models.DateTimeField(auto_now=False, null=True)
 
     def __str__(self):
         return self.name
