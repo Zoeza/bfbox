@@ -68,7 +68,7 @@
 							<!--end::Separator-->
 
 							<!--begin::Form-->
-							<form class="form" action="{% url 'clients:update-client' client.id  %}" method="post">
+							<form class="form" action="{% url 'clients:update-client' id  %}" method="post">
 								 {% csrf_token %}
 								<!--begin::Input group-->
 									<!--begin::Row-->
