@@ -38,7 +38,7 @@ def edit_client(request, id):
         "lawyer": selected_client.lawyer,
         "address": selected_client.address,
         "town": selected_client.town,
-        "sku": selected_client.sku
+        "id": selected_client.id
     }
     return render(request, "clients/update_client.html", context)
 
