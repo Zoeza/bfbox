@@ -30,7 +30,7 @@ def add_client(request):
 
 # ------------------ update client ---------------------- #
 
-def update_client(request, sku):
+def update1_client(request, sku):
     selected_client = Client.objects.all().get(sku=sku)
     if request.method == 'POST':
         name = request.POST.get('name', False)
@@ -50,6 +50,10 @@ def update_client(request, sku):
                         ).save()
 
         return redirect('clients:manage-client')
+
+
+def update_client(request):
+    return render(request, "clients/update_client.html", {})
 
 
 # ------------------ delete client --------------------- #
