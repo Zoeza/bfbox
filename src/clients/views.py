@@ -45,7 +45,7 @@ def edit_client(request, id):
 
 def update_client(request, id):
     selected_client = Client(id=id)
-    selected_client.name = request.POST['client_name']
+    selected_client.name = request.POST['name']
     selected_client.email = request.POST['email']
     selected_client.birthday = request.POST['birthday']
     selected_client.lawyer = request.POST['lawyer']
