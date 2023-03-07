@@ -30,7 +30,7 @@ def add_client(request):
 
 # ------------------ update client ---------------------- #
 def edit_client(request, sku):
-    selected_client = Client.objects.get(sku=sku)
+    selected_client = Client.objects.all().get(sku=sku)
     context = {
         "name": selected_client.name,
         "email": selected_client.email,
