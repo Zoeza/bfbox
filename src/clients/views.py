@@ -51,7 +51,7 @@ def update_client(request, id):
     selected_client.lawyer = request.POST.get('lawyer', False)
     selected_client.address = request.POST.get('address', False)
     selected_client.town = request.POST.get('town', False)
-   
+
     return redirect('clients:manage-client')
 
 
