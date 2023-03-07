@@ -45,12 +45,12 @@ def edit_client(request, id):
 
 def update_client(request, id):
     selected_client = Client(id=id)
-    selected_client.name = request.POST['name']
-    selected_client.email = request.POST['email']
-    selected_client.birthday = request.POST['birthday']
-    selected_client.lawyer = request.POST['lawyer']
-    selected_client.address = request.POST['address']
-    selected_client.town = request.POST['town']
+    selected_client.name = request.POST.get('name', False)
+    selected_client.email = request.POST.get['email']
+    selected_client.birthday = request.POST.get('birthday', False)
+    selected_client.lawyer = request.POST.get('lawyer', False)
+    selected_client.address = request.POST.get('address', False)
+    selected_client.town = request.POST.get('town', False)
     selected_client.save()
     return redirect('clients:manage-client')
 
