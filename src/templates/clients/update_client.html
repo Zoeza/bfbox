@@ -88,7 +88,7 @@
 											<!--end::Label-->
 
 											<!--begin::Input-->
-											<input type="text" class="form-control form-control-solid" name="name" value="" />
+											<input type="text" class="form-control form-control-solid" id="name" name="name" placeholder="" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -108,7 +108,7 @@
 											<!--end::Label-->
 
 											<!--begin::Input-->
-											<input type="email" class="form-control form-control-solid" name="email" value="" />
+											<input type="email" class="form-control form-control-solid" id="email" name="email"  placeholder="" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -121,17 +121,33 @@
 								<!--end::Input group-->
 
 								<!--begin::Input group-->
-								<div class="row g-9 mb-7">
+								<div class="fv-row mb-7">
 									<!--begin::Label-->
-									<label class="col-md-6 fv-row">
-										<span>Company Name</span>
+									<label class="fs-6 fw-semibold form-label mt-3">
+										<span>Client Birthday</span>
 
-										<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's company name (optional)."></i>
+										<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the client's birthday."></i>
 									</label>
 									<!--end::Label-->
 
 									<!--begin::Input-->
-									<input type="text" class="form-control form-control-solid" name="company_name" value="" />
+									<input type="date" class="form-control form-control-solid" id="birthday" name="birthday"  placeholder="" />
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+
+								<!--begin::Input group-->
+								<div class="fv-row mb-7">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold form-label mt-3">
+										<span>Lawyer Name</span>
+
+										<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the client's lawyer name."></i>
+									</label>
+									<!--end::Label-->
+
+									<!--begin::Input-->
+									<input type="text" class="form-control form-control-solid" id="lawyer_name" name="lawyer_name"  placeholder="" />
 									<!--end::Input-->
 								</div>
 								<!--end::Input group-->
@@ -140,20 +156,41 @@
 
 								<!--begin::Row-->
 								<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+
 									<!--begin::Col-->
 									<div class="col">
 										<!--begin::Input group-->
 										<div class="fv-row mb-7">
 											<!--begin::Label-->
 											<label class="fs-6 fw-semibold form-label mt-3">
-												<span>City</span>
+												<span>Address</span>
 
-												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the contact's city of residence (optional)."></i>
+												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's address."></i>
 											</label>
 											<!--end::Label-->
 
 											<!--begin::Input-->
-											<input type="text" class="form-control form-control-solid" name="city" value="" />
+											<input class="form-control form-control-solid" id="address" name="address" placeholder=""  />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-7">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold form-label mt-3">
+												<span>Town</span>
+
+												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's city of residence."></i>
+											</label>
+											<!--end::Label-->
+
+											<!--begin::Input-->
+											<input type="text" class="form-control form-control-solid" id="town" name="town" placeholder=""  />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
