@@ -46,7 +46,6 @@ def update_client(request, sku):
                         address=address,
                         town=town,
                         lawyer=lawyer,
-                        sku=sku,
 
                         ).save()
 
