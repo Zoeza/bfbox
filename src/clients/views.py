@@ -47,11 +47,11 @@ def update_client(request, id):
     selected_client = Client(id=id)
     selected_client.name = request.POST.get('name', False)
     selected_client.email = request.POST.get('email', False)
-    selected_client.birthday = request.POST.get('birthday')
+    selected_client.birthday = request.POST.get('birthday', False)
     selected_client.lawyer = request.POST.get('lawyer', False)
     selected_client.address = request.POST.get('address', False)
     selected_client.town = request.POST.get('town', False)
-    selected_client.save()
+   
     return redirect('clients:manage-client')
 
 
