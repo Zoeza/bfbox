@@ -29,6 +29,7 @@ def add_client(request):
 
 
 # ------------------ update client ---------------------- #
+
 def edit_client(request, id):
     selected_client = Client.objects.get(id=id)
     context = {
@@ -52,10 +53,9 @@ def update_client(request, id):
         selected_client.lawyer = request.POST.get('lawyer', False)
         selected_client.address = request.POST.get('address', False)
         selected_client.town = request.POST.get('town', False)
+        selected_client.sku = serial_number_generator(10).upper()
         selected_client.save()
         return redirect('clients:manage-client')
-    
-    return redirect('clients:edit-client id')
 
 
 # ------------------ delete client --------------------- #
