@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 
 from django.contrib import messages
@@ -13,7 +15,7 @@ def add_appointment(request):
     if request.method == 'POST':
         title = request.POST.get('title', False)
         client_name = request.POST.get('email', False)
-        time = request.POST.get('address', False)
+        time = datetime.datetime.strptime(request.POST.get('address', False), '%Y-%m-%d %H:%M:%S')
         sku = serial_number_generator(10).upper()
 
         Appointment(title=title,
