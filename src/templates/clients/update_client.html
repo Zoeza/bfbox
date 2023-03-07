@@ -36,126 +36,109 @@
 <!-------------------------------  update client  --------------------------------------------->
 
 {% block content %}
+<div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
 
-<div class="modal fade" id="add_new_client" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered mw-650px">
-                <div class="modal-content shadow-none">
-                    <div class="modal-header">
-                    <h5 class="modal-title">Add new client</h5>
-                    <!--close-->
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                        <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
-                    </div>
-                    <!--end clos-->
-                     </div>
+    <!--begin::Wrapper-->
+    <div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+						<!--begin::Form-->
+						<form class="form w-100" novalidate="novalidate" data-kt-redirect-url="/jet-html-pro/authentication/sign-in/basic.html" id="kt_sign_up_form">
+							<!--begin::Heading-->
+							<div class="mb-10 text-center">
+								<!--begin::Title-->
+								<h1 class="text-dark mb-3">Update Client</h1>
+								<!--end::Title-->
+							</div>
+							<!--end::Heading-->
 
-                     <!--add client general information form-->
-                    <form class="form" action="{% url 'clients:add-client' %}" id="kt_modal_add_customer_form" data-kt-redirect="{% url 'clients:manage-client' %}"  method="post">
-                        {% csrf_token %}
-                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                            <div class="tab-content">
-                                <!--block body-->
-                                <div class="modal-body py-10 px-lg-17">
-                                    <!--begin::Scroll-->
-                                    <div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px">
-                                        <!--begin::Input group-->
-                                            <div class="row g-9 mb-7">
-                                                <!--begin::Col-->
-                                                <div class="col-md-6 fv-row">
-                                                    <!--client name-->
-                                                    <label class="required fs-6 fw-semibold mb-2"> Name</label>
-                                                    <!--input-->
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Client name" />
-                                                    <!--end::Input-->
-                                                </div>
+							<!--begin::Separator-->
+							<div class="d-flex align-items-center mb-10">
+								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
+								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
+							</div>
+							<!--end::Separator-->
+							<!--begin::Input group-->
+							<div class="row fv-row mb-7">
+								<!--begin::Col-->
+								<div class="col-xl-6">
+									<label class="form-label fw-bold text-dark fs-6">First Name</label>
+									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first-name" autocomplete="off" />
+								</div>
+								<!--end::Col-->
+								<!--begin::Col-->
+								<div class="col-xl-6">
+									<label class="form-label fw-bold text-dark fs-6">Last Name</label>
+									<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last-name" autocomplete="off" />
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="fv-row mb-7">
+								<label class="form-label fw-bold text-dark fs-6">Email</label>
+								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="mb-10 fv-row" data-kt-password-meter="true">
+								<!--begin::Wrapper-->
+								<div class="mb-1">
+									<!--begin::Label-->
+									<label class="form-label fw-bold text-dark fs-6">Password</label>
+									<!--end::Label-->
+									<!--begin::Input wrapper-->
+									<div class="position-relative mb-3">
+										<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+										<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+											<i class="bi bi-eye-slash fs-2"></i>
+											<i class="bi bi-eye fs-2 d-none"></i>
+										</span>
+									</div>
+									<!--end::Input wrapper-->
+									<!--begin::Meter-->
+									<div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+										<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+									</div>
+									<!--end::Meter-->
+								</div>
+								<!--end::Wrapper-->
+								<!--begin::Hint-->
+								<div class="text-muted">Use 8 or more characters with a mix of letters, numbers & symbols.</div>
+								<!--end::Hint-->
+							</div>
+							<!--end::Input group=-->
+							<!--begin::Input group-->
+							<div class="fv-row mb-5">
+								<label class="form-label fw-bold text-dark fs-6">Confirm Password</label>
+								<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" />
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="fv-row mb-10">
+								<label class="form-check form-check-custom form-check-solid form-check-inline">
+									<input class="form-check-input" type="checkbox" name="toc" value="1" />
+									<span class="form-check-label fw-semibold text-gray-700 fs-6">I Agree
+									<a href="basic.html#" class="ms-1 link-primary">Terms and conditions</a>.</span>
+								</label>
+							</div>
+							<!--end::Input group-->
+							<!--begin::Actions-->
+							<div class="text-center">
+								<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
+									<span class="indicator-label">Submit</span>
+									<span class="indicator-progress">Please wait...
+									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+								</button>
+							</div>
+							<!--end::Actions-->
+						</form>
+						<!--end::Form-->
+					</div>
+    <!--end::Wrapper-->
+</div>
 
-
-                                                <!--client email-->
-                                                <div class="col-md-6 fv-row">
-                                                    <label class="fs-6 fw-semibold mb-2"><span class="required">Email</span>
-                                                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
-                                                    </label>
-
-                                                    <!--input-->
-                                                    <input type="email"  class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
-                                                </div>
-
-                                            </div>
-                                            <!--end::Input group-->
-
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-7">
-                                                <!--client birthday-->
-                                                <label class="fs-6 fw-semibold mb-2">
-                                                    <span class="required">Birthday</span>
-                                                </label>
-
-                                                <!--input-->
-                                                <input type="date" class="form-control form-control-solid" placeholder="" name="birthday" value="birthday" />
-
-                                            </div>
-                                            <!--end::Input group-->
-
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-7">
-                                                <!--client lawyer-->
-                                                <label class="fs-6 fw-semibold mb-2">
-                                                    <span class="required">Lawyer</span>
-                                                </label>
-
-                                                <!--input-->
-                                                <input type="text" class="form-control form-control-solid" placeholder="" name="lawyer" value="lawyer Name" />
-
-                                            </div>
-                                            <!--end::Input group-->
-
-
-                                            <!--begin::Billing form-->
-                                            <div id="kt_modal_add_customer_billing_info" class="collapse show">
-                                                <!--begin::Input group-->
-                                                <div class="d-flex flex-column mb-7 fv-row">
-                                                    <!--client address-->
-                                                    <label class="required fs-6 fw-semibold mb-2">Address </label>
-
-                                                    <!--input-->
-                                                    <input class="form-control form-control-solid" placeholder="" name="address1" value="101, Collins Street" />
-
-                                                </div>
-                                                <!--end::Input group-->
-
-                                                <!--begin::Input group-->
-                                                <div class="d-flex flex-column mb-7 fv-row">
-                                                    <!--client Town-->
-                                                    <label class="required fs-6 fw-semibold mb-2">Town</label>
-                                                    <!--input-->
-                                                    <input class="form-control form-control-solid" placeholder="" name="city" value="Alger" />
-
-                                                </div>
-                                                <!--end::Input group-->
-
-                                            </div>
-                                            <!--end::Billing form-->
-                                    </div>
-                                    <!--end::Scroll-->
-                                </div>
-                                <!--end::Modal body-->
-                                <!--end::Modal body-->
-                            </div>
-                        </div>
-                        <div class="modal-footer flex-center">
-
-                            <!--begin::Button-->
-                            <button type="submit" class="btn btn-primary">
-                                <span class="indicator-label">Save</span>
-                            </button>
-                            <!--end::Button-->
-                        </div>
-                        <!--end::Modal footer-->
-                    </form>
-                    <!--end add client information-->
-                </div>
-            </div>
-        </div>
 
 
 
