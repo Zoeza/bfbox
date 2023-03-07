@@ -52,7 +52,7 @@ def update1_client(request, sku):
         return redirect('clients:manage-client')
 
 
-def update_client(request,sku):
+def update_client(request):
     return render(request, "clients/update_client.html", {})
 
 
