@@ -29,8 +29,8 @@ def add_client(request):
 
 
 # ------------------ update client ---------------------- #
-def edit_client(request, sku):
-    selected_client = Client.objects.get(sku=sku)
+def edit_client(request, id):
+    selected_client = Client.objects.get(id=id)
     context = {
         "name": selected_client.name,
         "email": selected_client.email,
@@ -38,13 +38,13 @@ def edit_client(request, sku):
         "lawyer": selected_client.lawyer,
         "address": selected_client.address,
         "town": selected_client.town,
-        "sku": selected_client.sku
+        "id": selected_client.id
     }
     return render(request, "clients/update_client.html", context)
 
 
-def update_client(request, sku):
-    selected_client = Client(sku=sku)
+def update_client(request, id):
+    selected_client = Client(id=id)
     selected_client.name = request.POST.get('name', False)
     selected_client.email = request.POST.get('email', False)
     selected_client.birthday = request.POST.get('birthday', False)
