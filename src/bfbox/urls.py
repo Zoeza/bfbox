@@ -7,7 +7,7 @@ urlpatterns = [
                   path('', include('dashboard.urls')),
                   path('clients/', include('clients.urls')),
                   path('appointments/', include('appointments.urls')),
-                  path('templates_manager/', include('templates_manager.urls')),
+                  #path('templates_manager/', include('templates_manager.urls')),
                   path('admin/', admin.site.urls),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
