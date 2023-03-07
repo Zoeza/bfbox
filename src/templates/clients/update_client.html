@@ -68,7 +68,7 @@
 							<!--end::Separator-->
 
 							<!--begin::Form-->
-							<form id="kt_ecommerce_settings_general_form" class="form" action="" method="post">
+							<form id="kt_ecommerce_settings_general_form" class="form" action="{% url 'clients:update-client' sku  %}" method="post">
 								 {% csrf_token %}
 								<!--begin::Input group-->
 									<!--begin::Row-->

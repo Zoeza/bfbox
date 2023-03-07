@@ -29,26 +29,30 @@ def add_client(request):
 
 
 # ------------------ update client ---------------------- #
+def edit_client(request, sku):
+    selected_client = Client.objects.get(sku=sku)
+    context = {
+        "name": selected_client.name,
+        "email": selected_client.email,
+        "birthday": selected_client.birthday,
+        "lawyer": selected_client.lawyer,
+        "address": selected_client.address,
+        "town": selected_client.town,
+        "sku": selected_client.sku
+    }
+    return render(request, "clients/update_client.html", context)
+
 
 def update_client(request, sku):
-    selected_client = Client.objects.all().get(sku=sku)
+    selected_client = Client(sku=sku)
     if request.method == 'POST':
-        name = request.POST.get('name', False)
-        email = request.POST.get('email', False)
-        birthday = request.POST.get('birthday', False)
-        address = request.POST.get('address', False)
-        town = request.POST.get('town', False)
-        lawyer = request.POST.get('lawyer', False)
-
-        selected_client(name=name,
-                        email=email,
-                        birthday=birthday,
-                        address=address,
-                        town=town,
-                        lawyer=lawyer,
-                        id=id,
-                        ).save()
-
+        selected_client.name = request.POST['name']
+        selected_client.email = request.POST['email']
+        selected_client.birthday = request.POST['birthday']
+        selected_client.lawyer = request.POST['lawyer']
+        selected_client.address = request.POST['address']
+        selected_client.town = request.POST['town']
+        selected_client.save()
         return redirect('clients:manage-client')
 
 
