@@ -21,7 +21,7 @@ def add_appointment(request):
                     time=time,
                     sku=sku,
                     ).save()
-    return redirect('clients:manage-appointment')
+    return redirect('appointments:manage-appointment')
 
 
 # ------------------ update appointment ---------------------- #
