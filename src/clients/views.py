@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Client
-import functions
 import random
 import string
 
@@ -16,7 +15,7 @@ def add_client(request):
         address = request.POST.get('address', False)
         town = request.POST.get('town', False)
         lawyer = request.POST.get('lawyer', False)
-        sku = functions.serial_number_generator(10).upper()
+        sku = serial_number_generator(10).upper()
 
         Client(name=name,
                email=email,
@@ -54,7 +53,7 @@ def update_client(request, id):
         selected_client.lawyer = request.POST.get('lawyer', False)
         selected_client.address = request.POST.get('address', False)
         selected_client.town = request.POST.get('town', False)
-        selected_client.sku = functions.serial_number_generator(10).upper()
+        selected_client.sku = serial_number_generator(10).upper()
         selected_client.save()
         return redirect('clients:manage-client')
 
@@ -76,3 +75,7 @@ def manage_client(request):
     return render(request, "clients/manage_client.html", context)
 
 
+def serial_number_generator(length):
+    letters_and_digits = string.ascii_letters + string.digits
+    result_str = ''.join((random.choice(letters_and_digits) for i in range(length)))
+    return result_str
