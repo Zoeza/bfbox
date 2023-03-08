@@ -233,6 +233,8 @@
                     </table>
                  </div>
                 <!--end template table-->
+                <div class="card-footer">
+                </div>
             </div>
     <!------------------------------------ end  template  listing ---------------------------------------------->
 
@@ -356,22 +358,20 @@
             <div class="modal-dialog modal-dialog-centered mw-650px">
                 <!--begin::Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header">
-                            <!--begin::Modal title-->
-                        <h2 class="fw-bold">Upload templates</h2>
-                        <!--end::Modal title-->
-
-                         <!--close-->
-                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                            <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
-                        </div>
-                        <!--end clos-->
-                    </div>
-
                     <form class="form" action="{% url 'templates_manager:upload-template'  %} "  id="kt_modal_upload_form"  method="post"  enctype= "multipart/form-data">
                          {% csrf_token %}
                         <!--begin::Modal header-->
+                        <div class="modal-header">
+                            <!--begin::Modal title-->
+                            <h2 class="fw-bold">Upload templates</h2>
+                            <!--end::Modal title-->
 
+                             <!--close-->
+                            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
+                            </div>
+                            <!--end clos-->
+                        </div>
                         <!--end::Modal header-->
                         <!--begin::Modal body-->
                         <div class="modal-body pt-10 pb-15 px-lg-17">
@@ -419,11 +419,6 @@
                             <!--end::Input group-->
                         </div>
                         <!--end::Modal body-->
-
-                        <div class="modal-footer flex-center">
-
-                           
-                        </div>
                     </form>
                     <!--end upload template form-->
 
