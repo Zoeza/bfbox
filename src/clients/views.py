@@ -32,8 +32,8 @@ def add_client(request):
 
 # ------------------ update client ---------------------- #
 
-def edit_client(request, sku):
-    selected_client = Client.objects.get(sku=sku)
+def edit_client(request, id):
+    selected_client = Client.objects.get(id=id)
     context = {
         "name": selected_client.name,
         "email": selected_client.email,
@@ -41,13 +41,13 @@ def edit_client(request, sku):
         "lawyer": selected_client.lawyer,
         "address": selected_client.address,
         "town": selected_client.town,
-        "sku": selected_client.sku
+        "sku": selected_client.sku,
     }
     return render(request, "clients/update_client.html", context)
 
 
-def update_client(request, sku):
-    selected_client = Client(sku=sku)
+def update_client(request, id):
+    selected_client = Client(id=id)
     if request.method == 'POST':
         selected_client.name = request.POST.get('name', False)
         selected_client.email = request.POST.get('email', False)
@@ -55,6 +55,7 @@ def update_client(request, sku):
         selected_client.lawyer = request.POST.get('lawyer', False)
         selected_client.address = request.POST.get('address', False)
         selected_client.town = request.POST.get('town', False)
+        selected_client.sku = serial_number_generator(10).upper()
         selected_client.save()
         return redirect('clients:manage-client')
 
