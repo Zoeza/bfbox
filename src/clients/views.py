@@ -1,8 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Client
-import random
-import string
+from .functions import serial_number_generator
 
 
 # ------------------ add client ---------------------- #
@@ -26,6 +25,9 @@ def add_client(request):
                lawyer=lawyer,
                ).save()
     return redirect('clients:manage-client')
+
+
+# ------------------ end add client ---------------------- #
 
 
 # ------------------ update client ---------------------- #
@@ -58,7 +60,10 @@ def update_client(request, id):
         return redirect('clients:manage-client')
 
 
-# ------------------ delete client --------------------- #
+# ------------------ end update client ---------------------- #
+
+
+# ------------------ delete client -------------------------- #
 
 def delete_client(request, sku):
     Client.objects.all().get(sku=sku).delete()
@@ -66,7 +71,10 @@ def delete_client(request, sku):
     return redirect('clients:manage-client')
 
 
-# ------------------ manage client -------------------- #
+# ------------------ end delete client ---------------------- #
+
+
+# ------------------ manage client -------------------------- #
 
 def manage_client(request):
     context = {
@@ -74,8 +82,4 @@ def manage_client(request):
     }
     return render(request, "clients/manage_client.html", context)
 
-
-def serial_number_generator(length):
-    letters_and_digits = string.ascii_letters + string.digits
-    result_str = ''.join((random.choice(letters_and_digits) for i in range(length)))
-    return result_str
+# ------------------ end manage client ---------------------- #
