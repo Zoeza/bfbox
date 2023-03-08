@@ -48,7 +48,14 @@ def delete_template(request, sku):
 
 # ------------------ Update template ---------------------------- #
 
-def edit_template(request):
-    return render(request, "templates_manager/update_template.html", {})
+def edit_template(request, id):
+    selected_template = UploadTemplate.objects.get(id=id)
+    context = {
+        "name": selected_template.name,
+        "last_modified": selected_template.last_modified,
+        "sku": selected_template.sku,
+        "id": selected_template.id
+    }
+    return render(request, "templates_manager/update_template.html",  context)
 
 # ------------------ end Update template ---------------------- #
