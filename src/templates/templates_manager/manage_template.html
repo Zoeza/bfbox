@@ -356,7 +356,7 @@
             <div class="modal-dialog modal-dialog-centered mw-650px">
                 <!--begin::Modal content-->
                 <div class="modal-content">
-                    <form class="form" action="" id="kt_modal_upload_form"  method="post">
+                    <form class="form" action="" id="kt_modal_upload_form"  method="post"  enctype= "multipart/form-data">
                          {% csrf_token %}
                         <!--begin::Modal header-->
                         <div class="modal-header">
@@ -375,44 +375,50 @@
                         <!--begin::Modal body-->
                         <div class="modal-body pt-10 pb-15 px-lg-17">
 
-                             <!--begin::Input group-->
-                                <div class="row g-9 mb-7">
-                                    <!--begin::Col-->
-                                    <div class="col-md-6 fv-row">
-                                        <!--client name-->
-                                        <label class="required fs-6 fw-semibold mb-2"> Template Name</label>
-                                        <!--input-->
-                                        <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Template name" />
-                                        <!--end::Input-->
-                                    </div>
-
-
-                                    <!--client email-->
-                                    <div class="col-md-6 fv-row">
-                                        <label class="fs-6 fw-semibold mb-2"><span class="required">Uploaded at</span>
-                                            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
-                                        </label>
-
-                                        <!--input-->
-                                        <input type="datetime-local"  class="form-control form-control-solid" placeholder="" name="modified_at" value="" />
-                                    </div>
-
+                         <!--begin::Input group-->
+                            <div class="row g-9 mb-7">
+                                <!--begin::Col-->
+                                <div class="col-md-6 fv-row">
+                                    <!--template name-->
+                                    <label class="required fs-6 fw-semibold mb-2"> Template Name</label>
+                                    <!--input-->
+                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Template name" />
+                                    <!--end::Input-->
                                 </div>
-                             <!--end::Input group-->
+
+
+                                <!--uploaded time-->
+                                <div class="col-md-6 fv-row">
+                                    <label class="fs-6 fw-semibold mb-2"><span class="required">Uploaded at</span>
+                                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
+                                    </label>
+
+                                    <!--input-->
+                                    <input type="datetime-local"  class="form-control form-control-solid" placeholder="" name="modified_at" value="" />
+                                </div>
+
+                            </div>
+                         <!--end::Input group-->
 
                             <!--begin::Input group-->
                             <div class="form-group">
-
                                 <!--begin::Dropzone-->
                                 <div class="dropzone dropzone-queue mb-2" id="kt_modal_upload_dropzone">
                                     <!--begin::Controls-->
-                                    <div class="dropzone-panel mb-4">
-                                        <a class="dropzone-select btn btn-sm btn-primary me-2">Attach files</a>
-                                        <a class="dropzone-upload btn btn-sm btn-light-primary me-2">Upload All</a>
-                                        <a class="dropzone-remove-all btn btn-sm btn-light-primary">Remove All</a>
-                                    </div>
+
                                     <!--end::Controls-->
 
+                                    <fieldset>
+                                        <div class="input-group">
+                                            <input type="file" name="file" class="form-control" id="inputGroupFile04"
+                                                aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                             <div class="dropzone-panel mb-4">
+                                                <a class="dropzone-select btn btn-sm btn-primary me-2">Attach file</a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                </div>
                                     <!--begin::Items-->
                                     <div class="dropzone-items wm-200px">
                                         <div class="dropzone-item p-5" style="display:none">
