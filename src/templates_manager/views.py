@@ -15,14 +15,15 @@ def manage_template(request):
     return render(request, "templates_manager/manage_template.html", context)
 
 
-# ------------------ end manage template ---------------------- #
+# ------------------ end manage template ------------------------ #
 
-# ------------------ add client ---------------------- #
+
+# ------------------ add client --------------------------------- #
 
 def upload_template(request):
     if request.method == 'POST':
         name = request.POST.get('name', False)
-        template = request.FILES.get('template')
+        template = request.FILES.get('template', False)
         last_modified = request.POST.get('last_modified', False)
         sku = serial_number_generator(10).upper()
         UploadTemplate(name=name,
@@ -33,8 +34,9 @@ def upload_template(request):
     return redirect('templates_manager:manage-template')
 
 
-# ------------------ end add client ---------------------- #
-# ------------------ delete template -------------------------- #
+# ------------------ end add client ----------------------------- #
+
+# ------------------ delete template ---------------------------- #
 
 def delete_template(request, sku):
     UploadTemplate.objects.all().get(sku=sku).delete()
