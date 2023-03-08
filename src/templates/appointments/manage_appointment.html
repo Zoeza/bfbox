@@ -122,11 +122,18 @@
                                 <a href="{% url 'appointments:edit-appointment' appointment.id  %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="edit appointment" >
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
+                                
+                            </td>
+                            <!--end edit appointment action-->
+
+                            <!--delete appointment action-->
+                            <td class="text-end">
+
                                 <a href="{% url 'appointments:delete-appointment' appointment.sku %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="delete appointment">
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>
-                            <!--end edit appointment action-->
+                            <!--end delete appointment action-->
 
 
 
