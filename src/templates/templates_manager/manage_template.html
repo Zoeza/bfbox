@@ -160,7 +160,6 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody class="fw-semibold text-gray-600">
-
                         <tr>
                             <!--begin::Name=-->
                             <td>
@@ -238,7 +237,66 @@
             <!--end::Card body-->
         </div>
         <!--end::Card-->
-       
+        <!--begin::Upload template-->
+        <table class="d-none">
+            <tr id="kt_file_manager_new_folder_row" data-kt-filemanager-template="upload">
+                <td></td>
+                <td id="kt_file_manager_add_folder_form" class="fv-row">
+                    <div class="d-flex align-items-center">
+                        <!--begin::Folder icon-->
+                        <!--begin::Svg Icon | path: icons/duotune/files/fil012.svg-->
+                        <span class="svg-icon svg-icon-2x svg-icon-primary me-4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.3" d="M10 4H21C21.6 4 22 4.4 22 5V7H10V4Z" fill="currentColor" />
+                                <path d="M9.2 3H3C2.4 3 2 3.4 2 4V19C2 19.6 2.4 20 3 20H21C21.6 20 22 19.6 22 19V7C22 6.4 21.6 6 21 6H12L10.4 3.60001C10.2 3.20001 9.7 3 9.2 3Z" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                        <!--end::Folder icon-->
+                        <!--begin:Input-->
+                        <input type="text" name="new_folder_name" placeholder="Enter the folder name" class="form-control mw-250px me-3" />
+                        <!--end:Input-->
+                        <!--begin:Submit button-->
+                        <button class="btn btn-icon btn-light-primary me-3" id="kt_file_manager_add_folder">
+                            <span class="indicator-label">
+                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr085.svg-->
+                                <span class="svg-icon svg-icon-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.89557 13.4982L7.79487 11.2651C7.26967 10.7068 6.38251 10.7068 5.85731 11.2651C5.37559 11.7772 5.37559 12.5757 5.85731 13.0878L9.74989 17.2257C10.1448 17.6455 10.8118 17.6455 11.2066 17.2257L18.1427 9.85252C18.6244 9.34044 18.6244 8.54191 18.1427 8.02984C17.6175 7.47154 16.7303 7.47154 16.2051 8.02984L11.061 13.4982C10.7451 13.834 10.2115 13.834 9.89557 13.4982Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="indicator-progress">
+                                <span class="spinner-border spinner-border-sm align-middle"></span>
+                            </span>
+                        </button>
+                        <!--end:Submit button-->
+                        <!--begin:Cancel button-->
+                        <button class="btn btn-icon btn-light-danger" id="kt_file_manager_cancel_folder">
+                            <span class="indicator-label">
+                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr088.svg-->
+                                <span class="svg-icon svg-icon-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect opacity="0.5" x="7.05025" y="15.5356" width="12" height="2" rx="1" transform="rotate(-45 7.05025 15.5356)" fill="currentColor" />
+                                        <rect x="8.46447" y="7.05029" width="12" height="2" rx="1" transform="rotate(45 8.46447 7.05029)" fill="currentColor" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </span>
+                            <span class="indicator-progress">
+                                <span class="spinner-border spinner-border-sm align-middle"></span>
+                            </span>
+                        </button>
+                        <!--end:Cancel button-->
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <!--end::Upload template-->
 
         <!--begin::Action template-->
         <div class="d-none" data-kt-filemanager-template="action">

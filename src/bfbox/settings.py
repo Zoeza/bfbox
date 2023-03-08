@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'appointments',
     'reports_manager',
     'templates_manager',
+    'docxtpl',
     'authentication',
     'django.contrib.admin',
     'django.contrib.auth',
