@@ -73,7 +73,7 @@
                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-semibold flex-nowrap">
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary me-6 active" href="folders.html">Files</a>
+                            <a class="nav-link text-active-primary me-6 active" href="{% url 'templates_manager:manage-template' %}" >Templates</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
@@ -103,7 +103,7 @@
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
-                        <input type="text" data-kt-filemanager-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Files & Folders" />
+                        <input type="text" data-kt-filemanager-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Template" />
                     </div>
                     <!--end::Search-->
                 </div>
@@ -125,7 +125,7 @@
                                 <path opacity="0.3" d="M11 11.6V17C11 17.6 11.4 18 12 18C12.6 18 13 17.6 13 17V11.6H11Z" fill="currentColor" />
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->Upload Files</button>
+                        <!--end::Svg Icon-->Upload Templates</button>
                         <!--end::Add customer-->
                     </div>
                     <!--end::Toolbar-->
