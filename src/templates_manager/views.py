@@ -43,4 +43,12 @@ def delete_template(request, sku):
 
     return redirect('templates_manager:manage-template')
 
+
 # ------------------ end delete template ---------------------- #
+
+# ------------------ Update template ---------------------------- #
+
+def edit_template(request):
+    return redirect('templates_manager:update-template')
+
+# ------------------ end Update template ---------------------- #
