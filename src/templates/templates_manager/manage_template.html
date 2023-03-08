@@ -144,14 +144,13 @@
             <div class="card-body">
                 <!--begin template table-->
                  <div class="table-responsive">
-                     <table id="kt_file_manager_list" data-kt-filemanager-table="files" class="table table-row-bordered fs-6 gs-7">
+                     <table id="kt_file_manager_list" data-kt-filemanager-table="files" class="table table-row-bordered gy-7 gs-7">
                         <!--begin::Table head-->
                         <thead>
                             <!--begin::Table row-->
-                            <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                            <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
 
-                                <th class="min-w-10px"> File</th>
-                                <th class="min-w-250px">Name</th>
+                                <th class="min-w-250px"> Name</th>
                                 <th class="min-w-125px">Last Modified</th>
                                 <th class="text-end min-w-125px">Actions</th>
 
@@ -164,8 +163,6 @@
                         {% for template in templates %}
                             <tr>
                                 <!--begin template title=-->
-
-
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <!--begin::Svg Icon | path: icons/duotune/files/fil003.svg-->
@@ -176,11 +173,10 @@
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->
-                                        <a href="files.html#" class="text-gray-800 text-hover-primary">{{ template.template}}</a>
+                                        <a href="files.html#" class="text-gray-800 text-hover-primary">{{ template.name}}</a>
 
                                     </div>
                                 </td>
-                                  <td>{{template.name}}</td>
 
                                 <!--end template title=-->
                                 <!--begin template last modified-->
