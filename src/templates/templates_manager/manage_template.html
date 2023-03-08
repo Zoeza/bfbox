@@ -150,7 +150,8 @@
                             <!--begin::Table row-->
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
 
-                                <th class="min-w-250px">Name</th>
+                                <th class="min-w-250px">file</th>
+                                <th class="min-w-125px">Name</th>
                                 <th class="min-w-125px">Last Modified</th>
                                 <th class="text-end min-w-125px">Actions</th>
 
@@ -174,10 +175,11 @@
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->
-                                        <a href="files.html#" class="text-gray-800 text-hover-primary">{{ template.name}}</a>
+
                                     </div>
                                 </td>
                                 <!--end template title=-->
+                                <td><a href="files.html#" class="text-gray-800 text-hover-primary">{{ template.name}}</a></td>
                                 <!--begin template last modified-->
                                 <td>{{template.last_modified}}</td>
                                 <!--end template last modified-->
