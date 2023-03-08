@@ -356,8 +356,9 @@
             <div class="modal-dialog modal-dialog-centered mw-650px">
                 <!--begin::Modal content-->
                 <div class="modal-content">
-                    <!--begin::Form-->
-                    <form class="form" action="https://preview.keenthemes.com/jet-html-pro/apps/file-manager/none" id="kt_modal_upload_form">
+                   <!--{% url 'template-manage:upload-template' %}--->
+                    <form class="form" action="" id="kt_modal_upload_form"  method="post">
+                         {% csrf_token %}
                         <!--begin::Modal header-->
                         <div class="modal-header">
                             <!--begin::Modal title-->
@@ -374,6 +375,31 @@
                         <!--end::Modal header-->
                         <!--begin::Modal body-->
                         <div class="modal-body pt-10 pb-15 px-lg-17">
+
+                             <!--begin::Input group-->
+                                <div class="row g-9 mb-7">
+                                    <!--begin::Col-->
+                                    <div class="col-md-6 fv-row">
+                                        <!--client name-->
+                                        <label class="required fs-6 fw-semibold mb-2"> Template Name</label>
+                                        <!--input-->
+                                        <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Template name" />
+                                        <!--end::Input-->
+                                    </div>
+
+
+                                    <!--client email-->
+                                    <div class="col-md-6 fv-row">
+                                        <label class="fs-6 fw-semibold mb-2"><span class="required">Email</span>
+                                            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
+                                        </label>
+
+                                        <!--input-->
+                                        <input type="email"  class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
+                                    </div>
+
+                                </div>
+                             <!--end::Input group-->
 
                             <!--begin::Input group-->
                             <div class="form-group">
@@ -434,7 +460,8 @@
                         </div>
                         <!--end::Modal body-->
                     </form>
-                    <!--end::Form-->
+                    <!--end upload template form-->
+
                 </div>
             </div>
         </div>
