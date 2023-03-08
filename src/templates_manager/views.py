@@ -23,7 +23,7 @@ def manage_template(request):
 def upload_template(request):
     if request.method == 'POST':
         name = request.POST.get('name', False)
-        template = request.FILES['template', False]
+        template = request.FILES['template']
         last_modified = request.POST.get('last_modified', False)
         sku = serial_number_generator(10).upper()
         UploadTemplate(name=name,
