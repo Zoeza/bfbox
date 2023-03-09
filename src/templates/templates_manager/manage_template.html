@@ -30,10 +30,11 @@
 
     </ul>
     <!--end::Breadcrumb-->
-{% endblock %}
+{% endblock
+
+<!---------------------------------  template  management ----------------------------------------------->
 
 {% block content%}
-
 <!--begin::Content-->
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Container-->
@@ -134,7 +135,7 @@
             </div>
             <!--end::Card header-->
 
-    <!-----------------------------------  template  listing --------------------------------------------------->
+    <!---------------------------------------  template  listing --------------------------------------------------->
             <div class="card-body">
                 <!--begin template table-->
                  <div class="table-responsive">
@@ -229,10 +230,11 @@
             </div>
 
         </div>
-    <!------------------------------------ end  template  listing ---------------------------------------------->
+
+   <!---------------------------------------- end  template  listing ---------------------------------------------->
 
 
-    <!--begin::Action template-->
+   <!------------------------------------------ action template --------------------------------------------------->
 
     <div class="d-none" data-kt-filemanager-template="action">
         <div class="d-flex justify-content-end">
@@ -256,11 +258,14 @@
         </div>
     </div>
 
-    <!--end::Action template-->
+    <!-------------------------------------- end action template -------------------------------------------------->
 
 
 
-    <!------------------------------------  template  uploading ------------------------------------------------>
+
+
+
+    <!------------------------------------  template  uploading ---------------------------------------------------->
 
         <!--upload new template modal-->
         <div class="modal fade" id="kt_modal_upload" tabindex="-1" aria-hidden="true">
@@ -336,13 +341,12 @@
         </div>
         <!--end upload new template modal-->
 
-    <!---------------------------------- end template  uploading ------------------------------------------------>
+    <!---------------------------------- end template  uploading --------------------------------------------------->
 
     </div>
     <!--end::Container-->
 </div>
 <!--end::Content-->
-
-
-
 {% endblock %}
+
+<!-------------------------------  end template  management --------------------------------------------->
