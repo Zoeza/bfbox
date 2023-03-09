@@ -104,7 +104,7 @@
 				<div class="separator mb-7"></div>
 
 				<!--begin::Form-->
-				<form class="form" action="{% url 'templates_manager:update-template' id  %} " id="kt_file_manager_settings" method="post">
+				<form class="form" action="{% url 'templates_manager:edit-template' selected_template.sku  %} " id="kt_file_manager_settings" method="post">
 					{% csrf_token %}
 					<div class="modal-body pt-10 pb-15 px-lg-17">
 						<!--begin::Input group-->
