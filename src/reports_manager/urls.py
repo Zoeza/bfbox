@@ -5,7 +5,7 @@ app_name = 'reports_manager'
 
 urlpatterns = [
 
-    path('manage-report/', views.manage_report(), name='manage-report'),
+    path('manage-report/', views.manage_report, name='manage-report'),
 
 
 ]
