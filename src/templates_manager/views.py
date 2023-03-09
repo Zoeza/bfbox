@@ -56,6 +56,18 @@ def edit_template(request, id):
         "sku": selected_template.sku,
         "id": selected_template.id
     }
-    return render(request, "templates_manager/update_template.html",  context)
+    return render(request, "templates_manager/update_template.html", context)
+
 
 # ------------------ end Update template ---------------------- #
+
+def update_template(request, id):
+    selected_template = UploadTemplate(id=id)
+    if request.method == 'POST':
+        selected_template.name = request.POST.get('name', False)
+        selected_template.last_modified = request.POST.get('last_modified', False)
+        selected_template.template = request.FILES.get('template', False)
+        selected_template.sku = serial_number_generator(10).upper()
+        selected_template.save()
+        return redirect('templates_manager:manage-template')
+
