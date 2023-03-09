@@ -30,37 +30,42 @@ def add_client(request):
 # ------------------ end add client ---------------------- #
 
 
-# ------------------ update client ---------------------- #
+# ------------------ edit client ---------------------- #
 
-def edit_client(request, id):
-    selected_client = Client.objects.get(id=id)
-    context = {
-        "name": selected_client.name,
-        "email": selected_client.email,
-        "birthday": selected_client.birthday,
-        "lawyer": selected_client.lawyer,
-        "address": selected_client.address,
-        "town": selected_client.town,
-        "id": selected_client.id,
-    }
-    return render(request, "clients/update_client.html", context)
-
-
-def update_client(request, id):
-    selected_client = Client(id=id)
+def edit_client(request, sku):
+    selected_client = Client.objects.all().get(sku=sku)
     if request.method == 'POST':
-        selected_client.name = request.POST.get('name', False)
-        selected_client.email = request.POST.get('email', False)
-        selected_client.birthday = request.POST.get('birthday', False)
-        selected_client.lawyer = request.POST.get('lawyer', False)
-        selected_client.address = request.POST.get('address', False)
-        selected_client.town = request.POST.get('town', False)
-        selected_client.sku = serial_number_generator(10).upper()
+        name = request.POST.get('name', False)
+        email = request.POST.get('email', False)
+        birthday = request.POST.get('birthday', False)
+        address = request.POST.get('address', False)
+        town = request.POST.get('town', False)
+        lawyer = request.POST.get('lawyer', False)
+
+        if name:
+            selected_client.name = name
+        if email:
+            selected_client.email = email
+        if birthday:
+            selected_client.birthday = birthday
+        if address:
+            selected_client.address = address
+        if town:
+            selected_client.town = town
+        if lawyer:
+            selected_client.lawyer = lawyer
+
         selected_client.save()
         return redirect('clients:manage-client')
 
+    context = {
+        'selected_client': selected_client
+    }
 
-# ------------------ end update client ---------------------- #
+    return render(request, "clients/edit_client.html", context)
+
+
+# ------------------ end edit client ---------------------- #
 
 
 # ------------------ delete client -------------------------- #
