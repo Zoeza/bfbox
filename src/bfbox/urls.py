@@ -8,7 +8,6 @@ urlpatterns = [
                   path('clients/', include('clients.urls')),
                   path('appointments/', include('appointments.urls')),
                   path('templates_manager/', include('templates_manager.urls')),
-                  path('reports_manager/', include('reports_manager.urls')),
 
                   path('admin/', admin.site.urls),
 
