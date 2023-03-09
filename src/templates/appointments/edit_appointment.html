@@ -68,7 +68,7 @@
 							<!--end::Separator-->
 
 							<!--begin::Form-->
-							<form class="form" action="{% url 'appointments:update-appointment' id  %}" method="post">
+							<form class="form" action="{% url 'appointments:update-appointment'  selected_appointment.sku  %}" method="post">
 								 {% csrf_token %}
 								<!--begin::Input group-->
 									<!--begin::Row-->
@@ -87,7 +87,7 @@
 											<!--end::Label-->
 
 											<!--begin::Input-->
-											<input type="text" class="form-control form-control-solid" id="title" name="title" placeholder="{{title}}" />
+											<input type="text" class="form-control form-control-solid" id="title" name="title" placeholder="{{ selected_appointment.title}}" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -107,7 +107,7 @@
 											<!--end::Label-->
 
 											<!--begin::Input-->
-											<input type="text" class="form-control form-control-solid" id="client_name" name="client_name"  placeholder="{{client_name}}" />
+											<input type="text" class="form-control form-control-solid" id="client_name" name="client_name"  placeholder="{{ selected_appointment.client_name}}" />
 											<!--end::Input-->
 										</div>
 										<!--end::Input group-->
@@ -130,7 +130,7 @@
 									<!--end::Label-->
 
 									<!--begin::Input-->
-									<input type="datetime-local" class="form-control form-control-solid" id="time" name="time"  placeholder="{{time}}" />
+									<input type="datetime-local" class="form-control form-control-solid" id="time" name="time"  placeholder="{{ selected_appointment.time}}" />
 									<!--end::Input-->
 								</div>
 								<!--end::Input group-->

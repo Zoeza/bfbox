@@ -3,8 +3,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Appointment
-import random
-import string
+from clients.functions import serial_number_generator
 
 
 # ------------------ add appointment ---------------------- #
@@ -26,26 +25,28 @@ def add_appointment(request):
 
 # ------------------ update appointment ---------------------- #
 
-def edit_appointment(request, id):
-    selected_appointment = Appointment.objects.get(id=id)
-    context = {
-        "title": selected_appointment.title,
-        "client_name": selected_appointment.client_name,
-        "time": selected_appointment.time,
-        "id": selected_appointment.id
-    }
-    return render(request, "appointments/update_appointment.html", context)
-
-
-def update_appointment(request, id):
-    selected_appointment = Appointment(id=id)
+def edit_appointment(request, sku):
+    selected_appointment = Appointment.objects.get(sku=sku)
     if request.method == 'POST':
-        selected_appointment.title = request.POST.get('title', False)
-        selected_appointment.client_name = request.POST.get('client_name', False)
-        selected_appointment.time = request.POST.get('time', False)
-        selected_appointment.sku = serial_number_generator(10).upper()
+        title = request.POST.get('title', False)
+        client_name = request.POST.get('client_name', False)
+        time = request.POST.get('time', False)
+
+        if title:
+            selected_appointment.title = title
+        if client_name:
+            selected_appointment.client_name = client_name
+        if time:
+            selected_appointment.time = time
+
         selected_appointment.save()
         return redirect('appointments:manage-appointment')
+
+    context = {
+        'selected_appointment': selected_appointment
+    }
+
+    return render(request, "appointments/edit_appointment.html", context)
 
 
 # ------------------ delete appointment --------------------- #
@@ -65,7 +66,4 @@ def manage_appointment(request):
     return render(request, "appointments/manage_appointment.html", context)
 
 
-def serial_number_generator(length):
-    letters_and_digits = string.ascii_letters + string.digits
-    result_str = ''.join((random.choice(letters_and_digits) for i in range(length)))
-    return result_str
+
