@@ -68,7 +68,7 @@
 							<!--end::Separator-->
 
 							<!--begin::Form-->
-							<form class="form" action="{% url 'appointments:update-appointment'  selected_appointment.sku  %}" method="post">
+							<form class="form" action="{% url 'appointments:edit-appointment'  selected_appointment.sku  %}" method="post">
 								 {% csrf_token %}
 								<!--begin::Input group-->
 									<!--begin::Row-->
