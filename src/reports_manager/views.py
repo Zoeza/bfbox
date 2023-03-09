@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import FileResponse, HttpResponse
+from .models import UploadTemplate
+from clients.functions import serial_number_generator
 
-# Create your views here.
+
+def manage_report(request):
+    return render(request, "reports_manager/manage_report.html", {})
