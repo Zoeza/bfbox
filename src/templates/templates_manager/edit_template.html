@@ -104,7 +104,7 @@
 				<div class="separator mb-7"></div>
 
 				<!--begin::Form-->
-				<form class="form" action="{% url 'templates_manager:edit-template' selected_template.sku  %} " id="kt_file_manager_settings" method="post">
+				<form class="form" action="{% url 'templates_manager:edit-template' selected_template.sku  %} " id="kt_file_manager_settings" method="post" enctype= "multipart/form-data">
 					{% csrf_token %}
 					<div class="modal-body pt-10 pb-15 px-lg-17">
 						<!--begin::Input group-->
@@ -122,7 +122,7 @@
                                 <div class="col-md-6 fv-row">
                                     <label class="fs-6 fw-semibold mb-2"><span class="required">Uploaded at</span></label>
                                     <!--input-->
-                                    <input type="datetime-local"  class="form-control form-control-solid" placeholder="" name="last_modified" value="{{selected_template.last_modified}}" />
+                                    <input type="datetime-local"  class="form-control form-control-solid" placeholder="" id="last_modified" name="last_modified" value="{{selected_template.last_modified}}" />
                                 </div>
 
                             </div>
@@ -137,7 +137,7 @@
                                     <fieldset>
                                         <div class="input-group">
                                             <input type="file" name="template" class="form-control" id="inputGroupFile04"
-                                                aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="{{selected_template.template}}">
+                                                aria-describedby="inputGroupFileAddon04" aria-label="Upload" placeholder="" id="template" name="template" value="{{selected_template.template}}">
                                             <button class="btn btn-primary" type="submit"
                                                 id="inputGroupFileAddon04">Save</button>
                                         </div>
