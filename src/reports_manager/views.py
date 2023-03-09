@@ -4,7 +4,7 @@ from django.http import FileResponse, HttpResponse
 from clients.functions import serial_number_generator
 
 
-def manage_template(request):
+def manage_report(request):
 
     return render(request, "templates_reports/manage_report.html", {})
 
