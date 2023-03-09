@@ -103,59 +103,49 @@
 				<!--begin::Form-->
 				<form class="form" action="{% url 'templates_manager:update-template' id  %} " id="kt_file_manager_settings" method="post">
 					{% csrf_token %}
-					<div class="fv-row row mb-15">
-						<!--begin::Col-->
+					<div class="modal-body pt-10 pb-15 px-lg-17">
+						<!--begin::Input group-->
+						<div class="row g-9 mb-7">
+                                <!--begin::Col-->
+                                <div class="col-md-6 fv-row">
+                                    <!--template name-->
+                                    <label class="required fs-6 fw-semibold mb-2"> Template Name</label>
+                                    <!--input-->
+                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Template name" />
+                                    <!--end::Input-->
+                                </div>
 
-						<div class="col">
-							<!--begin::Input group-->
-							<div class="fv-row mb-7">
-								<!--begin::Label-->
-								<label class="fs-6 fw-semibold form-label mt-3">
-									<span class="required">Email</span>
+                                <!--uploaded time-->
+                                <div class="col-md-6 fv-row">
+                                    <label class="fs-6 fw-semibold mb-2"><span class="required">Uploaded at</span></label>
+                                    <!--input-->
+                                    <input type="datetime-local"  class="form-control form-control-solid" placeholder="" name="last_modified" value="" />
+                                </div>
 
-									<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's email."></i>
-								</label>
-								<!--end::Label-->
+                            </div>
+						<!--end::Input group-->
 
-								<!--begin::Input-->
-								<input type="email" class="form-control form-control-solid" id="email" name="email"  placeholder="{{email}}" />
-								<!--end::Input-->
-							</div>
-							<!--end::Input group-->
-						</div>
+						<!--begin::Input group-->
+						<div class="form-group">
+                                <!--begin::Dropzone-->
+                                <div class="fs-6 fw-semibold mb-2">
+                                    <label class="required fs-6 fw-semibold mb-2"> Template</label>
 
-						<div class="col-md-3 d-flex align-items-center">
-							<!--begin::Label-->
-							<label class="fs-6 fw-semibold">Template Name</label>
-							<!--end::Label-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col-md-9">
-							<!--begin::Input-->
-							<!--end::Input-->
-						</div>
-						<!--end::Col-->
+                                    <fieldset>
+                                        <div class="input-group">
+                                            <input type="file" name="template" class="form-control" id="inputGroupFile04"
+                                                aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                            <button class="btn btn-primary" type="submit"
+                                                id="inputGroupFileAddon04">Upload</button>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <!--end::Dropzone-->
+
+                            </div>
+						<!--end::Input group-->
 					</div>
-					<!--end::Input group-->
-					<!--begin::Input group-->
-					<div class="fv-row row mb-15">
-						<!--begin::Col-->
-						<div class="col-md-3">
-							<!--begin::Label-->
-							<label class="fs-6 fw-semibold mt-2">Date Format</label>
-
-							<!--end::Label-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-
-					</div>
-
-
-
-
-
+					
 					<!--begin::Action buttons-->
 					<div class="row mt-12">
 						<div class="col-md-9 offset-md-3">
