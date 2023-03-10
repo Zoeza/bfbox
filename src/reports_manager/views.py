@@ -5,6 +5,8 @@ from clients.functions import serial_number_generator
 
 
 def manage_report(request):
-
     return render(request, "reports_manager/manage_report.html", {})
 
+
+def add_report(request):
+    return render(request, "reports_manager/add_report.html", {})
