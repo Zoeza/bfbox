@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from template_manager.models import UploadTemplate
+from templates_manager.models import UploadTemplate
 from django.http import FileResponse, HttpResponse
 
 from clients.functions import serial_number_generator
