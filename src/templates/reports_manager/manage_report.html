@@ -457,33 +457,44 @@
 								                <div class="row mb-10">
 									                <!--begin::Col-->
 									                <div class="col-md-8 fv-row">
+                                                <!--begin::Label-->
+                                                <label class="required fs-6 fw-semibold form-label mb-2">court case information</label>
+                                                <!--end::Label-->
+                                                <!--begin::Row-->
+										        <div class="row fv-row">
+                                                    <!--begin::Col-->
+                                                    <div class="col-6">
+                                                        <input type="text" class="form-control form-control-solid" placeholder="court case title" name="court_case_title"  />
+                                                    </div>
+                                                    <!--end::Col-->
+											        <!--begin::Col-->
+
+                                                    <div class="col-6">
+                                                        <input type="text" class="form-control form-control-solid" placeholder="court case content" name="name"  />
+                                                    </div>
+                                                    <!--end::Col-->
+										        </div>
+										        <!--end::Row-->
+									            </div>
+									                <!--end::Col-->
+									                <!--begin::Col-->
+									                <div class="col-md-4 fv-row">
                                                         <!--begin::Label-->
-                                                        <label class="required fs-6 fw-semibold form-label mb-2">court case information</label>
+                                                        <label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+                                                            <span class="required">CVV</span>
+                                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Enter a card CVV code"></i>
+                                                        </label>
                                                         <!--end::Label-->
-                                                        <!--begin::Row-->
-                                                        <div class="row fv-row">
-                                                            <!--begin::Col-->
-                                                            <div class="col-6">
-                                                                <input type="text" class="form-control form-control-solid" placeholder="court case title" name="court_case_title"  />
-                                                            </div>
-                                                            <!--end::Col-->
+                                                        <!--begin::Input wrapper-->
+                                                        <div class="position-relative">
+                                                            <!--begin::Input-->
+                                                            <input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="card_cvv" />
+                                                            <!--end::Input-->
 
-                                                            <!--begin::Col-->
-                                                            <div class="col-6">
-                                                                <input type="text" class="form-control form-control-solid" placeholder="court case content" name="name"  />
-                                                            </div>
-                                                            <!--end::Col-->
-
-                                                            <!--begin::Col-->
-                                                            <div class="col-6">
-                                                                <input type="text" class="form-control form-control-solid" placeholder="court case content" name="name"  />
-                                                            </div>
-                                                            <!--end::Col-->
                                                         </div>
-										                <!--end::Row-->
+                                                        <!--end::Input wrapper-->
 									                </div>
 									                <!--end::Col-->
-
 								                </div>
 								                <!--end::Input group-->
 
