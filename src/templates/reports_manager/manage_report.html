@@ -280,8 +280,6 @@
                         <div class="modal-body">
 
                             <!--begin::Form-->
-                            <form class="form" action="{% url 'reports_manager:add-report' %}" novalidate="novalidate" id="kt_add_new_report_form" method="post">
-                                {% csrf_token %}
                                  <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                                      <div class="fv-row mb-10">
 
@@ -297,10 +295,10 @@
                                         <!--end::Label-->
 
                                         <!--begin::Input-->
-                                        <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                                        <select id="template_name" name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
                                             <option></option>
                                             {% for template in templates  %}
-                                            <option value="{{template.name}}" {% if template_name == template.name %}selected{% endif %}>{{template.name}}</option>
+                                            <option value="{{template.name}}" href="{% url 'reports_manager:add-report' %}">{{template.name}}</option>
                                             {% endfor %}
                                         </select>
                                         <!--end::Input-->
@@ -315,7 +313,7 @@
                                     <!--end::Button-->
                                 </div>
 
-                            </form>
+
                             <!--end::Form-->
 
                         </div>
