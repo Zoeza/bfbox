@@ -288,12 +288,9 @@
 									<!--begin::Input-->
 									<select name="business_type" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
 										<option></option>
-										<option value="1">S Corporation</option>
-										<option value="1">C Corporation</option>
-										<option value="2">Sole Proprietorship</option>
-										<option value="3">Non-profit</option>
-										<option value="4">Limited Liability</option>
-										<option value="5">General Partnership</option>
+                                        {% for template in templates  %}
+										<option value="1">{{template.name}}</option>
+										{% endfor %}
 									</select>
 									<!--end::Input-->
 								</div>
