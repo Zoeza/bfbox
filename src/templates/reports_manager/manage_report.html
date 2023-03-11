@@ -282,14 +282,13 @@
                             <form class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form">
 
                                 <div class="fv-row mb-10">
-                                    <h2 class="fw-bold d-flex align-items-center text-dark">Choose Report Type
-									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Billing is issued based on your selected account type"></i></h2>
 
 									<!--begin::Label-->
-									<label class="form-label required">Corporation Type</label>
+									<label class="form-label required">Select report type</label>
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i>
 									<!--end::Label-->
 									<!--begin::Input-->
-									<select name="business_type" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+									<select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
 										<option></option>
                                         {% for template in templates  %}
 										<option value="1">{{template.name}}</option>
