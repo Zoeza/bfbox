@@ -12,5 +12,5 @@ def manage_report(request):
     return render(request, "reports_manager/manage_report.html", context)
 
 
-def add_report(request):
+def add_report(request, name):
     return render(request, "reports_manager/add_report.html", {})
