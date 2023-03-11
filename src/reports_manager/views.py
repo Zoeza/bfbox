@@ -6,9 +6,8 @@ from clients.functions import serial_number_generator
 
 
 def manage_report(request):
-    templates = UploadTemplate.objects.all()
     context = {
-        "templates": templates
+        "templates": UploadTemplate.objects.all()
     }
     return render(request, "reports_manager/manage_report.html", context)
 
