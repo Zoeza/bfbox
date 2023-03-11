@@ -336,28 +336,17 @@
                                                     <div class="row mb-2" data-kt-buttons="true">
                                                         {% for template in templates %}
                                                         <!--begin::Col-->
-                                                        <div class="col-4">
-                                                            <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex flex-stack text-start p-3 mb-5">
-                                                                <!--end::Description-->
-                                                                <div class="d-flex align-items-center me-2">
-                                                                    <!--begin::Radio-->
-                                                                    <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
-                                                                        <input class="form-check-input" type="radio" name="plan" value="startup"/>
-                                                                    </div>
-                                                                    <!--end::Radio-->
+                                                        <div class="col">
+                                                            <!--begin::Option-->
+                                                            <input type="radio" class="btn-check" name="radio_buttons_2" value="apps" checked="checked"  id="kt_radio_buttons_2_option_1"/>
+                                                            <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center mb-5" for="kt_radio_buttons_2_option_1">
 
-                                                                    <!--begin::Info-->
-                                                                    <div class="flex-grow-1">
-                                                                        <h5 class="d-flex align-items-center fs-3 fw-bold flex-wrap">
-                                                                            {{template.name}}</h5>
+                                                                <span class="d-block fw-semibold text-start">
+                                                                    <span class="text-dark fw-bold d-block fs-3">{{template.name}}</span>
 
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                </div>
-                                                                <!--end::Description-->
-
+                                                                </span>
                                                             </label>
-
+                                                            <!--end::Option-->
 
                                                         </div>
                                                         <!--end::Col-->
@@ -365,6 +354,7 @@
 
                                                     </div>
 
+    >
                                                     <!--end::Row-->
 
                                                 </div>
