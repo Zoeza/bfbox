@@ -20,8 +20,8 @@ def add_report(request):
 
         if template_name == "Notice letter":
             report_actions.add_notice_letter(request)
-            
-        return HttpResponse('<h2> form submitted.</h2>')
+
+        return HttpResponse('<h2> template_name.</h2>')
 
     redirect('reports_manager:manage-report')
 
