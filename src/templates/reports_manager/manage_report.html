@@ -291,21 +291,19 @@
                                     <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Monthly billing will be based on your account plan"></i></label>
                                     <!--end::Label-->
                                     <!--begin::Options-->
-                                    <div class="mb-0">
+
 
                                         <!--begin:Option-->
                                         <select class="form-select form-select-solid" data-control="select2" data-dropdown-parent="#kt_modal_1" data-placeholder="Select an option" data-allow-clear="true">
                                                     <option></option>
-                                            {% for template in templates%}
+                                            {% for template in templates %}
                                             <option value="1">{{template.name}}</option>
                                              {% endfor %}
-                                            </select>
+                                        </select>
+
 
 
                                         <!--end::Option-->
-
-
-                                    </div>
                                     <!--end::Options-->
                                 </div>
                                  <!--end::Input group-->
