@@ -334,9 +334,10 @@
                                                     <!--begin::Row-->
 
                                                     <!--begin::Radio group-->
+                                                    {% for template in templates %}
                                                     <div data-kt-buttons="true">
                                                         <!--begin::Radio button-->
-                                                        {% for template in templates %}
+
                                                         <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex flex-stack text-start p-6 mb-5">
                                                             <!--end::Description-->
                                                             <div class="d-flex align-items-center me-2">
@@ -358,10 +359,11 @@
 
                                                         </label>
                                                         <!--end::Radio button-->
-                                                        {% endfor %}
+
 
                                                     </div>
                                                     <!--end::Radio group-->
+                                                     {% endfor %}
 
                                                 </div>
                                                  <!--end::Input group-->
