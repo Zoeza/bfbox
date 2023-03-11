@@ -267,7 +267,7 @@
         <!--add new report modal-->
         <div class="modal fade" tabindex="-1" id="kt_add_new_report" aria-hidden="true">
             <!--begin::Modal dialog-->
-             <div class="modal-dialog modal-dialog ">
+             <div class="modal-dialog  ">
                 <!--begin::Modal content-->
                 <div class="modal-content shadow-none">
                     <div class="modal-header">
@@ -279,65 +279,50 @@
                         <!--end::Close-->
                     </div>
                     <div class="modal-body">
-                    <!--begin::Card-->
-                        <div class="card">
+                        <div class="mb-10">
 
-                            <!--begin::Card body-->
-                            <div class="card-body">
-
-                                    <!--begin::Form-->
-                                    <form class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form">
-                                        <!--begin::Step 1-->
-                                        <div class="current" data-kt-stepper-element="content">
-                                            <!--begin::Wrapper-->
-                                            <div class="w-100">
-
-                                                 <!--begin::Input group-->
-                                                <div class="mb-0 fv-row">
-                                                    <!--begin::Label-->
-                                                    <label class="d-flex align-items-center form-label mb-5">Select Report type
-                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Monthly billing will be based on your account plan"></i></label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Options-->
-                                                    <div class="mb-0">
-                                                        {% for template in templates%}
-                                                        <!--begin:Option-->
-                                                        <label class="d-flex flex-stack mb-5 cursor-pointer">
-                                                            <!--begin:Label-->
-                                                            <span class="d-flex align-items-center me-2">
-
-                                                                <!--begin::Description-->
-                                                                <span class="d-flex flex-column">
-                                                                    <span class="fw-bold text-gray-800 text-hover-primary fs-5">{{template.name}}</span>
-                                                                </span>
-                                                                <!--end:Description-->
-                                                            </span>
-                                                            <!--end:Label-->
-                                                            <!--begin:Input-->
-                                                            <span class="form-check form-check-custom form-check-solid">
-                                                                <input class="form-check-input" type="radio" name="account_plan" value="1" />
-                                                            </span>
-                                                            <!--end:Input-->
-                                                        </label>
-                                                        <!--end::Option-->
-                                                        {% endfor %}
-
-                                                    </div>
-                                                    <!--end::Options-->
-                                                </div>
-                                                 <!--end::Input group-->
-                                            </div>
-                                            <!--end::Wrapper-->
-                                        </div>
-                                        <!--end::Step 1-->
-                                    </form>
-                                    <!--end::Form-->
+                            <!--begin::Form-->
+                            <form class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form">
 
 
-                            </div>
-                            <!--end::Card body-->
+                                 <!--begin::Input group-->
+                                <div class="mb-0 fv-row">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label mb-5">Select Report type
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Monthly billing will be based on your account plan"></i></label>
+                                    <!--end::Label-->
+                                    <!--begin::Options-->
+                                    <div class="mb-0">
+                                        {% for template in templates%}
+                                        <!--begin:Option-->
+                                        <label class="d-flex flex-stack mb-5 cursor-pointer">
+                                            <!--begin:Label-->
+                                            <span class="d-flex align-items-center me-2">
+
+                                                <!--begin::Description-->
+                                                <span class="d-flex flex-column">
+                                                    <span class="fw-bold text-gray-800 text-hover-primary fs-5">{{template.name}}</span>
+                                                </span>
+                                                <!--end:Description-->
+                                            </span>
+                                            <!--end:Label-->
+                                            <!--begin:Input-->
+                                            <span class="form-check form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="radio" name="account_plan" value="1" />
+                                            </span>
+                                            <!--end:Input-->
+                                        </label>
+                                        <!--end::Option-->
+                                        {% endfor %}
+
+                                    </div>
+                                    <!--end::Options-->
+                                </div>
+                                 <!--end::Input group-->
+
+                            </form>
+                            <!--end::Form-->
                         </div>
-                    <!--end::Card-->
                     </div>
                     <!--end upload template form-->
                     <div class="modal-footer">
