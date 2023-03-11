@@ -297,7 +297,7 @@
                                         <!--end::Label-->
 
                                         <!--begin::Input-->
-                                        <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                                        <select id="template_name" name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
                                             <option></option>
                                             {% for template in templates  %}
                                             <option value="1">{{template.name}}</option>
