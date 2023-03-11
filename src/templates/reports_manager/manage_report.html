@@ -381,14 +381,33 @@
                                         <div data-kt-stepper-element="content">
                                             <!--begin::Wrapper-->
                                             <div class="w-100">
-                                                
                                                 <div class="mb-10 fv-row">
-                                                    <!--begin::Label-->
-                                                    <label class="form-label mb-3">Team Account Name</label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-lg form-control-solid" name="account_name" placeholder="" value="" />
-                                                    <!--end::Input-->
+
+                                                   <!--begin::Input group-->
+                                                    <div class="row g-9 mb-7">
+                                                        <!--begin::Col-->
+                                                        <div class="col-md-6 fv-row">
+                                                            <!--client name-->
+                                                            <label class="required fs-6 fw-semibold mb-2"> Name</label>
+                                                            <!--input-->
+                                                            <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Client name" />
+                                                            <!--end::Input-->
+                                                        </div>
+
+
+                                                        <!--client email-->
+                                                        <div class="col-md-6 fv-row">
+                                                            <label class="fs-6 fw-semibold mb-2"><span class="required">Email</span>
+                                                            <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
+                                                             </label>
+
+                                                            <!--input-->
+                                                            <input type="email"  class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
+                                                        </div>
+
+                                                    </div>
+                                                    <!--end::Input group-->
+
                                                 </div>
                                                 <!--end::Input group-->
                                                 <!--begin::Input group-->
