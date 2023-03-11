@@ -17,4 +17,3 @@ def manage_report(request):
 def add_report(request):
      return render(request, "reports_manager/add_report.html", {})
 
-    redirect('reports_manager:manage-report')
