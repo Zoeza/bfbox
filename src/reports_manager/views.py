@@ -15,9 +15,5 @@ def manage_report(request):
 
 
 def add_report(request):
-    if request.method == "POST":
-        template_name = request.POST.get('template_name', False)
+    report_actions.add_notice_letter(request)
 
-        print('template_name')
-
-    redirect('reports_manager:manage-report')
