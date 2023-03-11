@@ -261,7 +261,6 @@
     <!-------------------------------------- end action report -------------------------------------------------->
 
 
-
     <!------------------------------------  report adding ---------------------------------------------------->
 
         <!--add new report modal-->
@@ -270,33 +269,47 @@
               <div class="modal-dialog modal-dialog-centered mw-650px">
                   <div class="modal-content shadow-none">
                         <div class="modal-header">
-                        <h2 class="modal-title">Choose Report Type</h2>
-                        <!--begin::Close-->
-                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                            <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
+                            <h2 class="modal-title"> Report Type</h2>
+                            <!--begin::Close-->
+                            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
+                            </div>
+                            <!--end::Close-->
                         </div>
-                        <!--end::Close-->
-                    </div>
+
                         <div class="modal-body">
+
                             <!--begin::Form-->
                             <form class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form">
                                 {% csrf_token %}
                                  <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                                    <div class="fv-row mb-10">
+                                     <div class="fv-row mb-10">
 
-									<!--begin::Label-->
-									<label class="form-label required">Select report type</label>
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i>
-									<!--end::Label-->
-									<!--begin::Input-->
-									<select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
-										<option></option>
-                                        {% for template in templates  %}
-										<option value="1">{{template.name}}</option>
-										{% endfor %}
-									</select>
-									<!--end::Input-->
+                                         <div class="pb-10 pb-lg-15">
+									<!--begin::Title-->
+									<h2 class="fw-bold d-flex align-items-center text-dark">Choose Account Type
+									<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Billing is issued based on your selected account type"></i></h2>
+									<!--end::Title-->
+									<!--begin::Notice-->
+									<div class="text-muted fw-semibold fs-6">If you need more info, please check out
+									<a href="wizard.html#" class="link-primary fw-bold">Help Page</a>.</div>
+									<!--end::Notice-->
 								</div>
+
+                                        <!--begin::Label-->
+                                        <label class="form-label required">Select report type</label>
+                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i>
+                                        <!--end::Label-->
+
+                                        <!--begin::Input-->
+                                        <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                                            <option></option>
+                                            {% for template in templates  %}
+                                            <option value="1">{{template.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <!--end::Input-->
+								     </div>
                                  </div>
 
                                  <div class="modal-footer ">
@@ -306,13 +319,14 @@
                                     </button>
                                     <!--end::Button-->
                                 </div>
+
                             </form>
                             <!--end::Form-->
 
                         </div>
                     <!--end upload template form-->
                 </div>
-            </div>
+              </div>
         </div>
         <!--end add new report modal-->
 
