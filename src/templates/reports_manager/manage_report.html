@@ -453,10 +453,16 @@
 
                                                         <!--court case time -->
                                                         <div class="col-md-6 fv-row">
-                                                            <!--client name-->
+                                                            <!--court case time -->
                                                             <label class="required fs-6 fw-semibold mb-2"> Time</label>
+
                                                             <!--input-->
-                                                            <input type="time" class="form-control form-control-solid" placeholder="" name="court_case_time" value="" />
+                                                            <div class="input-group" id="kt_td_picker_time_only" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                                                    <input id="kt_td_picker_time_only_input" type="text" class="form-control" data-td-target="#kt_td_picker_time_only"/>
+                                                                    <span class="input-group-text" data-td-target="#kt_td_picker_time_only" data-td-toggle="datetimepicker">
+                                                                        <i class="fas fa-calendar"></i>
+                                                                    </span>
+                                                            </div>
                                                             <!--end::Input-->
                                                         </div>
                                                         <!-- end court case time-->
@@ -570,7 +576,7 @@
                                                     <!--begin::Title-->
                                                     <h2 class="fw-bold text-dark">Your Are Done!</h2>
                                                     <!--end::Title-->
-                                                    
+
                                                 </div>
                                                 <!--end::Heading-->
                                                 <!--begin::Body-->
