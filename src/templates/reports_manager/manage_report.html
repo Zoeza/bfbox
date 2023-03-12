@@ -298,10 +298,11 @@
 
                                         <!--begin::Input-->
                                         <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
-                                            <option></option>
-                                            {% for template in templates  %}
-                                            <option>{{template.name}}</option>
-                                            {% endfor %}
+                                            <option disabled="true" selected>-- Select template --</option>
+
+                                            <option>Notice letter</option>
+                                            <option>Template Model</option>
+
                                         </select>
                                         <!--end::Input-->
 								     </div>
