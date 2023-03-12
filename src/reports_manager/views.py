@@ -15,7 +15,7 @@ def manage_report(request):
 
 
 def add_report(request):
-    template_selected = request.GET['template_name']
+    template_selected = request.GET.get('template_name')
     if template_selected == "Notice letter":
         return render(request, "reports_manager/add_report.html", {})
 
