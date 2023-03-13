@@ -30,9 +30,9 @@ def manage_report(request):
     return render(request, "reports_manager/manage_report.html", context)
 
 
-def add_report(request, template_name):
+def add_report(request):
     if request.method == 'POST':
-        template = UploadTemplate.objects.get(name=template_name)
+        template = UploadTemplate.objects.get(name="Notice Letter")
         template_path = template.template.path
         report = DocxTemplate(template_path)
         notice_letter = GeneratedReport()
@@ -67,7 +67,7 @@ def add_report(request, template_name):
 
         return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
-    return redirect('reports_manager:manage-report')
+    return redirect('reports_manager:add-report')
 
 
 def download_report(request, id):
