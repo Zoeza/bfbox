@@ -101,8 +101,8 @@ def add_notice_letter(request):
 
         notice_letter.file.save('record_reporting.docx', ContentFile(report_io.read()))
         notice_letter.filename = 'notice letter'
-        # notice_letter.client = request.POST.get('court_case_applicants')
-        # notice_letter.lawyer = request.POST.get('court_case_lawyer')
+        notice_letter.client = request.POST.get('court_case_applicants')
+        notice_letter.lawyer = request.POST.get('court_case_lawyer')
         notice_letter.save()
         # return FileResponse(notice_letter.file, as_attachment=True)
         messages.success(request, " New Report Generated successfully !!")
