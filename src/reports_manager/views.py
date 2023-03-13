@@ -64,10 +64,10 @@ def add_report(request):
         notice_letter.lawyer = request.POST['court_case_lawyer']
         notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
-        return redirect('reports_manager:manage-report')
+        return FileResponse(report_io, as_attachment=True, filename=f'notice_letter.docx')
     return render(request, "reports_manager/add_report.html", {})
 
-    
+
 
 
 def download_report(request, id):
