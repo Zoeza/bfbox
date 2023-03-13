@@ -108,4 +108,4 @@ def add_notice_letter(request):
         messages.success(request, " New Report Generated successfully !!")
         return redirect('reports_manager:manage-report')
 
-    return render(request, "reports_manager/add_report.html", {})
+    return render(request, "reports_manager/add_notice_letter.html", {})
