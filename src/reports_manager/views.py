@@ -9,6 +9,7 @@ from clients.functions import serial_number_generator
 
 
 def manage_report(request):
+
     templates = UploadTemplate.objects.all()
 
     if request.method == 'POST':
