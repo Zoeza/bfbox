@@ -56,7 +56,7 @@ def add_report(request):
         report_io = io.BytesIO()  # create a file-like object
         report.save(report_io)  # save data to file-like object
         report_io.seek(0)  # go to the beginning of the file-like object
-        # return FileResponse(report_io, as_attachment=True, filename=f'notice_letter.docx')
+        return FileResponse(report_io, as_attachment=True, filename=f'notice_letter.docx')
 
         notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
         notice_letter.filename = request.POST.get('court_case_num')
@@ -65,7 +65,7 @@ def add_report(request):
         notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
 
-        return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
+        # return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
     return render(request, "reports_manager/add_report.html", {})
 
