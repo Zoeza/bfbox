@@ -21,7 +21,7 @@ def manage_report(request):
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
         if template_name == "Notice letter":
-            return report_actions.add_notice_letter(request,template_name)
+            return add_notice_letter(request)
 
     context = {
         # "reports": GeneratedReport.objects.all(),
@@ -74,10 +74,6 @@ def download_report(request, id):
 
 
 def add_notice_letter(request):
-    return render(request, "reports_manager/add_notice_letter.html", {})
-
-
-def submit_notice_letter(request):
     if request.method == "POST":
         template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
@@ -104,12 +100,12 @@ def submit_notice_letter(request):
         report_io.seek(0)  # go to the beginning of the file-like object
 
         notice_letter.file.save('record_reporting.docx', ContentFile(report_io.read()))
-        notice_letter.filename = 'file'
-        # notice_letter.client = request.POST.get('court_case_applicants')
-        # notice_letter.lawyer = request.POST.get('court_case_lawyer')
+        notice_letter.filename = request.POST.get('court_case_num')
+        notice_letter.client = request.POST.get('court_case_applicants')
+        notice_letter.lawyer = request.POST.get('court_case_lawyer')
         notice_letter.save()
         # return FileResponse(notice_letter.file, as_attachment=True)
         messages.success(request, " New Report Generated successfully !!")
         return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
 
-    return redirect('reports_manager:add-report')
+    return render(request, "reports_manager/add_notice_letter.html", {})
