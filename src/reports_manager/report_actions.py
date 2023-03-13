@@ -45,6 +45,6 @@ def add_notice_letter(request, template_name):
         # notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
 
-        return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
+        return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
 
-    return render(request, "reports_manager/add_report.html", {'template_name': template_name})
+    return render(request, "reports_manager/add_notice_letter.html", {'template_name': template_name})
