@@ -12,7 +12,7 @@ from docxtpl import DocxTemplate
 def add_notice_letter(request, template_name):
     if request.method == 'POST':
         template = UploadTemplate.objects.get(name=template_name)
-        template_path = template.file.path
+        template_path = template.template.path
         report = DocxTemplate(template_path)
         notice_letter = GeneratedReport()
 
