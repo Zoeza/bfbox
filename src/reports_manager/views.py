@@ -19,4 +19,4 @@ def add_report(request):
     if template_selected == "Notice letter":
         url = "/reports_manager/add_report.html"
 
-        return {"/reports_manager/add_report.html"}
+        return {'url': url,}
