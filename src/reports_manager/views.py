@@ -109,9 +109,9 @@ def submit_notice_letter(request):
         notice_letter.client = request.POST['court_case_applicants']
         notice_letter.lawyer = request.POST['court_case_lawyer']
         notice_letter.save()
-        # return FileResponse(record_reporting.file, as_attachment=True)
+        return FileResponse(notice_letter.file, as_attachment=True)
 
-        messages.success(request, " New Report Generated successfully !!")
-        return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
+        # messages.success(request, " New Report Generated successfully !!")
+    # return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
     return redirect('reports_manager:add-report')
