@@ -67,7 +67,7 @@ def add_report(request):
 
         return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
-    return redirect('reports_manager:add-report')
+    return render(request, "reports_manager/add_report.html", {})
 
 
 def download_report(request, id):
