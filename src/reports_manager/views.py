@@ -17,6 +17,5 @@ def manage_report(request):
 def add_report(request):
     template_selected = request.POST.get('template_name')
     if template_selected == "Notice letter":
-        url = "/reports_manager/add_report.html"
-
-        return render(request, url, {'template_selected': template_selected})
+        url = "reports_manager/add_report.html"
+        return render(request, url, {})
