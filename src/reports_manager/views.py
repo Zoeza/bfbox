@@ -17,7 +17,7 @@ from docxtpl import DocxTemplate
 
 def manage_report(request):
     templates = UploadTemplate.objects.all()
-    url = "reports_manager/manage_report.html"
+    url = "/reports_manager/manage_report.html"
 
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
