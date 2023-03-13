@@ -21,7 +21,7 @@ def manage_report(request):
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
         if template_name == "Notice letter":
-            return add_report(request, template_name)
+            return submit_notice_letter(request)
 
     context = {
         # "reports": GeneratedReport.objects.all(),
@@ -109,9 +109,8 @@ def submit_notice_letter(request):
         notice_letter.client = request.POST['court_case_applicants']
         notice_letter.lawyer = request.POST['court_case_lawyer']
         notice_letter.save()
-        return FileResponse(notice_letter.file, as_attachment=True)
-
-        # messages.success(request, " New Report Generated successfully !!")
-    # return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
+        # return FileResponse(notice_letter.file, as_attachment=True)
+        messages.success(request, " New Report Generated successfully !!")
+        return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
     return redirect('reports_manager:add-report')
