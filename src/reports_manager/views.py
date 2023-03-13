@@ -21,7 +21,7 @@ def manage_report(request):
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
         if template_name == "Notice letter":
-            return add_notice_letter(request)
+            return submit_notice_letter(request)
 
     context = {
         # "reports": GeneratedReport.objects.all(),
@@ -78,6 +78,7 @@ def add_notice_letter(request):
 
 
 def submit_notice_letter(request):
+
     if request.method == "POST":
         template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
@@ -113,3 +114,5 @@ def submit_notice_letter(request):
         return redirect('reports_manager:manage-report')
 
     return render(request, "reports_manager/add_notice_letter.html", {})
+
+
