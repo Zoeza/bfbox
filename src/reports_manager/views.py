@@ -15,6 +15,7 @@ def manage_report(request):
 
 
 def add_report(request):
+    global url
     if request.method == 'POST':
         template_selected = request.POST.get('template_name')
         if template_selected == "Notice letter":
