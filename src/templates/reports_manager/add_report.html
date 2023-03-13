@@ -68,7 +68,7 @@
                        </div>
                        <!--end::Nav-->
                        <!--begin::Form-->
-                       <form action="{% url 'reports_manager:manage-report' %}"class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form" method="post">
+                       <form action="{% url 'reports_manager:manage-report' %}" class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form" method="post">
                            {% csrf_token %}
                            <!--begin::Step 1-->
                            <div class="current" data-kt-stepper-element="content">
@@ -310,7 +310,7 @@
                                <!--end::Wrapper-->
                                <!--begin::Wrapper-->
                                <div>
-                                    <button type="button" class="btn btn-primary hover-scale " data-kt-stepper-action="submit">
+                                    <button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
                                      Generate the report
                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                        <!--end::Svg Icon-->
