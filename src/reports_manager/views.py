@@ -37,8 +37,7 @@ def submit_notice_letter(request):
         template_path = template.template.path
 
         report = DocxTemplate(template_path)
-        notice_letter = GeneratedReport(filename='hello',)
-        notice_letter.save()
+        notice_letter = GeneratedReport()
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
             'bailiff_name': request.POST.get('bailiff_name'),
