@@ -42,7 +42,7 @@ def add_notice_letter(request):
         notice_letter.filename = 'notice letter'
         # notice_letter.client = request.POST.get('court_case_applicants')
         # notice_letter.lawyer = request.POST.get('court_case_lawyer')
-        # notice_letter.save()
+        notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
 
         return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
