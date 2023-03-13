@@ -17,17 +17,17 @@ from docxtpl import DocxTemplate
 
 def manage_report(request):
     templates = UploadTemplate.objects.all()
+    url = "reports_manager/manage_report.html"
 
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
-        if template_name == "Notice letter":
-            return submit_notice_letter(request)
+        url = report_actions.add_report(request, template_name).get(url)
 
     context = {
         # "reports": GeneratedReport.objects.all(),
         "templates": templates,
     }
-    return render(request, "reports_manager/manage_report.html", context)
+    return render(request, url, context)
 
 
 def add_report(request):
@@ -73,12 +73,7 @@ def download_report(request, id):
     return FileResponse(report.file, as_attachment=True)
 
 
-def add_notice_letter(request):
-    return render(request, "reports_manager/add_notice_letter.html", {})
-
-
 def submit_notice_letter(request):
-
     if request.method == "POST":
         template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
@@ -112,7 +107,3 @@ def submit_notice_letter(request):
         # return FileResponse(notice_letter.file, as_attachment=True)
         messages.success(request, " New Report Generated successfully !!")
         return redirect('reports_manager:manage-report')
-
-    return render(request, "reports_manager/add_notice_letter.html", {})
-
-

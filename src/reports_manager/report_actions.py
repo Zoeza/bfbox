@@ -50,5 +50,8 @@ def add_notice_letter1(request):
     return render(request, "reports_manager/add_notice_letter.html", {'template_name': template_name})
 
 
-def add_notice_letter(request):
-    return render(request, "reports_manager/add_notice_letter.html", {})
+def add_report(request, template_name):
+    if template_name == 'Notice letter':
+        url = "reports_manager/add_notice_letter.html"
+
+    return {url: 'url', }
