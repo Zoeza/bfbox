@@ -1,6 +1,7 @@
 import io
 import os
 
+from django.http import FileResponse
 from django.shortcuts import render, redirect
 from templates_manager.models import UploadTemplate
 from .models import GeneratedReport
@@ -42,6 +43,8 @@ def add_notice_letter(request, template_name):
         notice_letter.lawyer = request.POST.get('court_case_lawyer')
         notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
-        return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
+        return FileResponse(report_io, as_attachment=True, filename=f'reporting_generated.docx')
+
+        # return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
     return render(request, "reports_manager/add_report.html", {'template_name': template_name})
