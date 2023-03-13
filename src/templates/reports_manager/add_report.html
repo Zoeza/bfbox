@@ -71,6 +71,7 @@
                        <form action="{% url 'reports_manager:submit-notice-letter' %}" class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_account_form" method="post">
                            <!--begin::Step 1-->
                            <div class="current" data-kt-stepper-element="content">
+                                {% csrf_token %}
                                <!--begin::Wrapper-->
                                <div class="w-100">
                                    <!--begin::Heading-->
@@ -195,9 +196,12 @@
                                </div>
                                <!--end::Wrapper-->
                            </div>
+
+
                            <!--end::Step 2-->
                            <!--begin::Step 2-->
                            <div data-kt-stepper-element="content">
+                                {% csrf_token %}
                                <!--begin::Wrapper-->
                                <div class="w-100">
                                    <!--begin::Heading-->
@@ -243,10 +247,14 @@
                                </div>
                                <!--end::Wrapper-->
                            </div>
+
+
                            <!--end::Step 2-->
 
                            <!--begin::Step 3-->
                            <div data-kt-stepper-element="content">
+                               {% csrf_token %}
+
                                <!--begin::Wrapper-->
                                <div class="w-100">
                                    <!--begin::Heading-->
