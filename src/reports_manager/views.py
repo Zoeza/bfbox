@@ -108,4 +108,4 @@ def add_notice_letter(request):
         messages.success(request, " New Report Generated successfully !!")
         return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
 
-    return render(request, "reports_manager/add_notice_letter.html", {})
+    return render(request, "reports_manager/manage_report.html", {})
