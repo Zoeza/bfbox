@@ -32,12 +32,13 @@ def manage_report(request):
 
 
 def submit_notice_letter(request):
-    if not request.method == "POST":
+    if request.method == "POST":
         template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
 
         report = DocxTemplate(template_path)
-        notice_letter = GeneratedReport()
+        notice_letter = GeneratedReport(filename='hello',)
+        notice_letter.save()
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
             'bailiff_name': request.POST.get('bailiff_name'),
