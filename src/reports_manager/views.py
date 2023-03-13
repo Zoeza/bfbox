@@ -9,7 +9,6 @@ from clients.functions import serial_number_generator
 
 
 def manage_report(request):
-
     templates = UploadTemplate.objects.all()
 
     if request.method == 'POST':
@@ -21,7 +20,7 @@ def manage_report(request):
         # "reports": GeneratedReport.objects.all(),
         "templates": templates,
     }
-    return render(request,"reports_manager/manage_report.html", context)
+    return render(request, "reports_manager/manage_report.html", context)
 
 
 def add_report(request):
@@ -31,3 +30,8 @@ def add_report(request):
             url = report_actions.add_notice_letter(request).get('url')
 
         return render(request, url, {'template_name': template_name})
+
+
+def download_report(request, id):
+    report = GeneratedReport.objects.get(id=id)
+    return FileResponse(report.file, as_attachment=True)
