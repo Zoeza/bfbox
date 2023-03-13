@@ -24,7 +24,7 @@ def manage_report(request):
         url = report_actions.add_report(request, template_name).get('url')
 
     context = {
-        "reports": GeneratedReport.objects.all(),
+        # "reports": GeneratedReport.objects.all(),
         "templates": templates,
     }
     return render(request, url, context)
