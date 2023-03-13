@@ -10,9 +10,9 @@ from django.contrib import messages
 from docxtpl import DocxTemplate
 
 
-def add_notice_letter(request, template_name):
+def add_notice_letter(request):
     if request.method == 'POST':
-        template = UploadTemplate.objects.get(name=template_name)
+        template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
         report = DocxTemplate(template_path)
         notice_letter = GeneratedReport()
@@ -39,7 +39,7 @@ def add_notice_letter(request, template_name):
         # return FileResponse(report_io, as_attachment=True, filename=f'notice_letter.docx')
 
         notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-        notice_letter.filename = template_name
+        notice_letter.filename = 'notice letter'
         # notice_letter.client = request.POST.get('court_case_applicants')
         # notice_letter.lawyer = request.POST.get('court_case_lawyer')
         # notice_letter.save()
