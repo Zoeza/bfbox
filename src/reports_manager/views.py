@@ -106,6 +106,6 @@ def add_notice_letter(request):
         notice_letter.save()
         # return FileResponse(notice_letter.file, as_attachment=True)
         messages.success(request, " New Report Generated successfully !!")
-        return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
+        return redirect('reports_manager:manage-report')
 
     return render(request, "reports_manager/add_notice_letter.html", {})
