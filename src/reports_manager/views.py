@@ -10,10 +10,18 @@ from clients.functions import serial_number_generator
 
 def manage_report(request):
     url = "reports_manager/manage_report.html"
+    templates = UploadTemplate.objects.all()
+
+    if request.method == 'POST':
+        template_name = request.POST.get('template_name')
+        if template_name == "Notice letter":
+            url = report_actions.add_notice_letter(request, template_name).get('url')
+
     context = {
         # "reports": GeneratedReport.objects.all(),
-        "templates": UploadTemplate.objects.all(),
+        "templates": templates,
     }
+
     return render(request, url, context)
 
 
