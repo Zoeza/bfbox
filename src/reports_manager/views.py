@@ -16,13 +16,11 @@ def manage_report(request):
         template_name = request.POST.get('template_name')
         if template_name == "Notice letter":
             url = report_actions.add_notice_letter(request).get('url')
-
+            
     context = {
         # "reports": GeneratedReport.objects.all(),
         "templates": templates,
-        "template_name": template_name,
     }
-
     return render(request, url, context)
 
 
