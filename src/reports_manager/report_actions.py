@@ -10,9 +10,9 @@ from django.contrib import messages
 from docxtpl import DocxTemplate
 
 
-def add_notice_letter1(request):
+def add_report_1(request, template_name):
     if request.method == 'POST':
-        template = UploadTemplate.objects.get(name="Notice letter")
+        template = UploadTemplate.objects.get(name=template_name)
         template_path = template.template.path
         report = DocxTemplate(template_path)
         notice_letter = GeneratedReport()
@@ -45,9 +45,9 @@ def add_notice_letter1(request):
         notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
 
-        return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
+        return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
-    return render(request, "reports_manager/add_notice_letter.html", {'template_name': template_name})
+    return render(request, "reports_manager/add_report.html", {'template_name': template_name})
 
 
 def add_report(request, template_name):

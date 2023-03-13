@@ -21,7 +21,9 @@ def manage_report(request):
 
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
-        url = report_actions.add_report(request, template_name).get('url')
+        # url = report_actions.add_report(request, template_name).get('url')
+        if template_name == 'Notice letter':
+            return report_actions.add_report_1(request, template_name)
 
     context = {
         "reports": GeneratedReport.objects.all(),
