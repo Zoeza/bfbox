@@ -96,7 +96,6 @@ def submit_notice_letter(request):
             'court_case_agent': request.POST.get('court_case_agent'),
             'court_case_defendants': request.POST.get('court_case_defendants'),
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
-
         }
 
         report.render(context)

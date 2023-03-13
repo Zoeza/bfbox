@@ -1,0 +1,240 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+<!------------------------------- title ---------------------------------------------------->
+
+{% block title %}
+<title>
+
+         BFBOX - Bailiff Manager System
+
+</title>
+{% endblock %}
+<!------------------------------- end title ------------------------------------------------>
+
+{% block heading%}
+<!--begin::Heading-->
+    <h1 class="text-dark fw-bold my-1 fs-2">Report Manager
+    <small class="text-muted fs-6 fw-normal ms-1"></small></h1>
+    <!--end::Heading-->
+{% endblock %}
+
+{% block breadcrumb%}
+    <!--begin::Breadcrumb-->
+    <ul class="breadcrumb fw-semibold fs-base my-1">
+        <li class="breadcrumb-item text-muted">
+            <a href="../index.html" class="text-muted">Home</a>
+        </li>
+        <li class="breadcrumb-item text-muted"> Report Manager </li>
+		<li class="breadcrumb-item text-muted">Add notice letter </li>
+
+
+
+    </ul>
+    <!--end::Breadcrumb-->
+{% endblock %}
+
+
+
+<!-------------------------------  update client  --------------------------------------------->
+
+{% block content %}
+
+<div id="kt_app_content" class="app-content  flex-column-fluid " >
+	<!--begin::Content container-->
+	<div id="kt_app_content_container" class="app-container  container-xxl ">
+
+		<!--begin edit client-->
+			<div class="row g-7">
+				<div class="col-xl-8">
+
+					<div class="card card-flush h-lg-100" id="kt_contacts_main">
+						<!--begin::Card header-->
+						<div class="card-header pt-7" id="kt_chat_contacts_header">
+							<!--begin::Card title-->
+							<div class="card-title">
+
+								<h2>Add notice letter</h2>
+							</div>
+							<!--end::Card title-->
+
+						</div>
+						<!--end::Card header-->
+
+
+						<!--begin::Card body-->
+						<div class="card-body pt-5">
+							<!--begin::Separator-->
+								<div class="separator mb-6"></div>
+							<!--end::Separator-->
+
+							<!--begin::Form-->
+							<form class="form" action="{% url 'reports_manager:submit-notice-letter' %}" method="post">
+								 {% csrf_token %}
+								<!--begin::Input group-->
+									<!--begin::Row-->
+								<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-7">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold form-label mt-3">
+												<span>Client Name</span>
+
+												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's name."></i>
+											</label>
+											<!--end::Label-->
+
+											<!--begin::Input-->
+											<input type="text" class="form-control form-control-solid" id="name" name="name" placeholder="{{selected_client.name}}" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-7">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold form-label mt-3">
+												<span class="required">Email</span>
+
+												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's email."></i>
+											</label>
+											<!--end::Label-->
+
+											<!--begin::Input-->
+											<input type="email" class="form-control form-control-solid" id="email" name="email"  placeholder="{{selected_client.email}}" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+
+
+								</div>
+								<!--end::Row-->
+								<!--end::Input group-->
+
+								<!--begin::Input group-->
+								<div class="fv-row mb-7">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold form-label mt-3">
+										<span>Client Birthday</span>
+
+										<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the client's birthday."></i>
+									</label>
+									<!--end::Label-->
+
+									<!--begin::Input-->
+									<input type="date" class="form-control form-control-solid" id="birthday" name="birthday"  placeholder="{{selected_client.birthday}}" />
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+
+								<!--begin::Input group-->
+								<div class="fv-row mb-7">
+									<!--begin::Label-->
+									<label class="fs-6 fw-semibold form-label mt-3">
+										<span>Lawyer Name</span>
+
+										<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Enter the client's lawyer name."></i>
+									</label>
+									<!--end::Label-->
+
+									<!--begin::Input-->
+									<input type="text" class="form-control form-control-solid" id="lawyer" name="lawyer"  placeholder="{{selected_client.lawyer}}" />
+									<!--end::Input-->
+								</div>
+								<!--end::Input group-->
+
+								<!--begin::Row-->
+								<div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-7">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold form-label mt-3">
+												<span>Address</span>
+
+												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's address."></i>
+											</label>
+											<!--end::Label-->
+
+											<!--begin::Input-->
+											<input class="form-control form-control-solid" id="address" name="address" placeholder="{{selected_client.address}}"  />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+
+									<!--begin::Col-->
+									<div class="col">
+										<!--begin::Input group-->
+										<div class="fv-row mb-7">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold form-label mt-3">
+												<span>Town</span>
+
+												<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Edit the client's city of residence."></i>
+											</label>
+											<!--end::Label-->
+
+											<!--begin::Input-->
+											<input type="text" class="form-control form-control-solid" id="town" name="town" placeholder="{{selected_client.town}}"  />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+									</div>
+									<!--end::Col-->
+
+
+								</div>
+								<!--end::Row-->
+
+								<!--begin::Separator-->
+								<div class="separator mb-6"></div>
+								<!--end::Separator-->
+
+								<!--begin::Action buttons-->
+								<div class="d-flex justify-content-end">
+									<!--begin::Button-->
+									<!--end::Button-->
+
+									<!--begin::Button-->
+									<button type="submit"  class="btn btn-primary">
+										<span class="indicator-label">
+											Save
+										</span>
+
+									</button>
+									<!--end::Button-->
+								</div>
+								<!--end::Action buttons-->
+							</form>
+							<!--end::Form-->
+						</div>
+						<!--end::Card body-->
+					</div>
+
+
+				</div>
+			</div>
+		<!--end edit client-->
+	</div>
+	<!--end::Content container-->
+</div>
+<!--end::Content-->
+
+
+
+{% endblock %}
+
+
+<!------------------------------- end update client  --------------------------------------------->
