@@ -51,4 +51,4 @@ def add_notice_letter1(request):
 
 
 def add_notice_letter(request):
-    return render(request, "reports_manager/add_notice_letter.html", {})
+    return render(request, "reports_manager/add_report.html", {})
