@@ -99,8 +99,8 @@ def add_notice_letter(request):
         report.save(report_io)  # save data to file-like object
         report_io.seek(0)  # go to the beginning of the file-like object
 
-        notice_letter.file.save('record_reporting.docx', ContentFile(report_io.read()))
-        notice_letter.filename = 'notice letter'
+        notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
+        notice_letter.filename = request.POST.get('court_case_num')
         notice_letter.client = request.POST.get('court_case_applicants')
         notice_letter.lawyer = request.POST.get('court_case_lawyer')
         notice_letter.save()
