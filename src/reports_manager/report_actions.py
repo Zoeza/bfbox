@@ -10,7 +10,7 @@ from django.contrib import messages
 from docxtpl import DocxTemplate
 
 
-def add_notice_letter(request):
+def add_notice_letter1(request):
     if request.method == 'POST':
         template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
@@ -48,3 +48,7 @@ def add_notice_letter(request):
         return render(request, "reports_manager/add_notice_letter.html", {'sku': notice_letter.id})
 
     return render(request, "reports_manager/add_notice_letter.html", {'template_name': template_name})
+
+
+def add_notice_letter(request):
+    return render(request, "reports_manager/add_notice_letter.html", {})

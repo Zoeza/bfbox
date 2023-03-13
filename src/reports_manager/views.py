@@ -73,7 +73,7 @@ def download_report(request, id):
     return FileResponse(report.file, as_attachment=True)
 
 
-def add_notice_letter(request):
+def submit_notice_letter(request):
     if request.method == "POST":
         template = UploadTemplate.objects.get(name="Notice letter")
         template_path = template.template.path
