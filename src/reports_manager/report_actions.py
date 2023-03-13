@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from templates_manager.models import UploadTemplate
+from docxtpl import DocxTemplate
 
 
 def add_notice_letter(request):

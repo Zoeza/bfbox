@@ -24,7 +24,6 @@ def add_client(request):
                sku=sku,
                lawyer=lawyer,
                ).save()
-    return redirect('clients:manage-client')
 
 
 # ------------------ end add client ---------------------- #
