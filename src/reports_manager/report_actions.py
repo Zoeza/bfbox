@@ -3,5 +3,5 @@ from templates_manager.models import UploadTemplate
 
 
 def add_notice_letter(request):
-    return render(request, "reports_manager/add_report.html", {})
-
+    url = "reports_manager/add_report.html"
+    return {'url': url, }
