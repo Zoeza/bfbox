@@ -39,7 +39,7 @@ def add_notice_letter(request, template_name):
         # return FileResponse(report_io, as_attachment=True, filename=f'notice_letter.docx')
 
         notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-        notice_letter.filename = 'template_name'
+        notice_letter.filename = template_name
         # notice_letter.client = request.POST.get('court_case_applicants')
         # notice_letter.lawyer = request.POST.get('court_case_lawyer')
         # notice_letter.save()
