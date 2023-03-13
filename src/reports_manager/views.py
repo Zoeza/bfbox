@@ -66,7 +66,7 @@ def add_report(request):
         messages.success(request, " New Report Generated successfully !!")
         return render(request, "reports_manager/add_report.html", {'sku': notice_letter.id})
 
-    return redirect('reports-manager:add-report')
+    return redirect('reports_manager:add-report')
 
 
 def download_report(request, id):
