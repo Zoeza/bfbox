@@ -169,7 +169,8 @@
     <!--end::Nav-->
 
     <!--begin::Form-->
-    <form class="form w-lg-500px mx-auto" novalidate="novalidate" id="kt_stepper_example_basic_form">
+    <form action="{% url 'reports_manager:submit-notice-letter' %}" class="form w-lg-500px mx-auto" novalidate="novalidate" id="kt_stepper_example_basic_form" method="post">
+        {% csrf_token %}
         <!--begin::Group-->
         <div class="mb-5">
             <!--begin::Step 1-->
