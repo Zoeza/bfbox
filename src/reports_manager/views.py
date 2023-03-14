@@ -22,7 +22,7 @@ def manage_report(request):
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
         if template_name == 'Notice letter':
-            url = "reports_manager/notice_letter.html"
+            url = "reports_manager/add_report.html"
 
     context = {
         "reports": GeneratedReport.objects.all(),
@@ -64,7 +64,7 @@ def submit_notice_letter(request):
         notice_letter.save()
         # return FileResponse(notice_letter.file, as_attachment=True)
         messages.success(request, " New Report Generated successfully !!")
-    #  return redirect('reports_manager:manage-report')
+        return redirect('reports_manager:manage-report')
     return render(request, "reports_manager/add_report.html", {})
 
 
