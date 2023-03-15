@@ -94,6 +94,20 @@
             <!--begin::Card header-->
             <div class="card-header pt-2">
                 <div class="card-title">
+                    {% if templates.count %}
+                    <!--templates count message-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        You have {{ templates.count }} registered products ,to add more click on upload template
+                    </div>
+                    <!--end templates count message-->
+                    {% else %}
+                    <!--no products message-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        No registered templates ,to start click on Upload templates
+                    </div>
+                    <!--end no products message-->
+                    {% endif %}
+
                     <!--begin::Search-->
                     <div class="d-flex align-items-center position-relative my-1">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
