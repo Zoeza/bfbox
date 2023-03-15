@@ -70,7 +70,7 @@
                        </div>
                        <!--end::Nav-->
                        <!--begin::Form-->
-                       <form action="{% url 'reports_manager:submit-notice-letter' %}" class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_report_form">
+                       <form action="{% url 'reports_manager:submit-notice-letter' %}" class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_report_form" method="post">
                            <!--begin::Step 1-->
                            <div class="current" data-kt-stepper-element="content">
                                <!--begin::Wrapper-->
@@ -297,7 +297,7 @@
                            <div class="d-flex flex-stack pt-15">
                                <!--begin::Wrapper-->
                                <div class="mr-2">
-                                   <button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+                                   <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous">
                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
                                        <span class="svg-icon svg-icon-4 me-1">
                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -311,12 +311,19 @@
                                <!--end::Wrapper-->
                                <!--begin::Wrapper-->
                                <div>
-                                    <button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
-                                     Generate the report
+                                     <button type="sumbit" class="btn btn-primary" data-kt-stepper-action="submit">
+                                         <span class="indicator-label">
+                                         Generate the report
+                                         </span>
+                                        <span class="indicator-progress">
+                                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                     </button>
+
                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                        <!--end::Svg Icon-->
                                     </button>
-                                   <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue
+                                   <button type="next" class="btn btn-primary" data-kt-stepper-action="next">Continue
                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                        <span class="svg-icon svg-icon-4 ms-1 me-0">
                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
