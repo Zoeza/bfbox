@@ -86,9 +86,10 @@
         </div>
         <!--end::Card-->
         <!--begin::Card-->
-        <div class="card card-flush">
+        <div class="card card-boarded">
             <!--begin::Card header-->
-            <div class="card-header pt-8">
+            <div class="card-header pt-2">
+                {% if reports_list.count %}
                 <div class="card-title">
                     <!--begin::Search-->
                     <div class="d-flex align-items-center position-relative my-1">
@@ -104,32 +105,28 @@
                     </div>
                     <!--end::Search-->
                 </div>
+                {% else %}
+                <!--no reports message-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        No registered reports ,to start click on Add report
+                    </div>
+                <!--end no reports message-->
+                {% endif %}
+
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
                     <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-filemanager-table-toolbar="base">
-                        <!--begin::Back to folders-->
-
-                        <!--end::Back to folders-->
-
                         <!--begin::Add report-->
-
                         <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_add_new_report">
                             <span class="svg-icon svg-icon-3">
                             <i class="bi bi-file-earmark-plus" style="font-size: 2rem;"></i>
                              </span> Add report
                         </button>
-
                         <!--end::Add report-->
                     </div>
                     <!--end::Toolbar-->
-                    <!--begin::Group actions-->
-                    <div class="d-flex justify-content-end align-items-center d-none" data-kt-filemanager-table-toolbar="selected">
-                        <div class="fw-bold me-5">
-                        <span class="me-2" data-kt-filemanager-table-select="selected_count"></span>Selected</div>
-                        <button type="button" class="btn btn-danger" data-kt-filemanager-table-select="delete_selected">Delete Selected</button>
-                    </div>
-                    <!--end::Group actions-->
+
                 </div>
                 <!--end::Card toolbar-->
             </div>
@@ -139,6 +136,7 @@
             <div class="card-body">
                 <!--begin template table-->
                  <div class="table-responsive">
+                     {% if reports_list.count%}
                      <table id="kt_file_manager_list" data-kt-filemanager-table="files" class="table table-row-bordered gy-7 gs-7">
                         <!--begin::Table head-->
                         <thead>
@@ -155,7 +153,7 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                        {% for template in templates %}
+                        {% for report in reports_list %}
                             <tr>
                                 <!--begin template title=-->
                                 <td>
@@ -165,14 +163,12 @@
                                            <i class="bi bi-filetype-doc" style="font-size: 1.8rem;"></i>
                                         </span>
                                         <!--end::Svg Icon-->
-                                        {{ template.name}}
-
                                     </div>
                                 </td>
 
                                 <!--end template title=-->
                                 <!--begin template last modified-->
-                                <td>{{template.last_modified}}</td>
+                                <td></td>
                                 <!--end template last modified-->
 
                                 <!--begin template actions-->
@@ -219,11 +215,10 @@
                             </tr>
                         {% endfor%}
 
-
-
                         </tbody>
                         <!--end::Table body-->
                     </table>
+                     {% endif %}
                  </div>
                 <!--end template table-->
 
@@ -300,11 +295,14 @@
                                         <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
                                             <option disabled="true" selected>-- Select template --</option>
 
-                                            {% for template in templates %}
+                                            {% if templates.count %}
 
-                                            <option>{{template.name}}</option>
-                                            {% endfor %}
+                                                 {% for template in templates %}
 
+                                                <option>{{template.name}}</option>
+                                                {% endfor %}
+
+                                            {% endif %}
 
                                         </select>
                                         <!--end::Input-->
