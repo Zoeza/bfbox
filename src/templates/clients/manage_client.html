@@ -42,6 +42,7 @@
         <div class="card card-bordered">
             <!--begin::Card header-->
             <div class="card-header ">
+                {% if clients.count %}
                 <!--begin::Card title-->
                 <div class="card-title">
                     <!--begin::Search-->
@@ -59,6 +60,13 @@
                     <!--end::Search-->
                 </div>
                 <!--begin::Card title-->
+                {% else %}
+                 <!--no products message-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        No registered clients ,to start click on Add client
+                    </div>
+                    <!--end no products message-->
+                {% endif %}
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
                     <!--begin::Toolbar-->
@@ -83,6 +91,7 @@
             <div class="card-body">
                 <!--client table-->
                 <div class="table-responsive">
+                     {% if clients.count %}
                     <table class="table table-row-bordered gy-7 gs-7">
                     <!--begin::Table head-->
                     <thead>
@@ -155,6 +164,7 @@
                     </tbody>
                     <!--end::Table body-->
                      </table>
+                    {% endif %}
                 </div>
                 <!--end::Table-->
             </div>
