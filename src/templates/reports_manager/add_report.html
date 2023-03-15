@@ -46,15 +46,35 @@
                <!--begin::Card body-->
                <div class="card-body">
                    <!--begin::Stepper-->
-                   <div class="stepper stepper-links d-flex flex-column pt-20" id="kt_create_account_stepper">
+                   <div class="stepper stepper-pills" id="kt_stepper_example_basic">
                        <!--begin::Nav-->
                        <div class="stepper-nav flex-center flex-wrap mb-10">
 
                            <!--begin::Step 1-->
-                           <div class="stepper-item current" data-kt-stepper-element="nav">
+                           <div class="stepper-item mx-8 my-4 current" data-kt-stepper-element="nav">
                                <h1 class="stepper-title">Report Information</h1>
                            </div>
+                           <!--begin::Wrapper-->
+                            <div class="stepper-wrapper d-flex align-items-center">
+                                <!--begin::Icon-->
+                                <div class="stepper-icon w-40px h-40px">
+                                    <i class="stepper-check fas fa-check"></i>
+                                    <span class="stepper-number">1</span>
+                                </div>
+                                <!--end::Icon-->
+
+                                <!--begin::Label-->
+                                <div class="stepper-label">
+                                    <h3 class="stepper-title">
+                                        Report Information
+                                    </h3>
+
+                                </div>
+                                <!--end::Label-->
+                            </div>
+                            <!--end::Wrapper-->
                            <!--end::Step 1-->
+
                            <!--begin::Step 2-->
                            <div class="stepper-item" data-kt-stepper-element="nav">
                                <h1 class="stepper-title">Client Information</h1>
