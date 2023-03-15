@@ -58,7 +58,7 @@ def submit_notice_letter(request):
         report_io.seek(0)  # go to the beginning of the file-like object
 
         notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-        notice_letter.filename = 'name'
+        notice_letter.filename = request.POST.get('bailiff_name')
         # notice_letter.client = request.POST.get('court_case_applicants')
         # notice_letter.lawyer = request.POST.get('court_case_lawyer')
         notice_letter.save()
