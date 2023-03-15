@@ -1,4 +1,20 @@
 "use strict";
+// Stepper element
+var element = document.querySelector("#kt_stepper_example_basic");
+
+// Initialize Stepper
+var stepper = new KTStepper(element);
+
+// Handle next step
+stepper.on("kt.stepper.next", function (stepper) {
+    stepper.goNext(); // go next step
+});
+
+// Handle previous step
+stepper.on("kt.stepper.previous", function (stepper) {
+    stepper.goPrevious(); // go previous step
+});
+
 
 // Class definition
 var KTBlockUI = function(element, options) {
@@ -7774,20 +7790,4 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTLayoutHeader;
 }
 
-
-// Stepper element
-var element = document.querySelector("#kt_stepper_example_basic");
-
-// Initialize Stepper
-var stepper = new KTStepper(element);
-
-// Handle next step
-stepper.on("kt.stepper.next", function (stepper) {
-    stepper.goNext(); // go next step
-});
-
-// Handle previous step
-stepper.on("kt.stepper.previous", function (stepper) {
-    stepper.goPrevious(); // go previous step
-});
 
