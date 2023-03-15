@@ -50,7 +50,6 @@
                <div class="stepper stepper-pills" id="kt_stepper_example_basic">
                    <!--begin::Nav-->
                    <div class="stepper-nav flex-center flex-wrap mb-10">
-
                        <!--begin::Step 1-->
                        <div class="stepper-item mx-8 my-4 current" data-kt-stepper-element="nav">
                            <!--begin::Wrapper-->
@@ -138,10 +137,9 @@
                    </div>
                    <!--end::Nav-->
                    <!--begin::Form-->
-                   <form action="{% url 'reports_manager:submit-notice-letter' %}" class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_report_form" method="post">
+                   <form action="{% url 'reports_manager:submit-notice-letter' %}" class="mx-auto mw-600px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_notice_letter_form" method="post">
                       {% csrf_token %}
-                       <div class="mb-3">
-
+                       <div class="mb-5">
                         <!--begin::Step 1-->
                            <div class="current" data-kt-stepper-element="content">
                                <!--begin::Wrapper-->
