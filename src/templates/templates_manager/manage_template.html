@@ -94,19 +94,12 @@
             <!--begin::Card header-->
             <div class="card-header pt-2">
                 {% if templates.count %}
-                    <!--templates count message-->
-                    <div class="d-flex align-items-center position-relative my-1">
-                        You have {{ templates.count }} uploaded templates ,to add more click on upload template
-                    </div>
-                    <!--end templates count message-->
-                    {% else %}
-                        <!--no products message-->
-                        <div class="d-flex align-items-center position-relative my-1">
-                            No registered templates ,to start click on Upload template
-                        </div>
-                    <!--end no products message-->
-                {% endif %}
-                <div class="card-title">
+                <!--templates count message-->
+                <div class="d-flex align-items-center position-relative my-1">
+                    You have {{ templates.count }} uploaded templates ,to add more click on upload template
+                </div>
+                <!--end templates count message-->
+                 <div class="card-title">
                     <!--begin::Search-->
                     <div class="d-flex align-items-center position-relative my-1">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
@@ -121,6 +114,14 @@
                     </div>
                     <!--end::Search-->
                 </div>
+                {% else %}
+                    <!--no products message-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        No registered templates ,to start click on Upload template
+                    </div>
+                <!--end no products message-->
+                {% endif %}
+
 
 
                 <!--begin::Card toolbar-->
