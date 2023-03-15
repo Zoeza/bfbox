@@ -1,4 +1,5 @@
-// Stepper lement
+"use strict";
+// Stepper element
 var element = document.querySelector("#kt_stepper_example_basic");
 
 // Initialize Stepper

@@ -4801,26 +4801,10 @@
 		<script src="{% static 'dashboard/assets/js/custom/authentication/sign-up/general.js' %}"></script>
 		<script src="{% static 'dashboard/assets/js/custom/apps/file-manager/list.js' %}"></script>
 		<script src="{% static 'dashboard/assets/js/custom/apps/file-manager/settings.js' %}"></script>
-		<script>
-			// Stepper element
-		var element = document.querySelector("#kt_stepper_example_basic");
-
-		// Initialize Stepper
-		var stepper = new KTStepper(element);
-
-		// Handle next step
-		stepper.on("kt.stepper.next", function (stepper) {
-			stepper.goNext(); // go next step
-		});
-
-		// Handle previous step
-		stepper.on("kt.stepper.previous", function (stepper) {
-			stepper.goPrevious(); // go previous step
-		});
+		<script src="{% static 'dashboard/assets/js/stepper.js' %}"></script>
 
 
-
-		</script>
+		
 
 
 
