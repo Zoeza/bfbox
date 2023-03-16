@@ -7,7 +7,7 @@ class GeneratedReport(models.Model):
     client = models.CharField(max_length=255)
     lawyer = models.CharField(max_length=255)
     sku = models.CharField(max_length=20, unique=True, null=True)
-    number = models.PositiveIntegerField()
+    number = models.PositiveIntegerField(null=True, blank=True)
     file = models.FileField(upload_to='', null=True)
     last_modified = models.DateTimeField(auto_now_add=True, null=True)
 
