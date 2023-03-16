@@ -134,7 +134,7 @@
 
     <!---------------------------------------  report  listing --------------------------------------------------->
             <div class="card-body">
-                <!--begin template table-->
+                <!--begin report table-->
                  <div class="table-responsive">
                      {% if reports_list.count%}
                      <table id="kt_file_manager_list" data-kt-filemanager-table="files" class="table table-row-bordered gy-7 gs-7">
@@ -143,10 +143,11 @@
                             <!--begin::Table row-->
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
 
-                                <th class="min-w-250px"> Name</th>
+                                <th class="min-w-125px">Report Name</th>
+                                <th class="min-w-125px">Report Num</th>
+                                <th class="min-w-125px"> File</th>
                                 <th class="min-w-125px">Last Modified</th>
                                 <th class="text-end min-w-125px">Actions</th>
-
                             </tr>
                             <!--end::Table row-->
                         </thead>
@@ -155,7 +156,7 @@
                         <tbody class="fw-semibold text-gray-600">
                             {% for report in reports_list %}
                                 <tr>
-                                    <!--begin template title=-->
+                                    <!--begin report title=-->
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <!--begin::Svg Icon | path: icons/duotune/files/fil003.svg-->
@@ -163,15 +164,25 @@
                                                <i class="bi bi-filetype-doc" style="font-size: 1.8rem;"></i>
                                             </span>
                                             <!--end::Svg Icon-->
+                                            {{ report.filename}}
                                         </div>
                                     </td>
+                                    <!--end report title=-->
 
-                                    <!--end template title=-->
-                                    <!--begin template last modified-->
-                                    <td></td>
-                                    <!--end template last modified-->
+                                    <!--begin report number -->
+                                    <td>{{report.num}}</td>
+                                    <!--end report number -->
 
-                                    <!--begin template actions-->
+                                    <!--begin report file -->
+                                    <td>{{report.file}}</td>
+                                    <!--end report file -->
+
+
+                                    <!--begin report last modified-->
+                                    <td>{{report.last_modified}}</td>
+                                    <!--end report last modified-->
+
+                                    <!--begin report actions-->
                                     <td class="text-end" data-kt-filemanager-table="action_dropdown">
                                         <div class="d-flex justify-content-end">
                                             <!--begin::More-->
@@ -211,7 +222,7 @@
                                             <!--end::More-->
                                         </div>
                                     </td>
-                                    <!--end template actions-->
+                                    <!--end report actions-->
                                 </tr>
                             {% endfor%}
 
@@ -220,7 +231,7 @@
                     </table>
                      {% endif %}
                  </div>
-                <!--end template table-->
+                <!--end report table-->
 
             </div>
             <!--principle card footer-->
@@ -233,7 +244,7 @@
    <!---------------------------------------- end  report  listing ---------------------------------------------->
 
 
-   <!------------------------------------------ action report --------------------------------------------------->
+   <!------------------------------------------  report actions --------------------------------------------------->
 
     <div class="d-none" data-kt-filemanager-template="action">
         <div class="d-flex justify-content-end">
@@ -257,13 +268,12 @@
         </div>
     </div>
 
-    <!-------------------------------------- end action report -------------------------------------------------->
+    <!-------------------------------------- end  report actions -------------------------------------------------->
 
 
-    <!------------------------------------  report adding ---------------------------------------------------->
-
+    <!------------------------------------  choose report type ---------------------------------------------------->
         <!--add new report modal-->
-        <div class="modal fade" tabindex="-1" id="kt_add_new_report" aria-hidden="true">
+        <div class="modal fade" tabindex="-1" id="kt_choose_report_type" aria-hidden="true">
             <!--begin::Modal dialog-->
               <div class="modal-dialog modal-dialog-centered mw-650px">
                   <div class="modal-content shadow-none">
@@ -276,8 +286,8 @@
                             <!--end::Close-->
                         </div>
 
-                        <div class="modal-body">
 
+                        <div class="modal-body">
                             <!--begin::Form-->
                             <form class="form" action="{% url 'reports_manager:manage-report' %}" novalidate="novalidate" id="kt_add_new_report_form" method="post">
                                 {% csrf_token %}
@@ -331,7 +341,7 @@
         </div>
         <!--end add new report modal-->
 
-    <!---------------------------------- end report  adding --------------------------------------------------->
+    <!---------------------------------- end  choose report type  --------------------------------------------------->
 
     </div>
     <!--end::Container-->

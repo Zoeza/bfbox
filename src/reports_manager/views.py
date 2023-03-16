@@ -58,16 +58,15 @@ def submit_notice_letter(request):
         report_io.seek(0)  # go to the beginning of the file-like object
 
         notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-        notice_letter.filename = request.POST.get('court_case_num')
-        notice_letter.client = request.POST.get('court_case_applicants')
-        notice_letter.lawyer = request.POST.get('court_case_lawyer')
+        notice_letter.filename = 'Notice letter'
+        notice_letter.num = request.POST.get('court_case_num')
+        notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
-        # return FileResponse(notice_letter.file, as_attachment=True)
         messages.success(request, " New Report Generated successfully !!")
         return redirect('reports_manager:manage-report')
     return render(request, "reports_manager/add_report.html", {})
 
 
-def download_report(request, id):
-    report = GeneratedReport.objects.get(id=id)
+def download_report(request, sku):
+    report = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report.file, as_attachment=True)

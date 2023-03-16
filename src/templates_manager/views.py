@@ -15,10 +15,7 @@ def manage_template(request):
     return render(request, "templates_manager/manage_template.html", context)
 
 
-# ------------------ end manage template ------------------------ #
-
-
-# ------------------ add client --------------------------------- #
+# ------------------------ add client -------------------------- #
 
 def upload_template(request):
     if request.method == 'POST':
@@ -34,19 +31,14 @@ def upload_template(request):
     return redirect('templates_manager:manage-template')
 
 
-# ------------------ end add client ----------------------------- #
-
-# ------------------ delete template ---------------------------- #
+# --------------------- delete template ------------------------ #
 
 def delete_template(request, sku):
     UploadTemplate.objects.all().get(sku=sku).delete()
-
     return redirect('templates_manager:manage-template')
 
 
-# ---------------------- end delete template ---------------------- #
-
-# ----------------------- edit template --------------------------- #
+# ----------------------- edit template ------------------------- #
 
 def edit_template(request, sku):
     selected_template = UploadTemplate.objects.all().get(sku=sku)
@@ -70,6 +62,3 @@ def edit_template(request, sku):
     }
 
     return render(request, "templates_manager/edit_template.html", context)
-
-# ---------------------- end edit template ------------------------ #
-

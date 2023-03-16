@@ -7,6 +7,6 @@ urlpatterns = [
 
     path('manage-report/', views.manage_report, name='manage-report'),
     path('submit-notice-letter/', views.submit_notice_letter, name='submit-notice-letter'),
-    path('download-report/<int:id>', views.download_report, name='download-report'),
+    path('download-report/<str:sku>', views.download_report, name='download-report'),
 
 ]
