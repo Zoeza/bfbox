@@ -59,7 +59,7 @@ def submit_notice_letter(request):
 
         notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
         notice_letter.filename = 'Notice letter'
-        notice_letter.num = request.POST.get('court_case_num')
+        #notice_letter.num = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
