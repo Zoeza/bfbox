@@ -73,4 +73,4 @@ def generate_notice_letter(context):
     report.save(report_io)  # save data to file-like object
     report_io.seek(0)  # go to the beginning of the file-like object
     report = ContentFile(report_io.read())
-    return {'report': report, }
+    return report
