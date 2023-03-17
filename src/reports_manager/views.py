@@ -19,10 +19,10 @@ def manage_report(request):
     templates = UploadTemplate.objects.all()
     url = "reports_manager/manage_report.html"
 
-    if request.method == 'POST':
-        template_name = request.POST.get('template_name')
-        if template_name == 'Notice letter':
-            url = "reports_manager/add_report.html"
+    # if request.method == 'POST':
+    #   template_name = request.POST.get('template_name')
+    #  if template_name == 'Notice letter':
+    #     url = "reports_manager/add_report.html"
 
     context = {
         "reports_list": GeneratedReport.objects.all(),
@@ -31,39 +31,42 @@ def manage_report(request):
     return render(request, url, context)
 
 
-def submit_notice_letter(request):
+def add_report(request):
     if request.method == "POST":
-        template = UploadTemplate.objects.get(name="Notice letter")
-        template_path = template.template.path
+        template_name = request.POST.get('template_name')
+        if template_name == 'Notice letter':
+            template = UploadTemplate.objects.get(name="Notice letter")
+            template_path = template.template.path
+            report = DocxTemplate(template_path)
+            notice_letter = GeneratedReport()
+            context = {
+                'court_case_applicants': request.POST.get('court_case_applicants'),
+                'bailiff_name': request.POST.get('bailiff_name'),
+                'court_case_num': request.POST.get('court_case_num'),
+                'bailiff_address': request.POST.get('bailiff_address'),
+                'court_case_date': request.POST.get('court_case_date'),
+                'court_case_time': request.POST.get('court_case_time'),
+                'court_case_msg_title': request.POST.get('court_case_msg_title'),
+                'court_case_lawyer': request.POST.get('court_case_lawyer'),
+                'court_case_agent': request.POST.get('court_case_agent'),
+                'court_case_defendants': request.POST.get('court_case_defendants'),
+                'court_case_msg_content': request.POST.get('court_case_msg_content'),
+            }
 
-        report = DocxTemplate(template_path)
-        notice_letter = GeneratedReport()
-        context = {
-            'court_case_applicants': request.POST.get('court_case_applicants'),
-            'bailiff_name': request.POST.get('bailiff_name'),
-            'court_case_num': request.POST.get('court_case_num'),
-            'bailiff_address': request.POST.get('bailiff_address'),
-            'court_case_date': request.POST.get('court_case_date'),
-            'court_case_time': request.POST.get('court_case_time'),
-            'court_case_msg_title': request.POST.get('court_case_msg_title'),
-            'court_case_lawyer': request.POST.get('court_case_lawyer'),
-            'court_case_agent': request.POST.get('court_case_agent'),
-            'court_case_defendants': request.POST.get('court_case_defendants'),
-            'court_case_msg_content': request.POST.get('court_case_msg_content'),
-        }
+            report.render(context)
+            report_io = io.BytesIO()  # create a file-like object
+            report.save(report_io)  # save data to file-like object
+            report_io.seek(0)  # go to the beginning of the file-like object
 
-        report.render(context)
-        report_io = io.BytesIO()  # create a file-like object
-        report.save(report_io)  # save data to file-like object
-        report_io.seek(0)  # go to the beginning of the file-like object
-
-        notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-        notice_letter.filename = 'Notice letter'
-        notice_letter.number = request.POST.get('court_case_num')
-        notice_letter.sku = serial_number_generator(10).upper()
-        notice_letter.save()
-        messages.success(request, " New Report Generated successfully !!")
-        return redirect('reports_manager:manage-report')
+            notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
+            notice_letter.filename = 'Notice letter'
+            notice_letter.number = request.POST.get('court_case_num')
+            notice_letter.sku = serial_number_generator(10).upper()
+            notice_letter.save()
+            messages.success(request, " New Report Generated successfully !!")
+            return redirect('reports_manager:manage-report')
+        messages.success(request, " Generate an other report !!")
+        return render(request, "reports_manager/add-another-report.html", {})
     return render(request, "reports_manager/add_report.html", {})
 
 
