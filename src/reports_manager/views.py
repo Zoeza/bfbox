@@ -50,7 +50,7 @@ def add_report(request):
                 }
                 file = generate_report(template_name, context)
                 notice_letter = GeneratedReport()
-                notice_letter.file.save(template_name.docx, file)
+                notice_letter.file.save('{{template_name}}.docx', file)
                 notice_letter.filename = 'Notice letter'
                 notice_letter.number = request.POST.get('court_case_num')
                 notice_letter.sku = serial_number_generator(10).upper()
