@@ -58,10 +58,11 @@ def download_report(request, sku):
 
 
 def generate_notice_letter(request, context):
+    content = context
     template = UploadTemplate.objects.get(name="Notice letter")
     template_path = template.template.path
     report = DocxTemplate(template_path)
-    report.render(context)
+    report.render(content)
     report_io = io.BytesIO()  # create a file-like object
     report.save(report_io)  # save data to file-like object
     report_io.seek(0)  # go to the beginning of the file-like object
