@@ -1,18 +1,10 @@
-import io
-import os
+from clients.functions import serial_number_generator
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from templates_manager.models import UploadTemplate
+
 from .models import GeneratedReport
 from . import report_actions
-
-from django.http import FileResponse, HttpResponse
-
-from clients.functions import serial_number_generator
-from templates_manager.models import UploadTemplate
-from .models import GeneratedReport
-from django.core.files.base import ContentFile
-from django.contrib import messages
-from docxtpl import DocxTemplate
 
 
 def manage_report(request):
@@ -45,7 +37,7 @@ def add_report(request):
             'court_case_defendants': request.POST.get('court_case_defendants'),
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
-        file = generate_report('Notice letter', context)
+        file = report_actions.generate_report('Notice letter', context)
         notice_letter = GeneratedReport()
         notice_letter.file.save('{{template_name}}.docx', file)
         notice_letter.filename = 'Notice letter'
@@ -58,18 +50,3 @@ def add_report(request):
     return render(request, "reports_manager/add_report.html", {})
 
 
-def download_report(request, sku):
-    report = GeneratedReport.objects.get(sku=sku)
-    return FileResponse(report.file, as_attachment=True)
-
-
-def generate_report(template_name, context):
-    template = UploadTemplate.objects.get(name=template_name)
-    template_path = template.template.path
-    report = DocxTemplate(template_path)
-    report.render(context)
-    report_io = io.BytesIO()  # create a file-like object
-    report.save(report_io)  # save data to file-like object
-    report_io.seek(0)  # go to the beginning of the file-like object
-    report = ContentFile(report_io.read())
-    return report
