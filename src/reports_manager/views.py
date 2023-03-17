@@ -30,7 +30,7 @@ def manage_report(request):
     return render(request, url, context)
 
 
-def add_report(request, template_name):
+def add_report(request):
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
         if template_name == 'Notice letter':
