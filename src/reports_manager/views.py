@@ -45,7 +45,13 @@ def add_report(request):
             'court_case_defendants': request.POST.get('court_case_defendants'),
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
-        generate_notice_letter(context)
+        file = generate_notice_letter(context)
+        notice_letter = GeneratedReport()
+        notice_letter.file.save('notice_letter.docx', file)
+        notice_letter.filename = 'Notice letter'
+        notice_letter.number = request.POST.get('court_case_num')
+        notice_letter.sku = serial_number_generator(10).upper()
+        notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
         return redirect('reports_manager:manage-report')
 
@@ -66,10 +72,5 @@ def generate_notice_letter(context):
     report_io = io.BytesIO()  # create a file-like object
     report.save(report_io)  # save data to file-like object
     report_io.seek(0)  # go to the beginning of the file-like object
-
-    notice_letter = GeneratedReport()
-    notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-    notice_letter.filename = 'Notice letter'
-    notice_letter.number = request.POST.get('court_case_num')
-    notice_letter.sku = serial_number_generator(10).upper()
-    notice_letter.save()
+    report = ContentFile(report_io.read())
+    return {'report': report, }
