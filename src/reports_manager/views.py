@@ -45,21 +45,7 @@ def add_report(request):
             'court_case_defendants': request.POST.get('court_case_defendants'),
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
-
-        template = UploadTemplate.objects.get(name="Notice letter")
-        template_path = template.template.path
-        report = DocxTemplate(template_path)
-        report.render(context)
-        report_io = io.BytesIO()  # create a file-like object
-        report.save(report_io)  # save data to file-like object
-        report_io.seek(0)  # go to the beginning of the file-like object
-
-        notice_letter = GeneratedReport()
-        notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
-        notice_letter.filename = 'Notice letter'
-        notice_letter.number = request.POST.get('court_case_num')
-        notice_letter.sku = serial_number_generator(10).upper()
-        notice_letter.save()
+        generate_notice_letter(context)
         messages.success(request, " New Report Generated successfully !!")
         return redirect('reports_manager:manage-report')
 
@@ -69,3 +55,20 @@ def add_report(request):
 def download_report(request, sku):
     report = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report.file, as_attachment=True)
+
+
+def generate_notice_letter(request, context):
+    template = UploadTemplate.objects.get(name="Notice letter")
+    template_path = template.template.path
+    report = DocxTemplate(template_path)
+    report.render(context)
+    report_io = io.BytesIO()  # create a file-like object
+    report.save(report_io)  # save data to file-like object
+    report_io.seek(0)  # go to the beginning of the file-like object
+
+    notice_letter = GeneratedReport()
+    notice_letter.file.save('notice_letter.docx', ContentFile(report_io.read()))
+    notice_letter.filename = 'Notice letter'
+    notice_letter.number = request.POST.get('court_case_num')
+    notice_letter.sku = serial_number_generator(10).upper()
+    notice_letter.save()
