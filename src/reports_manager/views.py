@@ -57,7 +57,7 @@ def download_report(request, sku):
     return FileResponse(report.file, as_attachment=True)
 
 
-def generate_notice_letter(request, context):
+def generate_notice_letter(context):
     content = context
     template = UploadTemplate.objects.get(name="Notice letter")
     template_path = template.template.path
