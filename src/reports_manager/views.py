@@ -38,12 +38,11 @@ def add_report(request):
     url = "reports_manager/add_report.html"
     if request.method == 'POST':
         template_name = request.POST.get('template.name'),
-
-    if template_name == 'Notice letter':
-        if request.method == 'POST':
-            add_notice_letter(request)
-            messages.success(request, " New Report Generated successfully !!")
-            return redirect('manage-report')
+        if template_name == 'Notice letter':
+            if request.method == 'POST':
+                add_notice_letter(request)
+                messages.success(request, " New Report Generated successfully !!")
+                return redirect('manage-report')
 
     return render(request, url, {})
 
