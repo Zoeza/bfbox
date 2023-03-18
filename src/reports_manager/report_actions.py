@@ -10,6 +10,7 @@ from docxtpl import DocxTemplate
 
 def add_notice_letter(request):
     url = "reports_manager/add_report.html"
+
     if request.method == 'POST':
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
@@ -27,7 +28,7 @@ def add_notice_letter(request):
         file = generate_report('Notice letter', context)
         save_report('Notice letter', 'court_case_num', file)
 
-        return {'url': url, }
+    return {'url': url, }
 
 
 def generate_report(template_name, context):
