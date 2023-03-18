@@ -28,10 +28,9 @@ def manage_report(request, action, sku):
         GeneratedReport.objects.all().get(sku=sku).delete()
 
     if action == "add_report":
-        if request.method == 'POST':
-            template_name = request.POST.get('template.name')
-            if template_name == 'Notice letter':
-                url = "reports_manager/add_report.html"
+        template_name = request.POST.get('template.name')
+        if template_name == 'Notice letter':
+            url = "reports_manager/add_report.html"
 
     context = {
         "reports_list": reports_list,
