@@ -11,23 +11,6 @@ from docxtpl import DocxTemplate
 def add_notice_letter(request):
     url = "reports_manager/add_report.html"
 
-    if request.method == 'POST':
-        context = {
-            'court_case_applicants': request.POST.get('court_case_applicants'),
-            'bailiff_name': request.POST.get('bailiff_name'),
-            'court_case_num': request.POST.get('court_case_num'),
-            'bailiff_address': request.POST.get('bailiff_address'),
-            'court_case_date': request.POST.get('court_case_date'),
-            'court_case_time': request.POST.get('court_case_time'),
-            'court_case_msg_title': request.POST.get('court_case_msg_title'),
-            'court_case_lawyer': request.POST.get('court_case_lawyer'),
-            'court_case_agent': request.POST.get('court_case_agent'),
-            'court_case_defendants': request.POST.get('court_case_defendants'),
-            'court_case_msg_content': request.POST.get('court_case_msg_content'),
-        }
-        file = generate_report('Notice letter', context)
-        save_report('Notice letter', 'court_case_num', file)
-
     return {'url': url, }
 
 
