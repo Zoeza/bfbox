@@ -27,7 +27,7 @@ def manage_report(request, action, sku):
     if action == "delete_report":
         GeneratedReport.objects.all().get(sku=sku).delete()
 
-    if request.method == 'POST' and request.POST.get('template.name') == 'Notice letter':
+    if (request.method == 'POST') and (request.POST.get('template.name') == 'Notice letter'):
         url = report_actions.add_notice_letter(request).get('url')
 
     context = {
