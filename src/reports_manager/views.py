@@ -23,8 +23,9 @@ def manage_report(request, action, sku):
 
     if action == "download_report":
         return report_actions.download_report(request, sku)
+
     if action == "delete_report":
-        GeneratedReport.objects.all().get(sku=sku).delete()
+        return GeneratedReport.objects.all().get(sku=sku).delete()
 
     if request.method == 'POST':
         template_name = request.POST.get('template_name')
