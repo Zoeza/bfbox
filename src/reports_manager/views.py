@@ -28,7 +28,7 @@ def manage_report(request, action, sku):
         GeneratedReport.objects.all().get(sku=sku).delete()
 
     if action == "add_report":
-        url = report_actions.add_notice_letter(request).get('url')
+        url = "reports_manager/add_report.html"
 
     context = {
         "reports_list": reports_list,
