@@ -26,7 +26,7 @@ def add_notice_letter(request):
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
         file = generate_report('Notice letter', context)
-        save_report('Notice letter', 'court_case_num', file)
+        save_report('Notice letter', request.POST.get('court_case_num'), file)
 
     return {'url': url, }
 
