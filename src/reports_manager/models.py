@@ -2,6 +2,7 @@ from django.db import models
 
 
 class GeneratedReport(models.Model):
+
     objects = models.Manager()
     filename = models.CharField(max_length=255)
     client = models.CharField(max_length=255)
