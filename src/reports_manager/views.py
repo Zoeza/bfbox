@@ -35,15 +35,17 @@ def manage_report(request, action, sku):
 
 
 def add_report(request):
+    url = "reports_manager/add_report.html"
     if request.method == 'POST':
         template_name = request.POST.get('template.name'),
 
     if template_name == 'Notice letter':
-        add_notice_letter(request)
-        messages.success(request, " New Report Generated successfully !!")
-        return redirect('manage-report')
+        if request.method == 'POST':
+            add_notice_letter(request)
+            messages.success(request, " New Report Generated successfully !!")
+            return redirect('manage-report')
 
-    return render(request, "reports_manager/add_report.html", {})
+    return render(request, url, {})
 
 
 def add_notice_letter(request):
