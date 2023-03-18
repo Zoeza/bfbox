@@ -137,7 +137,7 @@
                    </div>
                    <!--end::Nav-->
                    <!--begin::Form-->
-                   <form action="{% url 'reports_manager:add-report'%}" class="mx-auto mw-700px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_notice_letter_form" method="post">
+                   <form action="{% url 'add-report' 'add_notice_latter' %}" class="mx-auto mw-700px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_notice_letter_form" method="post">
                       {% csrf_token %}
                        <div class="mb-3">
                         <!--begin::Step 1-->
