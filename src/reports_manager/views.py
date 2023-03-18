@@ -36,7 +36,7 @@ def manage_report(request, action, sku):
         "reports_list": reports_list,
         "templates_list": templates_list,
     }
-    return render(request, url, context)
+    return render(request, "reports_manager/add_report.html", context)
 
 
 def add_report(request):
