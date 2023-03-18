@@ -2,6 +2,7 @@ import io
 import os
 from clients.functions import serial_number_generator
 from django.http import FileResponse
+from django.shortcuts import redirect
 from templates_manager.models import UploadTemplate
 from .models import GeneratedReport
 from django.core.files.base import ContentFile
@@ -27,6 +28,7 @@ def add_notice_letter(request):
         }
         file = generate_report('Notice letter', context)
         save_report('Notice letter', request.POST.get('court_case_num'), file)
+        return redirect('manage-report')
 
     return {'url': url, }
 
