@@ -22,7 +22,7 @@ def manage_report(request):
     return render(request, url, context)
 
 
-def add_report(request):
+def add_report(request, action):
     if request.method == 'POST':
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
@@ -48,5 +48,3 @@ def add_report(request):
         return redirect('reports_manager:manage-report')
 
     return render(request, "reports_manager/add_report.html", {})
-
-
