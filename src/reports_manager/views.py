@@ -44,7 +44,7 @@ def add_report(request, template_name):
         add_notice_letter(request)
         messages.success(request, " New Report Generated successfully !!")
         return redirect('manage-report')
-    
+
     return render(request, "reports_manager/add_report.html", {})
 
 
