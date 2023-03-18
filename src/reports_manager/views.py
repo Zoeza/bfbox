@@ -27,9 +27,10 @@ def manage_report(request, action, sku):
     if action == "delete_report":
         GeneratedReport.objects.all().get(sku=sku).delete()
 
-    if request.method == 'POST':
-        template_name = request.POST.get('template_name')
-        return add_report(request, template_name)
+    if action == "add_report":
+        if request.method == 'POST':
+            template_name = request.POST.get('template_name')
+            return add_report(request, template_name)
 
     context = {
         "reports_list": reports_list,
@@ -39,6 +40,15 @@ def manage_report(request, action, sku):
 
 
 def add_report(request, template_name):
+    if template_name == 'Notice letter':
+        add_notice_letter(request)
+        messages.success(request, " New Report Generated successfully !!")
+        return redirect('manage-report')
+    
+    return render(request, "reports_manager/add_report.html", {})
+
+
+def add_notice_letter(request):
     if request.method == 'POST':
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
@@ -55,12 +65,9 @@ def add_report(request, template_name):
         }
         file = report_actions.generate_report('Notice letter', context)
         notice_letter = GeneratedReport()
-        notice_letter.file.save('{{template_name}}.docx', file)
+        notice_letter.file.save('Notice_letter.docx', file)
         notice_letter.filename = 'Notice letter'
         notice_letter.number = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
-        messages.success(request, " New Report Generated successfully !!")
-        return redirect('manage-report')
 
-    return render(request, "reports_manager/add_report.html", {})
