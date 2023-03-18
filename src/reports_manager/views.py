@@ -45,6 +45,6 @@ def add_report(request, action):
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
         messages.success(request, " New Report Generated successfully !!")
-        return redirect('reports_manager:manage-report')
+        return redirect('manage-report')
 
     return render(request, "reports_manager/add_report.html", {})
