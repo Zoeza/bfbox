@@ -30,7 +30,7 @@ def manage_report(request, action, sku):
     if action == "add_report":
         if request.method == 'POST':
             template_name = request.POST.get('template_name')
-            return add_report(request, template_name)
+            url = "reports_manager/add_report.html"
 
     context = {
         "reports_list": reports_list,
