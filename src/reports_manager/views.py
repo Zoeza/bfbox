@@ -27,11 +27,6 @@ def manage_report(request, action, sku):
     if action == "delete_report":
         GeneratedReport.objects.all().get(sku=sku).delete()
 
-    if action == "add_report":
-        if request.method == 'POST':
-            template_name = request.POST.get('template_name')
-            return add_report(request, template_name)
-
     context = {
         "reports_list": reports_list,
         "templates_list": templates_list,
@@ -39,7 +34,10 @@ def manage_report(request, action, sku):
     return render(request, url, context)
 
 
-def add_report(request, template_name):
+def add_report(request):
+    if request.method == 'POST':
+        template_name = request.POST.get('template.name'),
+
     if template_name == 'Notice letter':
         add_notice_letter(request)
         messages.success(request, " New Report Generated successfully !!")
@@ -70,4 +68,3 @@ def add_notice_letter(request):
         notice_letter.number = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
-
