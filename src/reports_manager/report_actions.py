@@ -28,7 +28,7 @@ def add_notice_letter(request):
         }
         file = generate_report('Notice letter', context)
         save_report('Notice letter', request.POST.get('court_case_num'), file)
-        return redirect('manage-report')
+        # return redirect('manage-report')
 
     return {'url': url, }
 
