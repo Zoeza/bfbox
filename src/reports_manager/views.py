@@ -34,9 +34,9 @@ def manage_report(request, action, sku):
     return render(request, url, context)
 
 
-def add_report(request):
+def add_report(request,action):
     url = "reports_manager/add_report.html"
-    if request.POST.get('template.name') == 'Notice letter':
+    if action == "add_notice_letter":
         url = report_actions.add_notice_letter(request).get('url')
         messages.success(request, " New Report Generated successfully !!")
 
