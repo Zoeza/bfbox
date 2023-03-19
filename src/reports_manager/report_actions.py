@@ -32,7 +32,6 @@ def add_notice_letter(request):
         notice_letter.number = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
-        return redirect('manage-report')
 
     return render(request, url, {})
 
