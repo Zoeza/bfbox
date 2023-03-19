@@ -9,7 +9,6 @@ from . import report_actions
 
 
 def manage_report(request, action, sku):
-    template = 'nothings'
     try:
         templates_list = UploadTemplate.objects.all()
     except UploadTemplate.DoesNotExist:
@@ -31,7 +30,7 @@ def manage_report(request, action, sku):
     context = {
         "reports_list": reports_list,
         "templates_list": templates_list,
-        "template_name": template,
+
     }
     return render(request, url, context)
 
