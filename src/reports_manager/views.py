@@ -45,5 +45,6 @@ def add_report(request, action):
                 url = "reports_manager/test.html"
     if action == 'add_notice_letter':
         report_actions.add_notice_letter(request)
+        # redirect('manage-report')
 
     return render(request, url, {})
