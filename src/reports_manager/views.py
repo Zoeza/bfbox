@@ -35,7 +35,7 @@ def manage_report(request, action, sku):
 
 
 def add_report(request):
-    url = "reports_manager/add_report.html"
+    url = "reports_manager/test.html"
     if request.method == 'POST':
         template = request.POST.get('template.name')
         if template == 'Notice letter':
@@ -43,4 +43,4 @@ def add_report(request):
         elif template == 'template_name':
             return "reports_manager/test.html"
 
-        return render(request, url, {})
+    return render(request, url, {})
