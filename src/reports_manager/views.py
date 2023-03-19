@@ -42,6 +42,6 @@ def manage_report(request, action, sku):
 def add_report(request, action):
     url = "reports_manager/add_report.html"
     if action == 'add_notice_letter':
-        url = report_actions.add_notice_letter(request).get('url')
+        report_actions.add_notice_letter(request)
 
     return render(request, url, {})
