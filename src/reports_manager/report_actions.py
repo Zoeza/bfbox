@@ -9,8 +9,9 @@ from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
 
 
-def add_notice_letter(request):
-    # url = "reports_manager/add_report.html"
+# ------------ generate notice letter --------------#
+
+def generate_notice_letter(request):
     if request.method == 'POST':
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
@@ -34,6 +35,7 @@ def add_notice_letter(request):
         notice_letter.save()
 
 
+# ------------ generate report --------------#
 def generate_report(template_name, context):
     template = UploadTemplate.objects.get(name=template_name)
     template_path = template.template.path
@@ -46,6 +48,7 @@ def generate_report(template_name, context):
     return report
 
 
+# ------------ save report --------------#
 def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
     GeneratedReport(filename=filename,
@@ -55,6 +58,7 @@ def save_report(filename, court_case_num, file):
                     ).save()
 
 
+# ------------ download report --------------#
 def download_report(sku):
     report = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report.file, as_attachment=True)

@@ -8,6 +8,7 @@ from .models import GeneratedReport
 from . import report_actions
 
 
+# --------- manage report --------#
 def manage_report(request, action, sku):
     try:
         templates_list = UploadTemplate.objects.all()
@@ -35,6 +36,7 @@ def manage_report(request, action, sku):
     return render(request, url, context)
 
 
+# --------- choose report ---------#
 def choose_report(request):
     url = "reports_manager/manage_report.html"
     if request.method == 'POST':
@@ -46,8 +48,8 @@ def choose_report(request):
     return render(request, url, {})
 
 
+# --------- generate report -------#
 def generate_report(request, action):
     if action == 'generate_notice_letter':
-        report_actions.add_notice_letter(request)
+        report_actions.generate_notice_letter(request)
 
-    return redirect('manage-report')
