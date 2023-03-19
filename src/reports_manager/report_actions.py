@@ -26,7 +26,12 @@ def add_notice_letter(request):
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
         file = generate_report('Notice letter', context)
-        save_report('Notice letter', request.POST.get('court_case_num'), file)
+        notice_letter = GeneratedReport()
+        notice_letter.file.save('Notice_letter.docx', file)
+        notice_letter.filename = 'Notice letter'
+        notice_letter.number = request.POST.get('court_case_num')
+        notice_letter.sku = serial_number_generator(10).upper()
+        notice_letter.save()
     # return redirect('manage-report')
 
     return {'url': url, }
