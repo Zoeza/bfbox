@@ -36,6 +36,12 @@ def add_notice_letter(request):
     return render(request, url, {})
 
 
+def add_template_name(request):
+    url = "reports_manager/test.html"
+
+    return render(request, url, {})
+
+
 def generate_report(template_name, context):
     template = UploadTemplate.objects.get(name=template_name)
     template_path = template.template.path

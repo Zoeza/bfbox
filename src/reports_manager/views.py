@@ -36,8 +36,9 @@ def manage_report(request, action, sku):
 
 def add_report(request, action):
     url = "reports_manager/add_report.html"
-    if request.method == 'POST':
-        if request.POST.get('template.name') == 'Notice letter':
-            return report_actions.add_notice_letter(request)
+    if request.method == 'POST' and request.POST.get('template.name') == 'Notice letter':
+        return report_actions.add_notice_letter(request)
+    if request.method == 'POST' and request.POST.get('template.name') == 'template_name':
+        return report_actions.add_template_name(request)
 
     return render(request, url, {})
