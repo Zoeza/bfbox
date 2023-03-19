@@ -14,6 +14,8 @@ def add_notice_letter(request):
 
     if request.method == 'POST':
         if request.POST.get('template.name') == 'Notice letter':
+            url = "reports_manager/test.html"
+
             context = {
                 'court_case_applicants': request.POST.get('court_case_applicants'),
                 'bailiff_name': request.POST.get('bailiff_name'),
