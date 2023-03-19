@@ -52,4 +52,4 @@ def choose_report(request):
 def generate_report(request, action):
     if action == 'generate_notice_letter':
         report_actions.generate_notice_letter(request)
-
+    return render(request, "reports_manager/manage_report.html", {})
