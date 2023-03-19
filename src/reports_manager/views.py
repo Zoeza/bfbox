@@ -36,8 +36,8 @@ def manage_report(request, action, sku):
 
 def add_report(request, action):
     url = "reports_manager/add_report.html"
-    
-    if request.POST.get('template.name') == 'Notice letter' and action == "add_notice_letter":
+
+    if request.method == 'POST' and action == "add_notice_letter":
         return report_actions.add_notice_letter(request)
 
     return render(request, url, {})
