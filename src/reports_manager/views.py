@@ -43,4 +43,4 @@ def add_report(request):
         elif template == 'Template name':
             url = "reports_manager/test.html"
 
-        return render(request, url, {})
+    return render(request, url, {})
