@@ -9,6 +9,7 @@ from . import report_actions
 
 
 def manage_report(request, action, sku):
+    template = 'nothings'
     try:
         templates_list = UploadTemplate.objects.all()
     except UploadTemplate.DoesNotExist:
