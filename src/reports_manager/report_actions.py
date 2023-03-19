@@ -33,13 +33,7 @@ def add_notice_letter(request):
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
 
-    return render(request, url, {})
-
-
-def add_template_name(request):
-    url = "reports_manager/test.html"
-
-    return render(request, url, {})
+    return {'url': url, }
 
 
 def generate_report(template_name, context):
