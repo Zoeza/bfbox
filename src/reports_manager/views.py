@@ -35,12 +35,12 @@ def manage_report(request, action, sku):
 
 
 def add_report(request):
-    url = "reports_manager/add_report.html"
+    url = "reports_manager/test.html"
     if request.method == 'POST':
         template = request.POST.get('template.name')
         if template == 'Notice letter':
-            return "reports_manager/test.html"
-        if template == 'template_name':
-            return "reports_manager/test.html"
+            url = "reports_manager/test.html"
+        elif template == 'template_name':
+            url = "reports_manager/test.html"
 
-    return render(request, url, {})
+        return render(request, url, {})
