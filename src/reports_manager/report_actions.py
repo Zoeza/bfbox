@@ -10,7 +10,7 @@ from docxtpl import DocxTemplate
 
 
 def add_notice_letter(request):
-    url = "reports_manager/add_report.html"
+    # url = "reports_manager/add_report.html"
     if request.method == 'POST':
         context = {
             'court_case_applicants': request.POST.get('court_case_applicants'),
@@ -33,7 +33,7 @@ def add_notice_letter(request):
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
 
-    return {'url': url, }
+    # return {'url': url, }
 
 
 def generate_report(template_name, context):
