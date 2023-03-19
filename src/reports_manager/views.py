@@ -29,12 +29,12 @@ def manage_report(request, action, sku):
 
     if request.method == 'POST':
         template = request.POST.get('template.name')
-        if template == 'Notice letter':
-            return "reports_manager/test.html"
+
 
     context = {
         "reports_list": reports_list,
         "templates_list": templates_list,
+        "template_name": template,
     }
     return render(request, url, context)
 
