@@ -41,6 +41,6 @@ def add_report(request):
         if template == 'Notice letter':
             url = report_actions.add_notice_letter(request).get('url')
         if template == 'template_name':
-            url = "reports_manager/test.html"
+            return "reports_manager/test.html"
 
     return render(request, url, {})
