@@ -47,9 +47,7 @@ def choose_report(request):
 
 
 def generate_report(request, action):
-    url = "reports_manager/manage_report.html"
-
     if action == 'generate_notice_letter':
         report_actions.add_notice_letter(request)
 
-    return render(request, url, {})
+    return redirect('manage-report')
