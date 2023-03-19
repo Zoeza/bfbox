@@ -35,15 +35,19 @@ def manage_report(request, action, sku):
     return render(request, url, context)
 
 
-def add_report(request, action):
-    url = "reports_manager/add_report.html"
-    if action == "add_report":
-        if request.method == 'POST':
-            if request.POST.get('template_name') == 'Notice letter':
-                url = "reports_manager/add_report.html"
-            if request.POST.get('template_name') == 'Template name':
-                url = "reports_manager/test.html"
-    if action == 'add_notice_letter':
-        report_actions.add_notice_letter(request)
-        return render(request, "reports_manager/manage_report.html", {})
+def choose_report(request):
+    url = "reports_manager/manage_report.html"
+    if request.method == 'POST':
+        if request.POST.get('template_name') == 'Notice letter':
+            url = "reports_manager/add_report.html"
+        if request.POST.get('template_name') == 'Template name':
+            url = "reports_manager/test.html"
+
     return render(request, url, {})
+
+
+def generate_report(request, action):
+    if action == 'generate_notice_letter':
+        report_actions.add_notice_letter(request)
+
+    return render(request, "reports_manager/manage_report.html", {})
