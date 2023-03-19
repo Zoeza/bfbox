@@ -39,7 +39,7 @@ def add_report(request):
     if request.method == 'POST':
         template = request.POST.get('template.name')
         if template == 'Notice letter':
-            url = report_actions.add_notice_letter(request).get('url')
+            return "reports_manager/test.html"
         if template == 'template_name':
             return "reports_manager/test.html"
 
