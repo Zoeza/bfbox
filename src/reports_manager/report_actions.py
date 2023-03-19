@@ -46,9 +46,10 @@ def generate_report(template_name, context):
 
 def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
-    GeneratedReport.file(file).save()
+
     GeneratedReport(filename=filename,
                     number=court_case_num,
+                    file=file,
                     sku=sku,
                     ).save()
 
