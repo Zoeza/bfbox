@@ -28,8 +28,8 @@ def manage_report(request, action, sku):
     if action == "delete_report":
         GeneratedReport.objects.all().get(sku=sku).delete()
 
-    if request.method == 'POST' and request.POST.get('template_name')  == 'Notice letter':
-        template = 'Notice letter'
+    if request.method == 'POST' and request.POST.get('template_name') == 'Template name':
+        template = 'template name'
 
     context = {
         "reports_list": reports_list,
