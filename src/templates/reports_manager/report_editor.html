@@ -49,61 +49,57 @@
         <!--begin::Card body-->
         <div class="card-body">
             <div class="card w-lg-500px p-10 p-lg-2 mx-auto">
+
+                 <div class="pb-10 pb-lg-15">
+                    <!--begin::Title-->
+                    <h3 class="fw-bold d-flex align-items-center text-dark">Choose Report Type
+                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i></h3>
+                    <!--end::Title-->
+                 </div>
+
                 <!--begin::Form-->
                 <form class="form" action="{% url 'choose-report' %}" method="post">
                     {% csrf_token %}
-                     <div class="mb-3">
-                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-
-                         <div class="pb-10 pb-lg-15">
-                            <!--begin::Title-->
-                            <h3 class="fw-bold d-flex align-items-center text-dark">Choose Report Type
-                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i></h3>
-                            <!--end::Title-->
-                         </div>
-
+                    <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
 
                             <!--begin::Label-->
-                        <label class="form-label required">Select report type</label>
-                        <!--end::Label-->
+                            <label class="form-label required">Select report type</label>
+                            <!--end::Label-->
 
-                        <!--begin::Input-->
-                        <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
-                            <option disabled="true" selected>-- Select template --</option>
-                            {% if templates_list.count %}
+                            <!--begin::Input-->
+                            <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                                <option disabled="true" selected>-- Select template --</option>
+                                {% if templates_list.count %}
 
-                                 {% for template in templates_list %}
+                                     {% for template in templates_list %}
 
-                                <option>{{template.name}}</option>
-                                {% endfor %}
+                                    <option>{{template.name}}</option>
+                                    {% endfor %}
 
-                            {% endif %}
+                                {% endif %}
 
-                        </select>
-                        <!--end::Input-->
-
-
-                         <div class="d-flex justify-content-end">
-                            <!--begin::Button-->
-                            <a href="{% url 'manage-report' '#' '#' %}"  class="btn btn-light me-3">
-                                Cancel
-                            </a>
-                            <!--end::Button-->
-
-                            <!--begin::Button-->
-                            <button type="submit"  class="btn btn-primary">
-                                <span class="indicator-label">
-                                    Save
-                                </span>
-
-                            </button>
-                            <!--end::Button-->
-                         </div>
-                             <!--end::Action buttons-->
-                     </div>
-                     </div>
+                            </select>
+                            <!--end::Input-->
 
 
+                             <div class="d-flex justify-content-end">
+                                <!--begin::Button-->
+                                <a href="{% url 'manage-report' '#' '#' %}"  class="btn btn-light me-3">
+                                    Cancel
+                                </a>
+                                <!--end::Button-->
+
+                                <!--begin::Button-->
+                                <button type="submit"  class="btn btn-primary">
+                                    <span class="indicator-label">
+                                        Save
+                                    </span>
+
+                                </button>
+                                <!--end::Button-->
+                             </div>
+                                 <!--end::Action buttons-->
+                        </div>
                 </form>
                 <!--end::Form-->
             </div>
