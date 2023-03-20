@@ -11,11 +11,6 @@ from . import report_actions
 # --------- manage report --------#
 def manage_report(request, action, sku):
     try:
-        templates_list = UploadTemplate.objects.all()
-    except UploadTemplate.DoesNotExist:
-        raise Http404("No templates")
-
-    try:
         reports_list = GeneratedReport.objects.all()
     except GeneratedReport.DoesNotExist:
         raise Http404("No reports")
@@ -30,22 +25,29 @@ def manage_report(request, action, sku):
 
     context = {
         "reports_list": reports_list,
-        "templates_list": templates_list,
-
     }
     return render(request, url, context)
 
 
 # --------- choose report ---------#
 def choose_report(request):
+    try:
+        templates_list = UploadTemplate.objects.all()
+    except UploadTemplate.DoesNotExist:
+        raise Http404("No templates")
+
     url = "reports_manager/report_editor.html"
+
     if request.method == 'POST':
         if request.POST.get('template_name') == 'Notice letter':
             url = "reports_manager/add_report.html"
         if request.POST.get('template_name') == 'Template name':
             url = "reports_manager/test.html"
 
-    return render(request, url, {})
+    context = {
+        "templates_list": templates_list,
+    }
+    return render(request, url, context)
 
 
 # --------- generate report -------#

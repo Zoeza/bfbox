@@ -33,7 +33,7 @@
 {% endblock %}
 
 
-<!---------------------------------  choose  report ----------------------------------------------->
+<!---------------------------------  choose  report type ----------------------------------------------->
 {% block content %}
 <div class="card">
 
@@ -42,11 +42,10 @@
         <!--begin::Wrapper-->
         <div class="card-px text-center py-20 my-10">
             <!--begin::Title-->
-            <h2 class="fs-2x fw-bold mb-10">Welcome to Customers App</h2>
+            <h2 class="fs-2x fw-bold mb-10">Report Editor</h2>
             <!--end::Title-->
             <!--begin::Description-->
-            <p class="text-gray-400 fs-4 fw-semibold mb-10">There are no customers added yet.
-            <br />Kickstart your CRM by adding a your first customer</p>
+            <p class="text-gray-400 fs-4 fw-semibold mb-10"> you must choose the report type first</p>
             <!--end::Description-->
             <!--begin::Action-->
              <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_choose_report_type">
@@ -63,7 +62,7 @@
     <!--end::Card body-->
 </div>
 
-<!------------------------------------  choose report type ---------------------------------------------------->
+<!------------------------------------  choose report type model ---------------------------------------------------->
         <!--add new report modal-->
         <div class="modal fade" tabindex="-1" id="kt_choose_report_type" aria-hidden="true">
             <!--begin::Modal dialog-->
@@ -133,6 +132,6 @@
         </div>
         <!--end add new report modal-->
 
-    <!---------------------------------- end  choose report type  --------------------------------------------------->
+    <!---------------------------------- end  choose report type model --------------------------------------------------->
 
 {% endblock %}
