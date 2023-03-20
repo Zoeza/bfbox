@@ -49,6 +49,7 @@
              </div>
         <!--begin::Card body-->
         <div class="card-body">
+
             <!--begin::Toolbar-->
             <div class="d-flex justify-content-end">
 
@@ -59,29 +60,69 @@
               <!--begin::Description-->
             <p class="text-gray-400 fs-4"> you must choose the report type first</p>
             <!--end::Description-->
+            <!--begin::Form-->
+            <form class="form" action="{% url 'choose-report' %}" novalidate="novalidate" id="kt_add_new_report_form" method="post">
+                {% csrf_token %}
+                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                     <div class="fv-row mb-10">
+
+                         <div class="pb-10 pb-lg-15">
+                            <!--begin::Title-->
+                            <h3 class="fw-bold d-flex align-items-center text-dark">Choose Report Type
+                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i></h3>
+                            <!--end::Title-->
+                         </div>
+
+                        <!--begin::Label-->
+                        <label class="form-label required">Select report type</label>
+                        <!--end::Label-->
+
+                        <!--begin::Input-->
+                        <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                            <option disabled="true" selected>-- Select template --</option>
+
+                            {% if templates_list.count %}
+
+                                 {% for template in templates_list %}
+
+                                <option>{{template.name}}</option>
+                                {% endfor %}
+
+                            {% endif %}
+
+                        </select>
+                        <!--end::Input-->
+                     </div>
+                 </div>
+
+                 <div class="card-footer ">
+                    <!--begin::Action buttons-->
+                    <div class="d-flex justify-content-end">
+                        <!--begin::Button-->
+                        <button herf="{% url 'manage-report' '#' '#'  %}" data-kt-contacts-type="cancel"  class="btn btn-light me-3">
+                            Cancel
+                        </button>
+                        <!--end::Button-->
+
+                        <!--begin::Button-->
+                        <button type="submit"  class="btn btn-primary">
+                            <span class="indicator-label">
+                                Save
+                            </span>
+
+                        </button>
+                        <!--end::Button-->
+                    </div>
+                     <!--end::Action buttons-->
+
+                </div>
+
+            </form>
+            <!--end::Form-->
 
 
         </div>
-        <div class="card-footer ">
-            <!--begin::Action buttons-->
-            <div class="d-flex justify-content-end">
-                <!--begin::Button-->
-                <button herf="{% url 'manage-report' '#' '#'  %}" data-kt-contacts-type="cancel"  class="btn btn-light me-3">
-                    Cancel
-                </button>
-                <!--end::Button-->
 
-                <!--begin::Button-->
-                <button type="submit"  class="btn btn-primary">
-                    <span class="indicator-label">
-                        Save
-                    </span>
-
-                </button>
-                <!--end::Button-->
-            </div>
-             <!--end::Action buttons-->
-            </div>
 
         <!--end::Card body-->
     </div>
