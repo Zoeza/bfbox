@@ -36,7 +36,7 @@
 <!---------------------------------  choose  report type ----------------------------------------------->
 {% block content %}
  <div class="d-flex flex-center flex-column flex-column-fluid">
-     <div class="card card-stretch-70 card-bordered mb-5">
+    <div class="card w-lg-800px p-10 p-lg-2 mx-auto">
 
         <div class="card-header">
                   <!--begin::Title-->
@@ -47,7 +47,7 @@
 
              </div>
         <!--begin::Card body-->
-        <div class="card-body">
+        <div class="card-body p-0">
             <!--begin::Form-->
             <form class="form" action="{% url 'choose-report' %}" method="post">
                 {% csrf_token %}
