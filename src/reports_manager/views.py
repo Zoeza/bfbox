@@ -52,4 +52,4 @@ def choose_report(request):
 def generate_report(request, action):
     if action == 'generate_notice_letter':
         report_actions.generate_notice_letter(request)
-    return redirect('manage_reports:manage-report')
+    return redirect('%23/%23/manage-report/')

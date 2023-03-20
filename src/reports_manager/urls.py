@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-app_name = 'manage_reports'
+
 urlpatterns = [
 
     path('<str:action>/<str:sku>/manage-report/', views.manage_report, name='manage-report'),
