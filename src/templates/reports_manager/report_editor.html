@@ -49,17 +49,6 @@
              </div>
         <!--begin::Card body-->
         <div class="card-body">
-
-            <!--begin::Toolbar-->
-            <div class="d-flex justify-content-end">
-
-                 <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_choose_report_type">
-                    Choose report
-                </button>
-            </div>
-              <!--begin::Description-->
-            <p class="text-gray-400 fs-4"> you must choose the report type first</p>
-            <!--end::Description-->
             <!--begin::Form-->
             <form class="form" action="{% url 'choose-report' %}" method="post">
                 {% csrf_token %}
