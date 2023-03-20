@@ -37,9 +37,8 @@
 {% block content %}
  <div class="d-flex flex-center flex-column flex-column-fluid">
     <div class="card w-lg-800px p-10 p-lg-2 mx-auto">
-        <!--begin::Card body-->
 
-            <!--begin::Wrapper-->
+
         <div class="card-header">
                   <!--begin::Title-->
                  <div class="card-title">
@@ -48,25 +47,24 @@
                  </div>
 
              </div>
+        <!--begin::Card body-->
         <div class="card-body">
 
+            <!--begin::Toolbar-->
+            <div class="d-flex justify-content-end">
 
-                <!--begin::Toolbar-->
-                <div class="d-flex justify-content-end">
+                 <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_choose_report_type">
+                    Choose report
+                </button>
+            </div>
+              <!--begin::Description-->
+            <p class="text-gray-400 fs-4"> you must choose the report type first</p>
+            <!--end::Description-->
 
-                     <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_choose_report_type">
-                        Choose report
-                    </button>
-                </div>
-                  <!--begin::Description-->
-                <p class="text-gray-400 fs-4"> you must choose the report type first</p>
-                <!--end::Description-->
+        </div>
+        <div class="card-footer">
 
-
-
-
-            <!--end::Wrapper-->
-
+            
         </div>
         <!--end::Card body-->
     </div>
