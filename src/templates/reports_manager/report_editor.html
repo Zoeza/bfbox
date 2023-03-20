@@ -53,8 +53,8 @@
             <form class="form" action="{% url 'choose-report' %}" method="post">
                 {% csrf_token %}
                  <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                     <div class="mb-10 fv-row">
-                         <div class="row g-9 mb-7">
+                     <div class="fv-row mb-10">
+
 
                              <div class="pb-10 pb-lg-15">
                                 <!--begin::Title-->
@@ -62,27 +62,29 @@
                                 <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="the report is written according to the type you have selected"></i></h3>
                                 <!--end::Title-->
                              </div>
+                         
+                             <div class="row g-9 mb-7">
+                                <!--begin::Label-->
+                                <label class="form-label required">Select report type</label>
+                                <!--end::Label-->
 
-                            <!--begin::Label-->
-                            <label class="form-label required">Select report type</label>
-                            <!--end::Label-->
+                                <!--begin::Input-->
+                                    <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                                        <option disabled="true" selected>-- Select template --</option>
 
-                            <!--begin::Input-->
-                            <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
-                                <option disabled="true" selected>-- Select template --</option>
+                                        {% if templates_list.count %}
 
-                                {% if templates_list.count %}
+                                             {% for template in templates_list %}
 
-                                     {% for template in templates_list %}
+                                            <option>{{template.name}}</option>
+                                            {% endfor %}
 
-                                    <option>{{template.name}}</option>
-                                    {% endfor %}
+                                        {% endif %}
 
-                                {% endif %}
+                                    </select>
+                                    <!--end::Input-->
+                             </div>
 
-                            </select>
-                            <!--end::Input-->
-                         </div>
                      </div>
 
                       <div class="d-flex justify-content-end">
