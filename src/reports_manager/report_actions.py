@@ -60,5 +60,12 @@ def save_report(filename, court_case_num, file):
 
 # ------------ download report --------------#
 def download_report(sku):
-    report = GeneratedReport.objects.get(sku=sku)
-    return FileResponse(report.file, as_attachment=True)
+    report_selected = GeneratedReport.objects.get(sku=sku)
+    return FileResponse(report_selected.file, as_attachment=True)
+
+
+# --------------- send report -----------------#
+def send_report(sku):
+    report_selected = GeneratedReport.objects.get(sku=sku)
+    file_selected = open(report_selected.file, 'rb')
+    return FileResponse(file_selected)
