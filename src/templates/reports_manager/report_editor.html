@@ -48,13 +48,13 @@
              </div>
         <!--begin::Card body-->
         <div class="card-body">
+            <div class="card w-lg-500px p-10 p-lg-2 mx-auto">
+                <!--begin::Form-->
+                <form class="form" action="{% url 'choose-report' %}" method="post">
+                    {% csrf_token %}
+                     <div class="mb-3">
+                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
 
-            <!--begin::Form-->
-            <form class="form" action="{% url 'choose-report' %}" method="post">
-                {% csrf_token %}
-                 <div class="card w-lg-500px p-10 p-lg-2 mx-auto">
-                    <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                        
                          <div class="pb-10 pb-lg-15">
                             <!--begin::Title-->
                             <h3 class="fw-bold d-flex align-items-center text-dark">Choose Report Type
@@ -70,15 +70,14 @@
                         <!--begin::Input-->
                         <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
                             <option disabled="true" selected>-- Select template --</option>
+                            {% if templates_list.count %}
 
-                        {% if templates_list.count %}
+                                 {% for template in templates_list %}
 
-                             {% for template in templates_list %}
+                                <option>{{template.name}}</option>
+                                {% endfor %}
 
-                            <option>{{template.name}}</option>
-                            {% endfor %}
-
-                        {% endif %}
+                            {% endif %}
 
                         </select>
                         <!--end::Input-->
@@ -101,13 +100,13 @@
                             <!--end::Button-->
                          </div>
                              <!--end::Action buttons-->
-                    </div>
-                 </div>
+                     </div>
+                     </div>
 
 
-            </form>
-            <!--end::Form-->
-
+                </form>
+                <!--end::Form-->
+            </div>
         </div>
 
         <!--end::Card body-->
@@ -152,7 +151,7 @@
 
                                     <!--begin::Input-->
                                     <select name="template_name" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
-                                        <option disabled="true" selected>-- Select template --</option>
+                                        <option disabled="" selected>-- Select template --</option>
 
                                         {% if templates_list.count %}
 
