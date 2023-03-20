@@ -49,7 +49,6 @@
              </div>
         <!--begin::Card body-->
         <div class="card-body">
-
             <!--begin::Toolbar-->
             <div class="d-flex justify-content-end">
 
@@ -61,11 +60,29 @@
             <p class="text-gray-400 fs-4"> you must choose the report type first</p>
             <!--end::Description-->
 
-        </div>
-        <div class="card-footer">
 
-            
         </div>
+        <div class="card-footer ">
+            <!--begin::Action buttons-->
+            <div class="d-flex justify-content-end">
+                <!--begin::Button-->
+                <button herf="{% url 'appointments:manage-appointment'  %}" data-kt-contacts-type="cancel"  class="btn btn-light me-3">
+                    Cancel
+                </button>
+                <!--end::Button-->
+
+                <!--begin::Button-->
+                <button type="submit"  class="btn btn-primary">
+                    <span class="indicator-label">
+                        Update
+                    </span>
+
+                </button>
+                <!--end::Button-->
+            </div>
+             <!--end::Action buttons-->
+            </div>
+
         <!--end::Card body-->
     </div>
  </div>
