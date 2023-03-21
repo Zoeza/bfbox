@@ -64,18 +64,4 @@ def download_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report_selected.file, as_attachment=True)
 
-
 # --------------- send report -----------------#
-def send_report(sku):
-    report_selected = GeneratedReport.objects.get(sku=sku)
-
-    with open(report_selected.file, "rb") as docx_file:
-        result = mammoth.convert_to_html(docx_file)
-        html = result.value
-        messages = result.messages
-        f = open(os.path.join("templates/reports_manager", 'record_reporting.html'), "w")
-        f.write(html)
-        f.close()
-        return "reports_manager/record_reporting.html"
-    # file_selected = open(report_selected.file, 'rb')
-# return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')
