@@ -76,6 +76,6 @@ def send_report(sku):
         f = open("reports_manager/sample.html", "w")
         f.write(html)
         f.close()
-    return "reports_manager/sample.html"
+        return "reports_manager/sample.html"
     # file_selected = open(report_selected.file, 'rb')
 # return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')
