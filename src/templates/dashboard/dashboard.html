@@ -53,18 +53,20 @@
                 </div>
                 <!--end::Icon-->
                 <!--begin::Section-->
-                {% if client_list.count %}
+
                 <div class="d-flex flex-column my-7">
+                    {% if client_list.count %}
                     <!--begin::Number-->
                     <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{client_list.count}}</span>
                     <!--end::Number-->
                     <!--begin::Follower-->
+                    {% endif %}
                     <div class="m-0">
                         <span class="fw-semibold fs-6 text-gray-400">Clients</span>
                     </div>
                     <!--end::Follower-->
                 </div>
-                {% endif %}
+
                 <!--end::Section-->
                 <!--begin::Badge-->
                 <span class="badge badge-light-success fs-base">
