@@ -31,7 +31,7 @@ def generate_notice_letter(request):
         file = generate_report('Notice letter', context)
         notice_letter = GeneratedReport()
         notice_letter.file.save('Notice_letter.docx', file)
-        notice_letter.filename = request.POST.get('Notice letter')
+        notice_letter.filename = 'Notice letter'
         notice_letter.number = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
@@ -55,6 +55,7 @@ def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
     GeneratedReport(filename=filename,
                     number=court_case_num,
+                    file=file,
                     sku=sku,
                     ).save()
 
