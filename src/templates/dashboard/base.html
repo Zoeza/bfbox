@@ -27,7 +27,7 @@
 		<!--End::Google Tag Manager -->
 	</head>
 	<!--end::Head-->
-{% block body %}
+
 	<!--begin::Body-->
 	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
 		<!--begin::Theme mode setup on page load-->
@@ -40,6 +40,7 @@
 		<!--End::Google Tag Manager (noscript) -->
 		<!--begin::Main-->
 		<!--base headers-->
+		{% block body %}
 		<div class="d-flex flex-column flex-root">
 			<div class="page d-flex flex-row flex-column-fluid">
 				<!--aside-->
@@ -2041,9 +2042,6 @@
 
 		</div>
 		<!--end headers-->
-
-
-
 
 		<!--begin::Engage drawers-->
 		<!--begin::Exolore drawer-->
@@ -4761,6 +4759,7 @@
 		</div>
 		<!--end::Modal - Invite Friend-->
 		<!--end::Modals-->
+		{% endblock %}
 
 		<!--begin::Javascript-->
 		<script>var hostUrl = "/jet-html-pro/assets/";</script>
@@ -4780,5 +4779,5 @@
 		<!--end::Global Javascript Bundle(used by all pages)-->
 	</body>
 	<!--end::Body-->
-{% endblock %}
+
 </html>
