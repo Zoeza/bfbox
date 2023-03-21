@@ -68,11 +68,14 @@ def download_report(sku):
 # --------------- send report -----------------#
 def send_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    result = mammoth.convert_to_html(report_selected.file)
 
-    with open('sample.html', 'w', encoding='utf-8') as htmlfile:
-        htmlfile.write(result.value)
-    return FileResponse(htmlfile, as_attachment=True)
-
+    with open(report_selected.file, "rb") as docx_file:
+        result = mammoth.convert_to_html(docx_file)
+        html = result.value
+        messages = result.messages
+        f = open("reports_manager/" + 'sample.html', "w")
+        f.write(html)
+        f.close()
+    return "reports_manager/sample.html"
     # file_selected = open(report_selected.file, 'rb')
 # return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')
