@@ -72,6 +72,7 @@ def send_report(sku):
 
     with open('sample.html', 'w', encoding='utf-8') as htmlfile:
         htmlfile.write(result.value)
-    return htmlfile
+    return FileResponse(htmlfile, as_attachment=True)
+
     # file_selected = open(report_selected.file, 'rb')
 # return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')
