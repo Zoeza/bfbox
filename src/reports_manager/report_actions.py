@@ -28,10 +28,8 @@ def generate_notice_letter(request):
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
         file = generate_report('Notice letter', context)
-        doc_file = open(file, 'rb')
         notice_letter = GeneratedReport()
         notice_letter.file.save('Notice_letter.docx', file)
-        convert(doc_file,notice_letter.pdf_file )
         notice_letter.filename = 'Notice letter'
         notice_letter.number = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
