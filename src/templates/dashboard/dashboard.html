@@ -57,7 +57,7 @@
                 <div class="d-flex flex-column my-7">
                     {% if clients_list.count %}
                     <!--begin::Number-->
-                    <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">clients_list.count</span>
+                    <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{clients_list.count}}</span>
                     <!--end::Number-->
                     <!--begin::Follower-->
                     {% endif %}
@@ -105,9 +105,11 @@
                 <!--end::Icon-->
                 <!--begin::Section-->
                 <div class="d-flex flex-column my-7">
+                    {% if appointments_list.count %}
                     <!--begin::Number-->
-                    <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">27,5M</span>
+                    <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{appointments_list.count}}</span>
                     <!--end::Number-->
+                    {% endif %}
                     <!--begin::Follower-->
                     <div class="m-0">
                         <span class="fw-semibold fs-6 text-gray-400">Appointments</span>
@@ -152,9 +154,11 @@
                 <!--end::Icon-->
                 <!--begin::Section-->
                 <div class="d-flex flex-column my-7">
+                      {% if reports_list.count %}
                     <!--begin::Number-->
-                    <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">149M</span>
+                    <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{reports_list.count}}</span>
                     <!--end::Number-->
+                    {% endif %}
                     <!--begin::Follower-->
                     <div class="m-0">
                         <span class="fw-semibold fs-6 text-gray-400">Reports</span>
