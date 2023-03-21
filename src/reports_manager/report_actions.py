@@ -29,7 +29,12 @@ def generate_notice_letter(request):
             'court_case_msg_content': request.POST.get('court_case_msg_content'),
         }
         file = generate_report('Notice letter', context)
-        save_report('Notice_letter', 'court_case_num', file)
+        notice_letter = GeneratedReport()
+        notice_letter.file.save('Notice_letter.docx', file)
+        notice_letter.filename = request.POST.get('Notice letter')
+        notice_letter.number = request.POST.get('court_case_num')
+        notice_letter.sku = serial_number_generator(10).upper()
+        notice_letter.save()
 
 
 # ------------ generate report --------------#
@@ -48,7 +53,6 @@ def generate_report(template_name, context):
 # ------------ save report --------------#
 def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
-    GeneratedReport.file.save('filename.docx', file)
     GeneratedReport(filename=filename,
                     number=court_case_num,
                     sku=sku,
@@ -59,5 +63,6 @@ def save_report(filename, court_case_num, file):
 def download_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report_selected.file, as_attachment=True)
+
 
 # --------------- send report -----------------#
