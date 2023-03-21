@@ -24,7 +24,7 @@ def manage_report(request, action, sku):
         GeneratedReport.objects.all().get(sku=sku).delete()
 
     if action == "print_file":
-        report_actions.send_report(sku)
+        return report_actions.send_report(sku)
 
     context = {
         "reports_list": reports_list,
