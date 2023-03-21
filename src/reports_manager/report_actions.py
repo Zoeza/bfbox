@@ -48,6 +48,7 @@ def generate_report(template_name, context):
     report = ContentFile(report_io.read())
     return report
 
+
 # ------------ save report --------------#
 def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
@@ -62,5 +63,6 @@ def save_report(filename, court_case_num, file):
 def download_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report_selected.file, as_attachment=True)
+
 
 # --------------- send report -----------------#
