@@ -73,7 +73,7 @@ def send_report(sku):
         result = mammoth.convert_to_html(docx_file)
         html = result.value
         messages = result.messages
-        f = open("reports_manager/" + 'sample.html', "w")
+        f = open("reports_manager/sample.html", "w")
         f.write(html)
         f.close()
     return "reports_manager/sample.html"
