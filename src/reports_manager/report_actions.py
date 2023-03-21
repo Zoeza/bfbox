@@ -7,6 +7,7 @@ from templates_manager.models import UploadTemplate
 from .models import GeneratedReport
 from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
+from docx2pdf import convert
 
 
 # ------------ generate notice letter --------------#
@@ -67,5 +68,5 @@ def download_report(sku):
 # --------------- send report -----------------#
 def send_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    file_selected = open(report_selected.file, 'rb')
-    return FileResponse(file_selected)
+    # f ile_selected = open(report_selected.file, 'rb')
+    return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')

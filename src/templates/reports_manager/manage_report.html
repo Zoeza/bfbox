@@ -208,6 +208,8 @@
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
                                                         <a class="menu-link px-3" href="{% url 'manage-report' 'print_report' report.sku %}"  onclick="window.print();">print</a>
+                                                        <embed src="{% url 'manage-report' 'print_report' report.sku %}" '#toolbar=0&navpanes=0&scrollbar=0' style="width:718px; height:700px;" frameborder="0">
+
                                                     </div>
                                                     <!--end::Menu item-->
 
