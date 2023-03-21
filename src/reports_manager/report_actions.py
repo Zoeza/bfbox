@@ -8,6 +8,7 @@ from .models import GeneratedReport
 from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
 from docx2pdf import convert
+import mammoth
 
 
 # ------------ generate notice letter --------------#
@@ -30,7 +31,6 @@ def generate_notice_letter(request):
         file = generate_report('Notice letter', context)
         notice_letter = GeneratedReport()
         notice_letter.file.save('Notice_letter.docx', file)
-        notice_letter.filename = 'Notice letter'
         notice_letter.number = request.POST.get('court_case_num')
         notice_letter.sku = serial_number_generator(10).upper()
         notice_letter.save()
@@ -68,5 +68,10 @@ def download_report(sku):
 # --------------- send report -----------------#
 def send_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
+    result = mammoth.convert_to_html(report_selected.file)
+
+    with open('sample.html', 'w', encoding='utf-8') as htmlfile:
+        htmlfile.write(result.value)
+    return htmlfile
     # file_selected = open(report_selected.file, 'rb')
-    return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')
+# return FileResponse(open(convert(report_selected.file), 'rb'), content_type='application/pdf')
