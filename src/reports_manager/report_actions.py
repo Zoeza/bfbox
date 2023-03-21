@@ -48,7 +48,6 @@ def generate_report(template_name, context):
     report = ContentFile(report_io.read())
     return report
 
-
 # ------------ save report --------------#
 def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
