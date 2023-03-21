@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'reports_manager',
     'templates_manager',
     'docxtpl',
-    'authentication',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
