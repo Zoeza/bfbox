@@ -2,7 +2,6 @@ from django.db import models
 
 
 class GeneratedReport(models.Model):
-
     objects = models.Manager()
     filename = models.CharField(max_length=255)
     client = models.CharField(max_length=255)
@@ -10,6 +9,7 @@ class GeneratedReport(models.Model):
     sku = models.CharField(max_length=20, unique=True, null=True)
     number = models.PositiveIntegerField(null=True, blank=True)
     file = models.FileField(upload_to='reports/', null=True)
+    pdf_file = models.FileField(upload_to='pdf_reports/', null=True)
     last_modified = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
