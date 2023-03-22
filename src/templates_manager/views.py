@@ -68,4 +68,4 @@ def edit_template(request, sku):
 
 def download_template(request,sku):
     template_selected = UploadTemplate.objects.get(sku=sku)
-    return FileResponse(template_selected, as_attachment=True)
+    return FileResponse(template_selected.template, as_attachment=True)
