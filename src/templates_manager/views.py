@@ -62,3 +62,10 @@ def edit_template(request, sku):
     }
 
     return render(request, "templates_manager/edit_template.html", context)
+
+
+# ----------------------- download template ------------------------- #
+
+def download_template(sku):
+    template_selected = UploadTemplate.objects.get(sku=sku)
+    return FileResponse(template_selected, as_attachment=True)
