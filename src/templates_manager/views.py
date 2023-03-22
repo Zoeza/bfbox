@@ -66,6 +66,6 @@ def edit_template(request, sku):
 
 # ----------------------- download template ------------------------- #
 
-def download_template(sku):
+def download_template(request,sku):
     template_selected = UploadTemplate.objects.get(sku=sku)
     return FileResponse(template_selected, as_attachment=True)
