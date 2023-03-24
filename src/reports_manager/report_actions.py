@@ -38,6 +38,7 @@ def generate_notice_letter(request):
 
 
 # ------------ generate report --------------#
+
 def generate_report(template_name, context):
     template = UploadTemplate.objects.get(name=template_name)
     template_path = template.template.path
@@ -51,6 +52,7 @@ def generate_report(template_name, context):
 
 
 # ------------ save report --------------#
+
 def save_report(filename, court_case_num, file):
     sku = serial_number_generator(10).upper()
     GeneratedReport(filename=filename,
@@ -61,9 +63,9 @@ def save_report(filename, court_case_num, file):
 
 
 # ------------ download report --------------#
+
 def download_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report_selected.file, as_attachment=True)
-
 
 # --------------- send report -----------------#
