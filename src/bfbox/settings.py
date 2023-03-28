@@ -128,4 +128,4 @@ MEDIA_ROOT = 'bfbox/site/public/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
-# AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.User'
