@@ -180,7 +180,7 @@
 											<label class="d-flex align-items-center form-label mb-5">Select Account Type
 											<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Monthly billing will be based on your account plan"></i></label>
 											<!--end::Label-->
-                                            {% for int i in 3 %}
+
 											<!--begin::Options-->
 											<div class="mb-0">
 												<!--begin:Option-->
@@ -192,7 +192,7 @@
 														<!--end::Icon-->
 														<!--begin::Description-->
 														<span class="d-flex flex-column">
-															<span class="fw-bold text-gray-800 text-hover-primary fs-5">Company Account i </span>
+															<span class="fw-bold text-gray-800 text-hover-primary fs-5">Company Account </span>
 														</span>
 														<!--end:Description-->
 													</span>
@@ -207,7 +207,33 @@
 
 											</div>
 											<!--end::Options-->
-                                            {% endfor %}
+                                            <!--begin::Options-->
+											<div class="mb-0">
+												<!--begin:Option-->
+												<label class="d-flex flex-stack mb-5 cursor-pointer">
+													<!--begin:Label-->
+													<span class="d-flex align-items-center me-2">
+														<!--begin::Icon-->
+
+														<!--end::Icon-->
+														<!--begin::Description-->
+														<span class="d-flex flex-column">
+															<span class="fw-bold text-gray-800 text-hover-primary fs-5">Company Account </span>
+														</span>
+														<!--end:Description-->
+													</span>
+													<!--end:Label-->
+													<!--begin:Input-->
+													<span class="form-check form-check-custom form-check-solid">
+														<input class="form-check-input" type="radio" name="account_plan" value="1" />
+													</span>
+													<!--end:Input-->
+												</label>
+												<!--end::Option-->
+
+											</div>
+											<!--end::Options-->
+
 										</div>
 										<!--end::Input group-->
                                 </div>
