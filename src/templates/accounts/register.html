@@ -172,7 +172,7 @@
                                     </div>
                                     <div class="separator my-7"></div>
                                     <!--begin::Heading-->
-                                   
+
                                     <!--end::Heading-->
                                     <!--begin::Input group-->
 										<div class="mb-0 fv-row">
@@ -180,6 +180,7 @@
 											<label class="d-flex align-items-center form-label mb-5">Select Account Type
 											<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Monthly billing will be based on your account plan"></i></label>
 											<!--end::Label-->
+                                            {%for i in 3 %}
 											<!--begin::Options-->
 											<div class="mb-0">
 												<!--begin:Option-->
@@ -191,7 +192,7 @@
 														<!--end::Icon-->
 														<!--begin::Description-->
 														<span class="d-flex flex-column">
-															<span class="fw-bold text-gray-800 text-hover-primary fs-5">Company Account</span>
+															<span class="fw-bold text-gray-800 text-hover-primary fs-5">Company Account i </span>
 														</span>
 														<!--end:Description-->
 													</span>
@@ -206,6 +207,7 @@
 
 											</div>
 											<!--end::Options-->
+                                            {% enfor %}
 										</div>
 										<!--end::Input group-->
                                 </div>
