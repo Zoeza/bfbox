@@ -10,8 +10,7 @@ def sign_up(request):
         last_name = request.POST.get('last-name')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        bailiff = request.POST.get('is_bailiff')
-        employee = request.POST.get('is_employee')
+        usertype = request.POST.get('user-type')
 
         user = User.objects.create_user(
             first_name=first_name,
@@ -21,10 +20,9 @@ def sign_up(request):
         user.set_password(password)
         user.save()
 
-        usertype = None
-        if bailiff:
+        if usertype == 'Bailiff':
             usertype = user_type(user=user, is_bailiff=True)
-        elif employee:
+        elif usertype == 'Employee':
             usertype = user_type(user=user, is_employee=True)
 
         usertype.save()
