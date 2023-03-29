@@ -6,13 +6,14 @@ from django.utils import timezone
 # ------------ User Manager Class ---------------#
 
 class UserManager(BaseUserManager):
-    def _create_user(self, name, email, password, is_staff, is_superuser, **extra_fields):
+    def _create_user(self, first_name, last_name, email, password, is_staff, is_superuser, **extra_fields):
         if not email:
             raise ValueError('Users must have an email address')
         now = timezone.now()
         email = self.normalize_email(email)
         user = self.model(
-            name=name,
+            first_name=first_name,
+            last_name=last_name,
             email=email,
             is_staff=is_staff,
             is_active=True,
@@ -25,11 +26,11 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_user(self, name=None, email=None, password=None, **extra_fields):
-        return self._create_user(name, email, password, False, False, **extra_fields)
+    def create_user(self, first_name=None, last_name=None, email=None, password=None, **extra_fields):
+        return self._create_user(first_name, last_name, email, password, False, False, **extra_fields)
 
-    def create_superuser(self, name, email, password, **extra_fields):
-        user = self._create_user(name, email, password, True, True, **extra_fields)
+    def create_superuser(self, first_name, last_name, email, password, **extra_fields):
+        user = self._create_user(first_name, last_name, email, password, True, True, **extra_fields)
         user.save(using=self._db)
         return user
 
@@ -38,7 +39,8 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=254, unique=True)
-    name = models.CharField(max_length=254, null=True, blank=True)
+    first_name = models.CharField(max_length=254, null=True, blank=True)
+    last_name = models.CharField(max_length=254, null=True, blank=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
