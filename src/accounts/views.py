@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .models import user_type, User
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -42,3 +43,8 @@ def sign_in(request):
             return render(request, "accounts/sign_in.html", {'error': 'Username or password is incorrect!'})
     else:
         return render(request, "accounts/sign_in.html", {})
+
+@login_required
+def sign_out(request):
+    logout(request)
+    return redirect('sign-in')
