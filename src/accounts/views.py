@@ -11,7 +11,6 @@ def sign_up(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         usertype = request.POST.get('user-type')
-
         user = User.objects.create_user(
             first_name=first_name,
             last_name=last_name,
@@ -32,4 +31,17 @@ def sign_up(request):
 
 
 def sign_in(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')  # Get email value from form
+        password = request.POST.get('password')  # Get password value from form
+        user = authenticate(request, email=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            type_obj = user_type.objects.get(user=user)
+            if user.is_authenticated and type_obj.is_bailiff:
+                return redirect('dashboard')  # Go to dashboard
+            elif user.is_authenticated and type_obj.is_employee:
+                return redirect('dashboard')  # Go to dashboard
+
     return render(request, "accounts/sign_in.html", {})
