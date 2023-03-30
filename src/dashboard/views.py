@@ -11,7 +11,7 @@ def dashboard(request):
     clients_list = Client.objects.all()
     appointments_list = Appointment.objects.all()
     usertype = 'Employee'
-    if user_type.objects.get(user=request.user).is_bailiff:
+    if user_type.is_bailiff:
         usertype = 'Bailiff'
 
     context = {
