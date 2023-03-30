@@ -36,8 +36,9 @@ def sign_in(request):
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
         if user is not None:
             login(request, user)
-            if user_type.objects.get(user=user).is_bailiff or user_type.objects.get(user=user).is_employee:
-                return redirect('dashboard')  # Go to dashboard
+            if user.is_authenticated:
+                if user_type.objects.get(user=user).is_bailiff or user_type.objects.get(user=user).is_employee:
+                    return redirect('dashboard')  # Go to dashboard
 
         else:
             return render(request, "accounts/sign_in.html", {'error': 'Username or password is incorrect!'})
