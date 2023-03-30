@@ -11,11 +11,13 @@ def dashboard(request):
     reports_list = GeneratedReport.objects.all()
     clients_list = Client.objects.all()
     appointments_list = Appointment.objects.all()
+    usertype = user_type.objects.get(user=request.user)
+
     context = {
         "reports_list": reports_list,
         "clients_list": clients_list,
         "appointments_list": appointments_list,
-        "user_type": user_type,
+        "user_type": usertype,
 
     }
 
