@@ -11,7 +11,9 @@ def dashboard(request):
     reports_list = GeneratedReport.objects.all()
     clients_list = Client.objects.all()
     appointments_list = Appointment.objects.all()
-    usertype = user_type.objects.get(user=request.user)
+    usertype = 'Employee'
+    if user_type.objects.get(user=request.user).is_bailiff:
+        usertype = 'Bailiff'
 
     context = {
         "reports_list": reports_list,

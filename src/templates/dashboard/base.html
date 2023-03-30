@@ -102,7 +102,7 @@
 									</div>
 									<!--end menu title client management-->
 
-									{% if user_type.is_bailiff %}
+									{% if user_type == 'Bailiff' %}
 									<!--menu title user management-->
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--menu title user management-->
@@ -145,7 +145,7 @@
 									<!--end menu title appointment management-->
 
 
-									{% if user_type.is_bailiff %}
+									{% if user_type == 'Bailiff' %}
 									<!--menu title template management-->
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--begin:Menu link-->
