@@ -130,6 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 AUTH_USER_MODEL = 'accounts.User'
 # Login & Logout URLs
-LOGOUT_REDIRECT_URL = 'accounts:sign-in'
-LOGIN_URL = 'accounts:sign-in'
+LOGOUT_REDIRECT_URL = 'sign-in'
+LOGIN_URL = 'sign-in'
 
