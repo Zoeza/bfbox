@@ -13,13 +13,8 @@ def dashboard(request):
         "reports_list": reports_list,
         "clients_list": clients_list,
         "appointments_list": appointments_list,
+        "user_type": user_type,
+
     }
 
-    if request.user.is_authenticated and user_type.objects.get(user=request.user).is_bailiff:
-        return render(request, "dashboard/admin_dashboard.html", context)
-
-    elif request.user.is_authenticated and user_type.objects.get(user=request.user).is_employee:
-        return render(request, "dashboard/user_dashboard.html", context)
-
-
-
+    return render(request, "dashboard/dashboard.html", context)
