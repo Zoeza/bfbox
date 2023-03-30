@@ -103,7 +103,7 @@
 									<!--end menu title client management-->
 
 									{% if request.user.is_authenticated %}
-									{% if user_type.objects.get(user=request.user).is_bailiff %}
+									{% if user_type.is_bailiff %}
 									<!--menu title user management-->
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--menu title user management-->
@@ -148,7 +148,7 @@
 
 
 									{% if request.user.is_authenticated %}
-									{% if user_type.objects.get(user=request.user).is_bailiff %}
+									{% if user_type.is_bailiff %}
 									<!--menu title template management-->
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--begin:Menu link-->
