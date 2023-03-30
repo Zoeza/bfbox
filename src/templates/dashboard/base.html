@@ -102,7 +102,8 @@
 									</div>
 									<!--end menu title client management-->
 
-									{% if request.user.is_authenticated and {{user_type.objects.get(user=request.user).is_bailiff}} %}
+									{% if request.user.is_authenticated %}
+									{% if {{user_type.objects.get(user=request.user).is_bailiff}} %}
 									<!--menu title user management-->
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--menu title user management-->
@@ -122,6 +123,7 @@
 										<!--end menu title user management-->
 									</div>
 									<!--end menu title user management-->
+									{% endif %}
 									{% endif %}
 
 									<!--menu title appointment management-->
@@ -145,7 +147,8 @@
 									<!--end menu title appointment management-->
 
 
-									{% if request.user.is_authenticated and {{user_type.objects.get(user=request.user).is_bailiff}} %}
+									{% if request.user.is_authenticated %}
+									{% if {{user_type.objects.get(user=request.user).is_bailiff}} %}
 									<!--menu title template management-->
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--begin:Menu link-->
@@ -169,6 +172,7 @@
 
 									</div>
 									<!--end menu title template management-->
+									{% endif %}
 									{% endif %}
 
 									<!--menu title report management-->
