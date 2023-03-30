@@ -131,5 +131,5 @@ TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 AUTH_USER_MODEL = 'accounts.User'
 # Login & Logout URLs
 LOGOUT_REDIRECT_URL = 'accounts:sign-in'
-LOGIN_URL = 'authentication:sign-in'
+LOGIN_URL = 'accounts:sign-in'
 
