@@ -35,6 +35,8 @@ def sign_in(request):
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
         if user is not None:
             login(request, user)
+            type_obj = user_type.objects.get(user=user)
+
             return redirect('dashboard')  # Go to dashboard
 
         else:
