@@ -11,7 +11,6 @@ def dashboard(request):
     reports_list = GeneratedReport.objects.all()
     clients_list = Client.objects.all()
     appointments_list = Appointment.objects.all()
-
     if not request.session.get('language', None):
         request.session['language'] = 'en'
     direction = request.session.get('language')
@@ -21,7 +20,6 @@ def dashboard(request):
         "reports_list": reports_list,
         "clients_list": clients_list,
         "appointments_list": appointments_list,
-
     }
 
     return render(request, url, context)
