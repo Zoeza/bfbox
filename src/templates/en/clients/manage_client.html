@@ -1,0 +1,319 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+<!------------------------------- title ---------------------------------------------------->
+
+{% block title %}
+<title>
+
+         BFBOX - Bailiff Manager System
+
+</title>
+{% endblock %}
+<!------------------------------- end title ------------------------------------------------>
+
+{% block heading%}
+<!--begin::Heading-->
+    <h1 class="text-dark fw-bold my-1 fs-2">Clients
+    <small class="text-muted fs-6 fw-normal ms-1"></small>
+    </h1>
+    <!--end::Heading-->
+{% endblock %}
+
+{% block breadcrumb%}
+    <!--begin::Breadcrumb-->
+    <ul class="breadcrumb fw-semibold fs-base my-1">
+        <li class="breadcrumb-item text-muted">
+            <a href="../index.html" class="text-muted">Home</a>
+        </li>
+        <li class="breadcrumb-item text-muted">Client Manager</li>
+
+
+    </ul>
+    <!--end::Breadcrumb-->
+{% endblock %}
+
+<!-------------------------------  client  management --------------------------------------------->
+
+{% block content %}
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Container-->
+    <div class="container-xxl" id="kt_content_container">
+        <div class="card card-bordered">
+            <!--begin::Card header-->
+            <div class="card-header ">
+                {% if clients.count %}
+                <!--begin::Card title-->
+                <div class="card-title">
+                    <!--begin::Search-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                        <span class="svg-icon svg-icon-1 position-absolute ms-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                        <input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search Client" />
+                    </div>
+                    <!--end::Search-->
+                </div>
+                <!--begin::Card title-->
+                {% else %}
+                 <!--no clients message-->
+                    <div class="d-flex align-items-center position-relative my-1">
+                        No registered clients ,to start click on Add client
+                    </div>
+                    <!--end no clients message-->
+                {% endif %}
+                <!--begin::Card toolbar-->
+                <div class="card-toolbar">
+                    <!--begin::Toolbar-->
+                    <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
+
+                       <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#add_new_client">
+                           <!--begin::Svg Icon | path: icons/duotune/general/gen035.svg-->
+                            <span class="svg-icon svg-icon-3">
+                                <i class="bi bi-person-plus" style="font-size: 1.5rem;"></i>
+                            </span>
+                            <!--end::Svg Icon-->                Add Client
+                        </button>
+                    </div>
+                    <!--end::Toolbar-->
+
+                </div>
+                <!--end::Card toolbar-->
+            </div>
+            <!--end::Card header-->
+
+        <!-------------------------------  client  listing ---------------------------------------------->
+            <div class="card-body">
+                <!--client table-->
+                <div class="table-responsive">
+                     {% if clients.count %}
+                    <table class="table table-row-bordered gy-7 gs-7">
+                    <!--begin::Table head-->
+                    <thead>
+                        <!--begin::Table row-->
+                        <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+
+                            <th class="min-w-150px">Client Name</th>
+                            <th class="min-w-125px">Email</th>
+                            <th class="min-w-150px">Birthday</th>
+                            <th class="min-w-125px">Address</th>
+							<th class="min-w-100px">Town</th>
+                            <th class="min-w-125px">Lawyer</th>
+                            <th class="min-w-125px">Created Date</th>
+                            <th class="min-w-50px">Actions</th>
+                            <th class="min-w-50px"></th>
+                            <th class="text-end min-w-50px"></th>
+
+                        </tr>
+                        <!--end::Table row-->
+                    </thead>
+                    <!--end::Table head-->
+
+                    <!--begin::Table body-->
+                    <tbody class="fw-semibold text-gray-600">
+                    {% for client in clients %}
+                        <tr>
+                            <!--end::Checkbox-->
+                            <!--Client name=-->
+                             <td>{{client.name}}</td>
+                            <!--Client Email=-->
+                            <td>{{client.email}}</td>
+                            <!--Client birthday=-->
+                             <td>{{client.birthday}}</td>
+                            <!--Client Address -->
+                             <td>{{client.address}}</td>
+                            <!--Client Town -->
+                             <td>{{client.town}}</td>
+                            <!--Client Lawyer-->
+                            <td>{{client.lawyer}}</td>
+                            <!--Client created date=-->
+                            <td>{{client.created_at}}</td>
+                            <!--end::Date=-->
+
+                            <!--view client action-->
+                            <td class="text-end">
+                                <a href="" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="view client">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </td>
+                            <!--end view client action-->
+
+                            <!--edit client action-->
+                            <td class="text-end">
+                                <a href="{% url 'clients:edit-client' client.sku %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="edit client" >
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                            <!--end edit client action-->
+
+                            <!--delete client action-->
+                            <td class="text-end">
+                                <a href="{% url 'clients:delete-client' client.sku %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="delete client">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                            <!--end delete client action-->
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <!--end::Table body-->
+                     </table>
+                    {% endif %}
+                </div>
+                <!--end::Table-->
+            </div>
+
+             <!--principle card footer-->
+            <div class="card-footer">
+            </div>
+                <!--end principle card footer-->
+        </div>
+        <!-------------------------------  end client  listing ------------------------------------------->
+
+        <!-------------------------------  client  adding ------------------------------------------------>
+
+          <!--add new client modal-->
+        <div class="modal fade" id="add_new_client" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered mw-650px">
+                <div class="modal-content shadow-none">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add new client</h5>
+                        <!--close-->
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                            <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
+                        </div>
+                        <!--end clos-->
+                     </div>
+
+                     <!--add client general information form-->
+                    <form class="form" action="{% url 'clients:add-client' %}" id="kt_modal_add_customer_form" data-kt-redirect="{% url 'clients:manage-client' %}"  method="post">
+                        {% csrf_token %}
+                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                            <div class="tab-content">
+                                <!--block body-->
+                                <div class="modal-body py-10 px-lg-17">
+                                    <!--begin::Scroll-->
+                                    <div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px">
+                                        <!--begin::Input group-->
+                                            <div class="row g-9 mb-7">
+                                                <!--begin::Col-->
+                                                <div class="col-md-6 fv-row">
+                                                    <!--client name-->
+                                                    <label class="required fs-6 fw-semibold mb-2"> Name</label>
+                                                    <!--input-->
+                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Client name" />
+                                                    <!--end::Input-->
+                                                </div>
+
+
+                                                <!--client email-->
+                                                <div class="col-md-6 fv-row">
+                                                    <label class="fs-6 fw-semibold mb-2"><span class="required">Email</span>
+                                                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
+                                                    </label>
+
+                                                    <!--input-->
+                                                    <input type="email"  class="form-control form-control-solid" placeholder="" name="email" value="sean@dellito.com" />
+                                                </div>
+
+                                            </div>
+                                        <!--end::Input group-->
+
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-7">
+                                                <!--client birthday-->
+                                                <label class="fs-6 fw-semibold mb-2">
+                                                    <span class="required">Birthday</span>
+                                                </label>
+
+                                                <!--input-->
+                                                <input type="date" class="form-control form-control-solid" placeholder="" name="birthday" value="birthday" />
+
+                                            </div>
+                                            <!--end::Input group-->
+
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-7">
+                                                <!--client lawyer-->
+                                                <label class="fs-6 fw-semibold mb-2">
+                                                    <span class="required">Lawyer</span>
+                                                </label>
+
+                                                <!--input-->
+                                                <input type="text" class="form-control form-control-solid" placeholder="" name="lawyer" value="lawyer Name" />
+
+                                            </div>
+                                            <!--end::Input group-->
+
+
+                                            <!--begin::Billing form-->
+                                            <div id="kt_modal_add_customer_billing_info" class="collapse show">
+                                                <!--begin::Input group-->
+                                                <div class="d-flex flex-column mb-7 fv-row">
+                                                    <!--client address-->
+                                                    <label class="required fs-6 fw-semibold mb-2">Address </label>
+
+                                                    <!--input-->
+                                                    <input class="form-control form-control-solid" placeholder="" name="address" value="101, Collins Street" />
+
+                                                </div>
+                                                <!--end::Input group-->
+
+                                                <!--begin::Input group-->
+                                                <div class="d-flex flex-column mb-7 fv-row">
+                                                    <!--client Town-->
+                                                    <label class="required fs-6 fw-semibold mb-2">Town</label>
+                                                    <!--input-->
+                                                    <input class="form-control form-control-solid" placeholder="" name="town" value="Alger" />
+
+                                                </div>
+                                                <!--end::Input group-->
+
+                                            </div>
+                                            <!--end::Billing form-->
+                                    </div>
+                                    <!--end::Scroll-->
+                                </div>
+                                <!--end::Modal body-->
+                                <!--end::Modal body-->
+                            </div>
+                        </div>
+
+                        <!--begin::Modal footer-->
+                        <div class="modal-footer ">
+                            <!--begin::Button-->
+                            <button type="submit" class="btn btn-primary">
+                                <span class="indicator-label">Save</span>
+                            </button>
+                            <!--end::Button-->
+                        </div>
+                         <!--end::Modal footer-->
+                    </form>
+                    <!--end add client information-->
+                </div>
+            </div>
+        </div>
+        <!--end add new client modal-->
+        <!-------------------------------  end client  adding --------------------------------------------->
+
+        <!-------------------------------  client  updating ----------------------------------------------->
+
+
+        <!------------------------------- end client  updating -------------------------------------------->
+
+
+
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Content-->
+{% endblock %}
+
+<!------------------------------- end  client management --------------------------------------------->

@@ -1,0 +1,426 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+<!------------------------------- title ---------------------------------------------------->
+
+{% block title %}
+<title>
+
+         BFBOX - Bailiff Manager System
+
+</title>
+{% endblock %}
+<!------------------------------- end title ------------------------------------------------>
+
+{% block heading%}
+<!--begin::Heading-->
+    <h1 class="text-dark fw-bold my-1 fs-2"> Report Manager
+    <small class="text-muted fs-6 fw-normal ms-1"></small>
+    </h1>
+    <!--end::Heading-->
+{% endblock %}
+
+{% block breadcrumb%}
+    <!--begin::Breadcrumb-->
+    <ul class="breadcrumb fw-semibold fs-base my-1">
+        <li class="breadcrumb-item text-muted">
+            <a href="../index.html" class="text-muted">Home</a>
+        </li>
+        <li class="breadcrumb-item text-muted">Report Manager</li>
+      <li class="breadcrumb-item text-muted">Add Report </li>
+
+
+
+
+    </ul>
+    <!--end::Breadcrumb-->
+{% endblock %}
+
+
+{% block content%}
+<!--begin::Content-->
+<div class="d-flex flex-column flex-lg-row-fluid py-10">
+    <!--begin::Container-->
+    <div class="d-flex flex-center flex-column flex-column-fluid">
+		<!--begin::Card-->
+        <div class="card w-lg-800px p-10 p-lg-20 mx-auto">
+
+           <!--begin::Card body-->
+           <div class="card-body">
+               <!--begin::Stepper-->
+               <div class="stepper stepper-pills" id="kt_stepper_example_basic">
+                   <!--begin::Nav-->
+                   <div class="stepper-nav flex-center flex-wrap mb-10">
+                       <!--begin::Step 1-->
+                       <div class="stepper-item mx-8 my-4 current" data-kt-stepper-element="nav">
+                           <!--begin::Wrapper-->
+                            <div class="stepper-wrapper d-flex align-items-center">
+                                <!--begin::Icon-->
+                                <div class="stepper-icon w-40px h-40px">
+                                    <i class="stepper-check fas fa-check"></i>
+                                    <span class="stepper-number">1</span>
+                                </div>
+                                <!--end::Icon-->
+
+                                <!--begin::Label-->
+                                <div class="stepper-label">
+                                    <h3 class="stepper-title">
+                                       Report Info
+                                    </h3>
+
+                                </div>
+                            <!--end::Label-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Line-->
+                            <div class="stepper-line h-40px"></div>
+                            <!--end::Line-->
+
+                       </div>
+                       <!--end::Step 1-->
+
+                       <!--begin::Step 2-->
+                       <div class="stepper-item mx-8 my-4" data-kt-stepper-element="nav">
+
+                           <!--begin::Wrapper-->
+                            <div class="stepper-wrapper d-flex align-items-center">
+                                <!--begin::Icon-->
+                                <div class="stepper-icon w-40px h-40px">
+                                    <i class="stepper-check fas fa-check"></i>
+                                    <span class="stepper-number">2</span>
+                                </div>
+                                <!--end::Icon-->
+
+                                <!--begin::Label-->
+                                <div class="stepper-label">
+                                    <h3 class="stepper-title">
+                                       Client Info
+                                    </h3>
+
+                                </div>
+                            <!--end::Label-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Line-->
+                            <div class="stepper-line h-40px"></div>
+                            <!--end::Line-->
+
+
+                       </div>
+                       <!--end::Step 2-->
+                       <!--begin::Step 3-->
+                        <div class="stepper-item mark-completed mx-8 my-4" data-kt-stepper-element="nav">
+                           <!--begin::Wrapper-->
+                            <div class="stepper-wrapper d-flex align-items-center">
+                                <!--begin::Icon-->
+                                <div class="stepper-icon w-40px h-40px">
+                                    <i class="stepper-check fas fa-check"></i>
+                                    <span class="stepper-number">3</span>
+                                </div>
+                                <!--end::Icon-->
+
+                                <!--begin::Label-->
+                                <div class="stepper-label">
+                                    <h3 class="stepper-title">
+                                       Completed
+                                    </h3>
+
+                                </div>
+                            <!--end::Label-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Line-->
+                            <div class="stepper-line h-40px"></div>
+                            <!--end::Line-->
+
+                       </div>
+                       <!--end::Step 3-->
+                   </div>
+                   <!--end::Nav-->
+                   <!--begin::Form-->
+                   <form action="{% url 'generate-report' 'generate_notice_letter' %}" class="mx-auto mw-700px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_create_notice_letter_form" method="post">
+                      {% csrf_token %}
+                       <div class="mb-3">
+                        <!--begin::Step 1-->
+                           <div class="current" data-kt-stepper-element="content">
+                               <!--begin::Wrapper-->
+                               <div class="w-100">
+                                   <!--begin::Heading-->
+                                   <div class="pb-10 pb-lg-12">
+                                       <!--begin::Title-->
+                                       <h3 class="fw-bold text-dark">Report Information</h3>
+                                       <!--end::Title-->
+                                   </div>
+                                   <!--end::Heading-->
+
+                                   <div class="mb-10 fv-row">
+
+                                      <!--begin::Input group-->
+                                       <div class="row g-9 mb-7">
+                                           <!--begin::Col-->
+                                           <!--court case title-->
+                                           <div class="col-md-6 fv-row">
+                                               <label class="required fs-6 fw-semibold mb-2"> Title</label>
+                                               <!--input-->
+                                               <input type="text" class="form-control form-control-solid" placeholder="title" id= "court_case_msg_title"  name="court_case_msg_title" value="" />
+                                               <!--end::Input-->
+                                           </div>
+                                           <!-- end court case title-->
+
+
+                                           <!--court case content-->
+                                           <div class="col-md-6 fv-row">
+                                               <label class="required fs-6 fw-semibold mb-2"> Content</label>
+                                               <!--input-->
+                                               <input type="text"  class="form-control form-control-solid" placeholder="content" id="court_case_msg_content"  name="court_case_msg_content" value="" />
+                                           </div>
+                                           <!-- end court case content-->
+
+                                           <!--court case num -->
+                                           <div class="col-md-6 fv-row">
+                                               <!--client name-->
+                                               <label class="required fs-6 fw-semibold mb-2"> Number</label>
+                                               <!--input-->
+                                               <input type="number" class="form-control form-control-solid" placeholder="number" id="court_case_num" name="court_case_num" value="" />
+                                               <!--end::Input-->
+                                           </div>
+                                           <!-- end court case num -->
+
+                                           <!--court case agent -->
+                                           <div class="col-md-6 fv-row">
+                                               <!--client name-->
+                                               <label class="required fs-6 fw-semibold mb-2"> Agent</label>
+                                               <!--input-->
+                                               <input type="text" class="form-control form-control-solid" placeholder="agent name" id="court_case_agent" name="court_case_agent" value="" />
+                                               <!--end::Input-->
+                                           </div>
+                                           <!-- end court case agent -->
+
+                                           <!--court case date -->
+                                           <div class="col-md-6 fv-row">
+                                               <!--client name-->
+                                               <label class="required fs-6 fw-semibold mb-2"> Date</label>
+                                               <!--input-->
+                                               <input type="date" class="form-control form-control-solid" placeholder="" id="court_case_date" name="court_case_date" value="" />
+                                               <!--end::Input-->
+                                           </div>
+                                           <!-- end court case date -->
+
+                                           <!--court case time -->
+                                           <div class="col-md-6 fv-row">
+                                               <!--court case time -->
+                                               <label class="required fs-6 fw-semibold mb-2"> Time</label>
+
+                                               <!--input-->
+                                               <input type="time" class="form-control form-control-solid" placeholder="" id="court_case_time" name="court_case_time" value="" />
+                                               <!--end::Input-->
+                                           </div>
+                                           <!-- end court case time-->
+
+                                       </div>
+                                       <!--end::Input group-->
+
+                                   </div>
+                                   <!--end::Input group-->
+
+                                   <!--begin::Billing toggle-->
+                                    <div class="fw-bold fs-3 rotate collapsible mb-7" data-bs-toggle="collapse" data-bs-target="#kt_modal_bailiff_info" role="button" aria-expanded="false" aria-controls="kt_customer_view_details">Bailiff Information
+                                        <span class="ms-2 rotate-180">
+                                               <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+                                           <span class="svg-icon svg-icon-3">
+                                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                   <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                                               </svg>
+                                           </span>
+                                               <!--end::Svg Icon-->
+                                        </span>
+                                    </div>
+                                    <!--end::Billing toggle-->
+
+                                    <!--begin::Billing form-->
+                                    <div id="kt_modal_bailiff_info" class="collapse show">
+                                        <!--begin::Input group-->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="required fs-6 fw-semibold mb-2">Bailiff Name</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="text" class="form-control form-control-solid" placeholder="" id="bailiff_name" name="bailiff_name" value="" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+
+                                                                               <!--begin::Input group-->
+                                        <div class="d-flex flex-column mb-7 fv-row">
+                                            <!--begin::Label-->
+                                            <label class="required fs-6 fw-semibold mb-2">Address </label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input class="form-control form-control-solid" placeholder="" id="bailiff_address" name="bailiff_address" value="" />
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+
+                                    </div>
+                                    <!--end::Billing form-->
+                               </div>
+                               <!--end::Wrapper-->
+                           </div>
+                           <!--end::Step 2-->
+                           <!--begin::Step 2-->
+                           <div data-kt-stepper-element="content">
+                               <!--begin::Wrapper-->
+                               <div class="w-100">
+                                   <!--begin::Heading-->
+                                   <div class="pb-10 pb-lg-12">
+                                       <!--begin::Title-->
+                                       <h3 class="fw-bold text-dark">Client Info</h3>
+                                       <!--end::Title-->
+                                   </div>
+                                   <!--end::Heading-->
+                                   <!--begin::Input group-->
+                                   <div class="fv-row mb-10">
+                                       <!--begin::Label-->
+                                       <label class="form-label required">Client Name</label>
+                                       <!--end::Label-->
+                                       <!--begin::Input-->
+                                       <input type="text" id="court_case_applicants" name="court_case_applicants" class="form-control form-control-lg form-control-solid" value="" />
+                                       <!--end::Input-->
+                                   </div>
+                                   <!--end::Input group-->
+                                   <div class="row g-9 mb-7">
+                                       <!--begin::Col-->
+                                       <!--court case lawyer-->
+                                       <div class="col-md-6 fv-row">
+
+                                           <label class="required fs-6 fw-semibold mb-2"> Lawyer Name</label>
+                                           <!--input-->
+                                           <input type="text"  class="form-control form-control-solid" placeholder="" id="court_case_lawyer" name="court_case_lawyer" value="" />
+                                           <!--end::Input-->
+                                       </div>
+                                       <!-- end court case lawyer-->
+
+                                       <!-- court case defendant-->
+                                       <div class="col-md-6 fv-row">
+
+                                           <label class="required fs-6 fw-semibold mb-2"> Defendant Name</label>
+                                           <!--input-->
+                                           <input type="text" class="form-control form-control-solid" placeholder="court_case_defendants" name="court_case_defendants" value="" />
+                                           <!--end::Input-->
+                                       </div>
+                                       <!-- end court case defendant-->
+                                   </div>
+
+                               </div>
+                               <!--end::Wrapper-->
+                           </div>
+                           <!--end::Step 2-->
+                           <!--begin::Step 3-->
+                           <div data-kt-stepper-element="content">
+                               <!--begin::Wrapper-->
+                               <div class="w-100">
+                                   <!--begin::Heading-->
+                                   <div class="pb-8 pb-lg-10">
+                                       <!--begin::Title-->
+                                       <h2 class="fw-bold text-dark">Your Are Done!</h2>
+                                       <!--end::Title-->
+                                   </div>
+                                   <!--end::Heading-->
+                                   <!--begin::Body-->
+                                   <div class="mb-0">
+
+                                       <!--begin::Alert-->
+                                       <!--begin::Notice-->
+                                       <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                                           <!--begin::Icon-->
+                                           <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+                                           <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
+                                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                   <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="currentColor" />
+                                                   <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="currentColor" />
+                                                   <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="currentColor" />
+                                               </svg>
+                                           </span>
+                                           <!--end::Svg Icon-->
+                                           <!--end::Icon-->
+                                           <!--begin::Wrapper-->
+                                           <div class="d-flex flex-stack flex-grow-1">
+                                               <!--begin::Content-->
+                                               <div class="fw-semibold">
+                                                   <h4 class="text-gray-900 fw-bold">Please verify the information entered before generating the report !</h4>
+
+                                               </div>
+                                               <!--end::Content-->
+                                           </div>
+                                           <!--end::Wrapper-->
+                                       </div>
+                                       <!--end::Notice-->
+                                       <!--end::Alert-->
+                                   </div>
+                                   <!--end::Body-->
+                               </div>
+                               <!--end::Wrapper-->
+                           </div>
+                           <!--end::Step 3-->
+                       </div>
+                       <!--begin::Actions-->
+                       <div class="d-flex flex-stack pt-15">
+                           <!--begin::Wrapper-->
+                           <div class="mr-2">
+                               <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous">
+                                   <!--begin::Svg Icon | path: icons/duotune/arrows/arr063.svg-->
+                                   <span class="svg-icon svg-icon-4 me-1">
+                                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                           <rect opacity="0.5" x="6" y="11" width="13" height="2" rx="1" fill="currentColor" />
+                                           <path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" fill="currentColor" />
+                                       </svg>
+                                   </span>
+                                   <!--end::Svg Icon-->Back
+                               </button>
+                           </div>
+                           <!--end::Wrapper-->
+                           <!--begin::Wrapper-->
+                           <div>
+                                 <button type="sumbit" class="btn btn-primary" data-kt-stepper-action="submit">
+                                     <span class="indicator-label">
+                                     Generate the report
+                                     </span>
+                                    <span class="indicator-progress">
+                                        Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                    </span>
+                                 </button>
+
+                                   <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
+                                   <!--end::Svg Icon-->
+                                </button>
+                               <button type="next" class="btn btn-primary" data-kt-stepper-action="next">Continue
+                               <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
+                                   <span class="svg-icon svg-icon-4 ms-1 me-0">
+                                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                           <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="currentColor" />
+                                           <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor" />
+                                       </svg>
+                                   </span>
+                               <!--end::Svg Icon-->
+                               </button>
+                           </div>
+                           <!--end::Wrapper-->
+
+                       </div>
+                       <!--end::Actions-->
+                   </form>
+                   <!--end::Form-->
+               </div>
+               <!--end::Stepper-->
+           </div>
+           <!--end::Card body-->
+        </div>
+    <!--end::Card-->
+	</div>
+	<!--end::Container-->
+</div>
+<!--end::Content-->
+
+{% endblock %}
+
+
+

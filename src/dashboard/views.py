@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from reports_manager.models import GeneratedReport
 from clients.models import Client
 from appointments.models import Appointment
@@ -12,6 +12,11 @@ def dashboard(request):
     clients_list = Client.objects.all()
     appointments_list = Appointment.objects.all()
 
+    if not request.session.get('language', None):
+        request.session['language'] = 'en'
+    direction = request.session.get('language')
+    url = direction + "dashboard/dashboard.html"
+
     context = {
         "reports_list": reports_list,
         "clients_list": clients_list,
@@ -19,4 +24,15 @@ def dashboard(request):
 
     }
 
-    return render(request, "dashboard/dashboard.html", context)
+    return render(request, url, context)
+
+
+@login_required
+def change_language(request, language):
+    if language == 'en':
+        request.session['language'] = 'en'
+    if language == 'fr':
+        request.session['language'] = 'fr'
+    if language == 'ar':
+        request.session['language'] = 'ar'
+    return redirect('dashboard')
