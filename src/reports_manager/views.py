@@ -10,12 +10,13 @@ from . import report_actions
 
 # --------- manage report --------#
 def manage_report(request, action, sku):
+    direction = request.session.get('language')
     try:
         reports_list = GeneratedReport.objects.all()
     except GeneratedReport.DoesNotExist:
         raise Http404("No reports")
 
-    url = "reports_manager/manage_report.html"
+    url = direction + "/reports_manager/manage_report.html"
 
     if action == "download_report":
         return report_actions.download_report(sku)
@@ -36,13 +37,15 @@ def choose_report(request):
     except UploadTemplate.DoesNotExist:
         raise Http404("No templates")
 
-    url = "reports_manager/report_editor.html"
+    direction = request.session.get('language')
+
+    url = direction + "/reports_manager/report_editor.html"
 
     if request.method == 'POST':
         if request.POST.get('template_name') == 'Notice letter':
-            url = "reports_manager/add_report.html"
+            url = direction + "/reports_manager/add_report.html"
         if request.POST.get('template_name') == 'Template name':
-            url = "reports_manager/test.html"
+            url = direction + "/reports_manager/test.html"
 
     context = {
         "templates_list": templates_list,

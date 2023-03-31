@@ -27,6 +27,8 @@ def add_appointment(request):
 
 def edit_appointment(request, sku):
     selected_appointment = Appointment.objects.get(sku=sku)
+    direction = request.session.get('language')
+    url = direction + "/appointments/edit_appointment.html"
     if request.method == 'POST':
         title = request.POST.get('title', False)
         client_name = request.POST.get('client_name', False)
@@ -46,7 +48,7 @@ def edit_appointment(request, sku):
         'selected_appointment': selected_appointment
     }
 
-    return render(request, "appointments/edit_appointment.html", context)
+    return render(request, url, context)
 
 
 # ------------------ delete appointment --------------------- #
@@ -60,10 +62,9 @@ def delete_appointment(request, sku):
 # ------------------ manage client -------------------- #
 
 def manage_appointment(request):
+    direction = request.session.get('language')
+    url = direction + "/appointments/manage_appointment.html"
     context = {
         'appointments': Appointment.objects.all(),
     }
-    return render(request, "appointments/manage_appointment.html", context)
-
-
-
+    return render(request, url, context)

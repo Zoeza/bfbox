@@ -34,6 +34,8 @@ def add_client(request):
 
 def edit_client(request, sku):
     selected_client = Client.objects.all().get(sku=sku)
+    direction = request.session.get('language')
+    url = direction + "/clients/edit_client.html"
     if request.method == 'POST':
         name = request.POST.get('name', False)
         email = request.POST.get('email', False)
@@ -62,7 +64,7 @@ def edit_client(request, sku):
         'selected_client': selected_client
     }
 
-    return render(request, "clients/edit_client.html", context)
+    return render(request, url, context)
 
 
 # ------------------ end edit client ---------------------- #
@@ -82,9 +84,12 @@ def delete_client(request, sku):
 # ------------------ manage client -------------------------- #
 
 def manage_client(request):
+    direction = request.session.get('language')
+    url = direction + "/clients/manage_client.html"
+
     context = {
         'clients': Client.objects.all(),
     }
-    return render(request, "clients/manage_client.html", context)
+    return render(request, url, context)
 
 # ------------------ end manage client ---------------------- #

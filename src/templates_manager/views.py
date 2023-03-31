@@ -9,10 +9,12 @@ from clients.functions import serial_number_generator
 # ------------------ manage template -------------------------- #
 
 def manage_template(request):
+    direction = request.session.get('language')
+    url = direction + "/templates_manager/manage_template.html"
     context = {
         "templates": UploadTemplate.objects.all()
     }
-    return render(request, "templates_manager/manage_template.html", context)
+    return render(request, url, context)
 
 
 # ------------------------ add client -------------------------- #
@@ -41,6 +43,8 @@ def delete_template(request, sku):
 # ----------------------- edit template ------------------------- #
 
 def edit_template(request, sku):
+    direction = request.session.get('language')
+    url = direction + "/templates_manager/edit_template.html"
     selected_template = UploadTemplate.objects.all().get(sku=sku)
     if request.method == 'POST':
         name = request.POST.get('name', False)
@@ -61,7 +65,7 @@ def edit_template(request, sku):
         'selected_template': selected_template
     }
 
-    return render(request, "templates_manager/edit_template.html", context)
+    return render(request, url, context)
 
 
 # ----------------------- download template ------------------------- #
