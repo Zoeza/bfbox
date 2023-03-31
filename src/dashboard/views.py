@@ -15,7 +15,7 @@ def dashboard(request):
     if not request.session.get('language', None):
         request.session['language'] = 'en'
     direction = request.session.get('language')
-    url = direction + "dashboard/dashboard.html"
+    url = direction + "/dashboard/dashboard.html"
 
     context = {
         "reports_list": reports_list,
