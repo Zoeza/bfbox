@@ -1917,7 +1917,7 @@
 										<!--begin::Menu separator-->
 										<div class="separator my-2"></div>
 										<!--end::Menu separator-->
-											<!--begin::Menu item-->
+										<!--begin::Menu item-->
 										<div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-end" data-kt-menu-offset="-15px, 0">
 											<a href="finance-performance.html#" class="menu-link px-5">
 												<span class="menu-title position-relative">Language</span>
@@ -1926,18 +1926,18 @@
 											<div class="menu-sub menu-sub-dropdown w-175px py-4">
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="{% url 'change-language' 'en' %}" class="menu-link d-flex px-5 active">
+													<a href="{% url 'change-language' 'en' %}" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="../assets/media/flags/united-states.svg" alt="English" />
+														<img class="rounded-1" src="{% static 'dashboard/assets/media/flags/united-states.svg' %}" alt="English" />
 													</span>English</a>
 												</div>
 												<!--end::Menu item-->
 
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="{% url 'change-language' 'ar' %}" class="menu-link d-flex px-5 active">
+													<a href="{% url 'change-language' 'ar' %}" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="../assets/media/flags/united-states.svg" alt="Arabic" />
+														<img class="rounded-1" src="{% static 'dashboard/assets/media/flags/ar.svg' %}" alt="Arabic" />
 													</span>Arab</a>
 												</div>
 												<!--end::Menu item-->
@@ -1949,7 +1949,7 @@
 												<div class="menu-item px-3">
 													<a href="{% url 'change-language' 'fr' %}" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="../assets/media/flags/france.svg" alt="Frensh" />
+														<img class="rounded-1" src="{% static 'dashboard/assets/media/flags/france.svg'%}" alt="Frensh" />
 													</span>French</a>
 												</div>
 												<!--end::Menu item-->
@@ -1957,9 +1957,6 @@
 											<!--end select language-->
 										</div>
 										<!--end::Menu item-->
-
-
-
 										<!--begin::Menu item-->
 										<div class="menu-item px-5 my-1">
 											<a href="../account/settings.html" class="menu-link px-5">Account Settings</a>
