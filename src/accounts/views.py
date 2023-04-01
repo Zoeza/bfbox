@@ -9,6 +9,7 @@ def sign_up(request):
     if not request.session.get('language', None):
         request.session['language'] = 'ar'
     direction = request.session.get('language')
+
     url = direction + "/accounts/register.html"
 
     if request.method == 'POST':
