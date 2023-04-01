@@ -12,7 +12,7 @@ def dashboard(request):
     clients_list = Client.objects.all()
     appointments_list = Appointment.objects.all()
     if not request.session.get('language', None):
-        request.session['language'] = 'en'
+        request.session['language'] = 'ar'
     direction = request.session.get('language')
     url = direction + "/dashboard/dashboard.html"
 

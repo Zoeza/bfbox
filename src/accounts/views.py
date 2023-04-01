@@ -8,9 +8,9 @@ from django.contrib.auth.decorators import login_required
 def sign_up(request):
     if not request.session.get('language', None):
         request.session['language'] = 'ar'
-    # direction = request.session.get('language')
+    direction = request.session.get('language')
 
-    url = 'ar' + "/accounts/register.html"
+    url = direction + "/accounts/register.html"
 
     if request.method == 'POST':
         first_name = request.POST.get('first-name')
@@ -39,9 +39,9 @@ def sign_up(request):
 
 def sign_in(request):
     if not request.session.get('language', None):
-        request.session['language'] = 'en'
-    # direction = request.session.get('language')
-    url = 'ar' + "/accounts/sign_in.html"
+        request.session['language'] = 'ar'
+    direction = request.session.get('language')
+    url = direction + "/accounts/sign_in.html"
 
     if request.method == 'POST':
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
