@@ -7,9 +7,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def sign_up(request):
     if not request.session.get('language', None):
-        request.session['language'] = 'en'
+        request.session['language'] = 'ar'
     direction = request.session.get('language')
-    url = direction + "ar/accounts/register.html"
+    url = direction + "/accounts/register.html"
 
     if request.method == 'POST':
         first_name = request.POST.get('first-name')
@@ -38,9 +38,9 @@ def sign_up(request):
 
 def sign_in(request):
     if not request.session.get('language', None):
-        request.session['language'] = 'en'
+        request.session['language'] = 'ar'
     direction = request.session.get('language')
-    url = direction + "ar/accounts/sign_in.html"
+    url = direction + "/accounts/sign_in.html"
 
     if request.method == 'POST':
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
