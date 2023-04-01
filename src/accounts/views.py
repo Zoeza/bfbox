@@ -9,7 +9,7 @@ def sign_up(request):
     if not request.session.get('language', None):
         request.session['language'] = 'en'
     direction = request.session.get('language')
-    url = direction + "/accounts/register.html"
+    url = direction + "ar/accounts/register.html"
 
     if request.method == 'POST':
         first_name = request.POST.get('first-name')
@@ -40,7 +40,7 @@ def sign_in(request):
     if not request.session.get('language', None):
         request.session['language'] = 'en'
     direction = request.session.get('language')
-    url = direction + "/accounts/sign_in.html"
+    url = direction + "ar/accounts/sign_in.html"
 
     if request.method == 'POST':
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
