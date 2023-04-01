@@ -146,9 +146,8 @@
                                     <!--end::Label-->
 
                                     <!--begin::Input-->
-                                    <select name="template_name" class="form-select form-select-lg form-select-solid"  data-kt-menu-placement="left-start" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
+                                    <select name="template_name" class="form-select form-select-lg form-select-solid"  data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="true">
                                         <option disabled="" selected>-- Select template --</option>
-
                                         {% if templates_list.count %}
 
                                              {% for template in templates_list %}
@@ -157,7 +156,6 @@
                                             {% endfor %}
 
                                         {% endif %}
-
                                     </select>
                                     <!--end::Input-->
                                  </div>
