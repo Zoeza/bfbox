@@ -50,9 +50,9 @@
 
                 <!--begin::Link-->
                 <!--close-->
-                <a herf=" {% url 'manage-report' '#' '#' %}"  class="btn btn-sm btn-light btn-active-light-primary"   >
-                    <span  class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
-                </a>
+                <a href="{% url 'clients:edit-client' client.sku %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="edit client" >
+                                    <i class="bi bi-pencil-square"></i>
+                s</a>
                         <!--end clos-->
                 <!--end::Link-->
 
