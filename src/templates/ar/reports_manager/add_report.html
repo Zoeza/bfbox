@@ -28,7 +28,6 @@
         <li class="breadcrumb-item text-muted">إدارة التقارير</li>
       <li class="breadcrumb-item text-muted">إضافة تقرير </li>
 
-
     </ul>
     <!--end::Breadcrumb-->
 {% endblock %}
@@ -139,6 +138,16 @@
                       {% csrf_token %}
                        <div class="mb-3">
                         <!--begin::Step 1-->
+                           <div class="mb-3 text-center">
+                                        <!--begin::Title-->
+                                        <h1 class="text-dark mb-3">إنشاء حساب</h1>
+                                        <!--end::Title-->
+                                        <!--begin::Link-->
+                                        <div class="text-gray-400 fw-semibold fs-4">هل لديك حساب؟
+                                        <a href="{% url 'sign-in' %}"  class="link-primary fw-bold">تسجيل الدخول هنا</a></div>
+                                        <!--end::Link-->
+                                    </div>
+                                    <div class="separator my-7"></div>
                            <div class="current" data-kt-stepper-element="content">
                                <!--begin::Wrapper-->
                                <div class="w-100">
