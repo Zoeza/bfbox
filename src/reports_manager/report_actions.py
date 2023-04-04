@@ -1,7 +1,7 @@
 import io
 import os
 from clients.functions import serial_number_generator
-from django.http import FileResponse
+from django.http import FileResponse, HttpResponse
 from django.shortcuts import redirect, render
 from templates_manager.models import UploadTemplate
 from .models import GeneratedReport
@@ -74,6 +74,8 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    pypandoc.convert_file(report_selected.file.path, 'latex', outputfile="thisisdoc.pdf")
-    pdf = open('thisisdoc.pdf', 'rb')
-    return FileResponse(pdf)
+    with open(report_selected.file.path, 'rb') as doc:
+        response = HttpResponse(doc.read(), content_type='application/ms-word')
+        # response = HttpResponse(template_output)
+        response['Content-Disposition'] = 'attachment;filename=name.docx'
+        return response
