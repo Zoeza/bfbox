@@ -9,6 +9,10 @@ from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
 import pypandoc
 from docx2pdf import convert
+from django.core.files import File
+
+from djangoconvertvdoctopdf.convertor import ConvertFileModelField
+
 import mammoth
 
 
@@ -74,11 +78,17 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    report_selected.pdf.save('Notice_letter.pdf', convert(report_selected.file))
-    pdf = (report_selected.pdf.read(), 'r')
-    response = HttpResponse(pdf.read(), content_type='application/pdf')
-    # response = HttpResponse(template_output)
-    response['Content-Disposition'] = 'attachment;filename=name.docx'
-    return response
+    inst = ConvertFileModelField(report_selected.file)
+    report_selected.file = inst.get_content()
+    report_selected.pdf = File(open(report_selected.file.path, 'rb'))
+    report_selected.pdf = report_selected.file.name
+    report_selected.pdf.save()
 
-    pdf.closed
+    # report_selected.pdf.save('Notice_letter.pdf', convert(report_selected.file))
+    # pdf = (report_selected.pdf.read(), 'r')
+    # response = HttpResponse(pdf.read(), content_type='application/pdf')
+    # response = HttpResponse(template_output)
+    # response['Content-Disposition'] = 'attachment;filename=name.docx'
+    # return response
+
+    # pdf.closed
