@@ -74,8 +74,10 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    with open(convert(report_selected.file.path), 'rb') as pdf:
-        response = HttpResponse(pdf.read(), content_type='application/ms-word')
+    convert(report_selected.file.path, report_selected.pdf.path)
+
+    with open(report_selected.pdf.path, 'rb') as pdf:
+        response = HttpResponse(pdf.read(), content_type='application/pdf')
         # response = HttpResponse(template_output)
         response['Content-Disposition'] = 'attachment;filename=name.docx'
         return response
