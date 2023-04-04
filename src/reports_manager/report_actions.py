@@ -74,6 +74,6 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    pypandoc.convert_file(report_selected.file.path, 'latex', outputfile="thisisdoc.pdf")
+    pypandoc.convert_file(report_selected.file.path, 'pdf', outputfile="thisisdoc.pdf")
     pdf = open('thisisdoc.pdf', 'rb')
     return FileResponse(pdf)
