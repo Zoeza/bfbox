@@ -9,7 +9,7 @@ class GeneratedReport(models.Model):
     sku = models.CharField(max_length=20, unique=True, null=True)
     number = models.PositiveIntegerField(null=True, blank=True)
     file = models.FileField(upload_to='reports/', null=True)
-    pdf = models.FileField(upload_to='reports_pdf/', null=True)
+    pdf = models.FileField(upload_to='reports/', null=True)
     last_modified = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
