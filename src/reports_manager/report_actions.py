@@ -7,6 +7,7 @@ from templates_manager.models import UploadTemplate
 from .models import GeneratedReport
 from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
+import pypandoc
 from docx2pdf import convert
 import mammoth
 
@@ -68,4 +69,11 @@ def download_report(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
     return FileResponse(report_selected.file, as_attachment=True)
 
-# --------------- send report -----------------#
+
+# --------------- convert docx to pdf file -----------------#
+
+def docx_to_pdf(sku):
+    report_selected = GeneratedReport.objects.get(sku=sku)
+    pypandoc.convert_file(report_selected.file, 'pdf', outputfile="thisisdoc.pdf")
+    pdf = open('thisisdoc.pdf', 'rb')
+    return FileResponse(pdf)

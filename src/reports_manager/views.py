@@ -21,6 +21,9 @@ def manage_report(request, action, sku):
     if action == "download_report":
         return report_actions.download_report(sku)
 
+    if action == "view_report":
+        return report_actions.docx_to_pdf(sku)
+
     if action == "delete_report":
         GeneratedReport.objects.all().get(sku=sku).delete()
 
