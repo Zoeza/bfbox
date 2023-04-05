@@ -77,9 +77,7 @@ def download_report(sku):
 # --------------- convert docx to pdf file -----------------#
 
 def docx_to_pdf(sku):
-    report_selected = GeneratedReport.objects.get(sku=sku)
-    inst = StreamingConvertedPdf(report_selected.file)
-    return inst.stream_content()
+   pass
 
     # report_selected.file = inst.get_content()
     # report_selected.pdf = File(open(report_selected.file.path, 'rb'))
