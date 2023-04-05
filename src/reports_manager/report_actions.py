@@ -11,7 +11,7 @@ import pypandoc
 from docx2pdf import convert
 from django.core.files import File
 
-from djangoconvertvdoctopdf.convertor import ConvertFileModelField
+from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
 
 import mammoth
 
@@ -78,11 +78,13 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    inst = ConvertFileModelField(report_selected.file)
-    report_selected.file = inst.get_content()
-    report_selected.pdf = File(open(report_selected.file.path, 'rb'))
-    report_selected.pdf = report_selected.file.name
-    report_selected.pdf.save()
+    inst = StreamingConvertedPdf(report_selected.file)
+    return inst.stream_content()
+
+    # report_selected.file = inst.get_content()
+    # report_selected.pdf = File(open(report_selected.file.path, 'rb'))
+    # report_selected.pdf = report_selected.file.name
+    # report_selected.pdf.save()
 
     # report_selected.pdf.save('Notice_letter.pdf', convert(report_selected.file))
     # pdf = (report_selected.pdf.read(), 'r')
