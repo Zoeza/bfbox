@@ -78,7 +78,7 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-    convert(report_selected.file, report_selected.pdf)
+    convert(report_selected.file.path, report_selected.pdf)
 
     # report_selected.pdf.save('Notice_letter.pdf', convert(report_selected.file))
     # pdf = (report_selected.pdf.read(), 'r')
