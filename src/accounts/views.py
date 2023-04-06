@@ -37,7 +37,7 @@ def sign_up(request):
 
         usertype.save()
         # Successfully registered. Redirect to homepage
-        return redirect('sign-in')
+        
     return render(request, url, {})
 
 
