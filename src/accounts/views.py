@@ -8,8 +8,6 @@ from . import account_actions
 
 # Create your views here.
 # ------------ sign up page -------------#
-
-
 def sign_up(request):
     if not request.session.get('language', None):
         request.session['language'] = 'ar'
@@ -17,11 +15,11 @@ def sign_up(request):
 
     url = direction + "/accounts/register.html"
     account_actions.add_user(request)
+    redirect('sign-in')
     return render(request, url, {})
 
 
 # ------------ sign in page -------------#
-
 def sign_in(request):
     if not request.session.get('language', None):
         request.session['language'] = 'ar'
@@ -41,7 +39,6 @@ def sign_in(request):
 
 
 # ------------ sign out page -------------#
-
 @login_required
 def sign_out(request):
     logout(request)
