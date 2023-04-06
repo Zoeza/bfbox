@@ -60,7 +60,7 @@ def manage_user(request, action, sku):
 
     url = direction + "/accounts/manage_user.html"
     if action == "add_user":
-        return account_actions.add_user(request)
+        account_actions.add_user(request)
 
     context = {
         "users_list": users_list,

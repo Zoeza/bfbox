@@ -310,7 +310,7 @@
                                   <!--begin::Wrapper-->
                                   <div class="card w-lg-600px p-10 p-lg-15 mx-auto">
                                       <!--begin::Form-->
-                                        <form  action="{% url 'manage-user' 'add_user' '#' %} class="form w-lg-500px mx-auto" novalidate="novalidate" method="post">
+                                        <form  action="{% url 'manage-user' 'add_user' '#' %}" class="form w-lg-500px mx-auto" novalidate="novalidate" method="post">
                                             {% csrf_token %}
                                             <!--begin::Group-->
                                             <div class="mb-5">
