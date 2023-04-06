@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 # ------------ sign up page -------------#
 
-@login_required
+
 def sign_up(request):
     if not request.session.get('language', None):
         request.session['language'] = 'ar'
