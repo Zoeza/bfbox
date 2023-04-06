@@ -77,11 +77,10 @@ def download_report(sku):
 # --------------- convert docx to pdf file -----------------#
 
 def docx_to_pdf(sku):
-    report_selected = Generareport_selected.s.get(sku=sku)
+    report_selected = GeneratedReport.objects.get(sku=sku)
 
     doc_file = DocxTemplate(report_selected.file.path)
     doc_file.save('document.pdf')
-
 
     # convert(report_selected.file.pa
 
