@@ -78,11 +78,10 @@ def download_report(sku):
 # --------------- convert docx to pdf file -----------------#
 
 def docx_to_pdf(sku):
-    #report_selected = GeneratedReport.objects.get(sku=sku)
-    #doc_file = DocxTemplate(report_selected.file.path)
-    #inst = StreamingConvertedPdf(doc_file)
-    #return inst.stream_content()
-    pass
+          pass
+
+
+
 
 
     # convert(report_selected.file.pa

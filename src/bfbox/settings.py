@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'reports_manager',
     'templates_manager',
     'docxtpl',
-    'djangoconvertvdoctopdf',
     'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
