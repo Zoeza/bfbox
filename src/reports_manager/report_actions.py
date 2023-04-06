@@ -10,6 +10,7 @@ from docxtpl import DocxTemplate
 from docx2pdf import convert
 from django.core.files import File
 
+
 # from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
 
 # import mammoth
@@ -76,8 +77,12 @@ def download_report(sku):
 # --------------- convert docx to pdf file -----------------#
 
 def docx_to_pdf(sku):
-    report_selected = GeneratedReport.objects.get(sku=sku)
-    convert(report_selected.file.path)
+    report_selected = Generareport_selected.s.get(sku=sku)
+
+    doc_file = DocxTemplate(report_selected.file.path)
+    doc_file.save('document.pdf')
+
+
     # convert(report_selected.file.pa
 
     # report_selected.pdf.save('Notice_letter.pdf', convert(report_selected.file))
