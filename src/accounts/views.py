@@ -15,7 +15,6 @@ def sign_up(request):
 
     url = direction + "/accounts/register.html"
     account_actions.add_user(request)
-    redirect('sign-in')
     return render(request, url, {})
 
 
@@ -58,6 +57,8 @@ def manage_user(request, action, sku):
     url = direction + "/accounts/manage_user.html"
     if action == "add_user":
         account_actions.add_user(request)
+    if action == "delete_user":
+        User.objects.all().get(id=sku).delete()
 
     context = {
         "users_list": users_list,
