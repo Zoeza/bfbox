@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'templates_manager',
     'docxtpl',
     'accounts',
+    'djangoconvertvdoctopdf',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -11,7 +11,7 @@ from docx2pdf import convert
 from django.core.files import File
 
 
-# from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
+from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
 
 # import mammoth
 
