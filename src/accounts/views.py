@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import user_type, User
 from django.contrib.auth.decorators import login_required
+from . import account_actions
 
 
 # Create your views here.
@@ -15,7 +16,7 @@ def sign_up(request):
     direction = request.session.get('language')
 
     url = direction + "/accounts/register.html"
-    add_user(request)
+    account_actions.add_user(request)
     return render(request, url, {})
 
 
@@ -59,7 +60,7 @@ def manage_user(request, action, sku):
 
     url = direction + "/accounts/manage_user.html"
     if action == "add_user":
-        add_user(request)
+        return account_actions.add_user(request)
 
     context = {
         "users_list": users_list,
@@ -67,26 +68,3 @@ def manage_user(request, action, sku):
 
     }
     return render(request, url, context)
-
-
-def add_user(request):
-    if request.method == 'POST':
-        first_name = request.POST.get('first-name')
-        last_name = request.POST.get('last-name')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        usertype = request.POST.get('user-type')
-        user = User.objects.create_user(
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-        )
-        user.set_password(password)
-        user.save()
-
-        if usertype == 'Bailiff':
-            usertype = user_type(user=user, is_bailiff=True)
-        elif usertype == 'Employee':
-            usertype = user_type(user=user, is_employee=True)
-
-        usertype.save()
