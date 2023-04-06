@@ -123,8 +123,14 @@
                             <!--Client Email=-->
                              <td>{{user.email}}</td>
                             <!--Client Address -->
-                            <td>{{usertype_list.is_manager}}</td>
+                            {% for usertype in usertype_list %}
+                                {% if usertype.is_bailiff %}
+                                <td>{{usertype_list.is_bailiff}}</td>
+                            {% elif usertype.is_employee %}
+                                <td>{{usertype_list.is_employee}}</td>
+                            {% endif %}
 
+                            {% endfor %}
 
                             <td>{{user.date_joined}}</td>
 
