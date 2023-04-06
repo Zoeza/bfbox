@@ -9,6 +9,7 @@ from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
 from docx2pdf import convert
 from django.core.files import File
+import djangoconvertvdoctopdf.convertor import StreamingConvertedPdf
 
 
 # from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
@@ -78,9 +79,10 @@ def download_report(sku):
 
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
-
     doc_file = DocxTemplate(report_selected.file.path)
-    doc_file.save('document.pdf')
+    inst = StreamingConvertedPdf(doc_file)
+    return inst.stream_content()
+
 
     # convert(report_selected.file.pa
 
