@@ -100,10 +100,10 @@
 
                             <th class="min-w-200px">اسم المستخدم</th>
                             <th class="min-w-125px">البريد الإلكتروني</th>
+                            <th class="min-w-125px">المنصب</th>
 
                             <th class="min-w-125px"> تاريخ الإنشاء</th>
                             <th class="min-w-125px">آخر تسجيل دخول</th>
-                            <th class="min-w-125px">المنصب</th>
 
                             <th class="min-w-50px">الإجراءات </th>
                             <th class="text-end min-w-50px"></th>
@@ -123,12 +123,13 @@
                             <!--Client Email=-->
                              <td>{{user.email}}</td>
                             <!--Client Address -->
+                            <td>{{usertype_list.is_manager}}</td>
+
 
                             <td>{{user.date_joined}}</td>
 
                             <td>{{user.last_login}}</td>
 
-                            <td>{{usertype_list.is_manager}}</td>
 
                             <!--Client Town -->
 
