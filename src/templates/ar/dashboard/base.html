@@ -88,7 +88,7 @@
 
 									<!--menu title client management-->
 									<div class="menu-item py-2">
-										<a class="menu-link menu-center" href="{% url 'manage-user' '#' '#' %}" title="Client Manager" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+										<a class="menu-link menu-center" href="{% url 'clients:manage-client' %}" title="Client Manager" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
 											<span class="menu-icon me-0">
 												<!--user management icon-->
 												<span class="menu-link menu-center">
@@ -107,7 +107,7 @@
 									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
 										<!--menu title user management-->
 										<div class="menu-item py-2">
-											<a class="menu-link menu-center" href="{% url 'clients:manage-client' %}" title="User Manager" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
+											<a class="menu-link menu-center" href="{% url 'manage-user' '#' '#' %}" title="User Manager" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right">
 												<span class="menu-icon me-0">
 													<!--user management icon-->
 													<span class="menu-link menu-center">
