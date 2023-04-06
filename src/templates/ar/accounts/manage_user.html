@@ -124,10 +124,10 @@
                              <td>{{user.email}}</td>
                             <!--Client Address -->
                             {% for usertype in usertype_list %}
-                                {% if usertype.is_bailiff %}
-                                <td>{{usertype_list.is_bailiff}}</td>
+                                {% if usertype.user.is_bailiff %}
+                                <td>{{usertype_list.user.is_bailiff}}</td>
                             {% elif usertype.is_employee %}
-                                <td>{{usertype_list.is_employee}}</td>
+                                <td>{{usertype_list.user.is_employee}}</td>
                             {% endif %}
 
                             {% endfor %}
