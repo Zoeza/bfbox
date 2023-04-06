@@ -7,13 +7,12 @@ from templates_manager.models import UploadTemplate
 from .models import GeneratedReport
 from django.core.files.base import ContentFile
 from docxtpl import DocxTemplate
-import pypandoc
 from docx2pdf import convert
 from django.core.files import File
 
-from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
+# from djangoconvertvdoctopdf.convertor import ConvertFileModelField, StreamingConvertedPdf
 
-import mammoth
+# import mammoth
 
 
 # ------------ generate notice letter --------------#
@@ -79,7 +78,7 @@ def download_report(sku):
 def docx_to_pdf(sku):
     report_selected = GeneratedReport.objects.get(sku=sku)
     convert(report_selected.file.path)
-    #convert(report_selected.file.path)
+    # convert(report_selected.file.pa
 
     # report_selected.pdf.save('Notice_letter.pdf', convert(report_selected.file))
     # pdf = (report_selected.pdf.read(), 'r')
