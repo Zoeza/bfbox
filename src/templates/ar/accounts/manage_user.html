@@ -98,12 +98,9 @@
                         <!--begin::Table row-->
                         <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
 
-                            <th class="min-w-150px">اسم الزبون</th>
+                            <th class="min-w-200px">اسم المستخدم</th>
                             <th class="min-w-125px">البريد الإلكتروني</th>
-                            <th class="min-w-150px">تاريخ الميلاد</th>
-                            <th class="min-w-125px">العنوان</th>
-							<th class="min-w-100px"> المدينة</th>
-                            <th class="min-w-125px"> المحامي</th>
+
                             <th class="min-w-125px"> تاريخ الإنشاء</th>
                             <th class="min-w-50px">الإجراءات </th>
                             <th class="min-w-50px"></th>
@@ -120,13 +117,13 @@
                         <tr>
                             <!--end::Checkbox-->
                             <!--user first name=-->
-                             <td>{{user.first_name}}</td>
+                             <td>{{user.first_name}}  {{user.last_name}}</td>
                             <!--Client Email=-->
-                             <td>{{user.last_name}}</td>
+                             <td></td>
                             <!--Client birthday=-->
                              <td>{{user.email}}</td>
                             <!--Client Address -->
-                             <td>{{client.address}}</td>
+                             <td></td>
                             <!--Client Town -->
                              <td>{{user.usertype_list}}</td>
 
