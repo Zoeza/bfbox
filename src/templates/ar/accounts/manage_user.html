@@ -32,7 +32,7 @@
     <!--end::Breadcrumb-->
 {% endblock %}
 
-<!-------------------------------  client  management --------------------------------------------->
+<!-------------------------------  user  management --------------------------------------------->
 
 {% block content %}
 <!--begin::Content-->
@@ -61,7 +61,7 @@
                 </div>
                 <!--begin::Card title-->
                 {% else %}
-                 <!--no clients message-->
+                 <!--no users message-->
                     <div class="d-flex align-items-center position-relative my-1">
                         لا يوجد مستخدمين مسجلين ، للبدء ، انقر فوق إضافة مستخدم
                     </div>
@@ -72,7 +72,7 @@
                     <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
 
-                       <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#add_new_client">
+                       <button type="button" class="btn btn-light-primary" data-bs-toggle="modal" data-bs-target="#add_new_user">
                            <!--begin::Svg Icon | path: icons/duotune/general/gen035.svg-->
                             <span class="svg-icon svg-icon-3">
                                 <i class="bi bi-person-plus" style="font-size: 1.5rem;"></i>
@@ -87,7 +87,7 @@
             </div>
             <!--end::Card header-->
 
-        <!-------------------------------  client  listing ---------------------------------------------->
+        <!-------------------------------  user  listing ---------------------------------------------->
             <div class="card-body">
                 <!--client table-->
                 <div class="table-responsive">
@@ -172,18 +172,20 @@
                 </div>
                 <!--end::Table-->
             </div>
+        <!-------------------------------  end user  listing ------------------------------------------->
+
 
              <!--principle card footer-->
             <div class="card-footer">
             </div>
                 <!--end principle card footer-->
         </div>
-        <!-------------------------------  end client  listing ------------------------------------------->
 
-        <!-------------------------------  client  adding ------------------------------------------------>
+
+        <!-------------------------------  user  adding ------------------------------------------------>
 
           <!--add new client modal-->
-        <div class="modal fade" id="add_new_client" tabindex="-1" aria-hidden="true" dir="rtl">
+        <div class="modal fade" id="add_new_user" tabindex="-1" aria-hidden="true" dir="rtl">
             <div class="modal-dialog modal-dialog-centered mw-650px">
                 <div class="modal-content shadow-none">
                     <div class="modal-header">
@@ -193,112 +195,368 @@
                             <span class="menu-icon me-0" ><i class="bi bi-x-lg"></i></span>
                         </div>
                         <!--end clos-->
-                     </div>
+                    </div>
 
-                     <!--add client general information form-->
-                    <form class="form" action="{% url 'clients:add-client' %}" id="kt_modal_add_customer_form" data-kt-redirect="{% url 'clients:manage-client' %}"  method="post">
-                        {% csrf_token %}
-                        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
-                            <div class="tab-content">
-                                <!--block body-->
-                                <div class="modal-body py-10 px-lg-17">
-                                    <!--begin::Scroll-->
-                                    <div class="scroll-y me-n7 pe-7" id="kt_modal_add_customer_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_customer_header" data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px">
-                                        <!--begin::Input group-->
-                                            <div class="row g-9 mb-7">
-                                                <!--begin::Col-->
-                                                <div class="col-md-6 fv-row">
-                                                    <!--client name-->
-                                                    <label class="required fs-6 fw-semibold mb-2"> الاسم</label>
-                                                    <!--input-->
-                                                    <input type="text" class="form-control form-control-solid" placeholder="" name="name" value="اسم الزبون" />
-                                                    <!--end::Input-->
+                    <!--begin::Authentication - Multi-steps-->
+                    <div class="d-flex flex-column flex-lg-row flex-column-fluid stepper stepper-pills stepper-column d-flex flex-column flex-lg-row" id="kt_stepper_example_vertical" dir="rtl">
+
+                          <!--begin::Aside-->
+                          <div class="d-flex flex-column flex-lg-row-auto w-xl-400px positon-xl-relative border-end">
+                              <!--begin::Wrapper-->
+                              <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-400px scroll-y">
+                                  <!--begin::Header-->
+                                  <div class="d-flex flex-row-fluid flex-column align-items-center align-items-lg-start p-15 p-lg-20">
+                                      <!--begin::Logo-->
+                                       <div class="mb-15 mb-lg-20">
+                                           <div class="d-flex align-items-center">
+                                            <!--begin::Icon-->
+                                               <div class="symbol symbol-circle me-5">
+                                                   <div class="symbol-label bg-transparent text-primary ">
+                                                    <!--begin::Svg Icon | path: icons/duotune/abstract/abs020.svg-->
+                                                       <span class="svg-icon svg-icon-4x svg-icon-primary">
+                                                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M17.302 11.35L12.002 20.55H21.202C21.802 20.55 22.202 19.85 21.902 19.35L17.302 11.35Z" fill="currentColor" />
+                                                                <path opacity="0.3" d="M12.002 20.55H2.802C2.202 20.55 1.80202 19.85 2.10202 19.35L6.70203 11.45L12.002 20.55ZM11.302 3.45L6.70203 11.35H17.302L12.702 3.45C12.402 2.85 11.602 2.85 11.302 3.45Z" fill="currentColor" />
+                                                           </svg>
+                                                      </span>
+                                                    <!--end::Svg Icon-->
+                                                  </div>
+                                               </div>
+                                               <!--end::Icon-->
+                                           </div>
+                                       </div>
+
+                                      <!--end::Logo-->
+                                      <!--begin::Nav-->
+                                      <div class="stepper-nav">
+                                            <!--begin::Step 1-->
+                                            <div class="stepper-item me-5 current" data-kt-stepper-element="nav">
+                                                <!--begin::Wrapper-->
+                                                <div class="stepper-wrapper">
+                                                    <!--begin::Icon-->
+                                                    <div class="stepper-icon rounded-3">
+                                                        <i class="stepper-check fas fa-check"></i>
+                                                        <span class="stepper-number">1</span>
+                                                    </div>
+                                                    <!--end::Icon-->
+
+                                                    <!--begin::Label-->
+                                                    <div class="stepper-label">
+                                                        <h3 class="stepper-title fs-2">
+                                                            نوع الحساب
+                                                        </h3>
+
+                                                        <div class="stepper-desc fw-normal">
+                                                           حدد نوع حسابك
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Label-->
                                                 </div>
+                                                <!--end::Wrapper-->
 
+                                                <!--begin::Line-->
+                                                <div class="stepper-line h-40px"></div>
+                                                <!--end::Line-->
+                                            </div>
+                                            <!--end::Step 1-->
 
-                                                <!--client email-->
-                                                <div class="col-md-6 fv-row">
-                                                    <label class="fs-6 fw-semibold mb-2"><span class="required">البريد الإلكتروني</span>
-                                                        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Email address must be active"></i>
-                                                    </label>
+                                            <!--begin::Step 2-->
+                                            <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                                                <!--begin::Wrapper-->
+                                                <div class="stepper-wrapper">
+                                                    <!--begin::Icon-->
+                                                    <div class="stepper-icon rounded-3">
+                                                        <i class="stepper-check fas fa-check"></i>
+                                                        <span class="stepper-number">2</span>
+                                                    </div>
+                                                    <!--begin::Icon-->
 
-                                                    <!--input-->
-                                                    <input type="email"  class="form-control form-control-solid" placeholder="الرجاء إدخال عنوان البريد الإلكتروني" name="email" value="" />
+                                                    <!--begin::Label-->
+                                                    <div class="stepper-label">
+                                                        <h3 class="stepper-title fs-2">
+                                                            إعدادت الحساب
+                                                        </h3>
+
+                                                        <div class="stepper-desc fw-normal">
+                                                            قم بإعداد إعدادات حسابك
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Label-->
                                                 </div>
+                                                <!--end::Wrapper-->
+
+                                                <!--begin::Line-->
+                                                <div class="stepper-line h-40px"></div>
+                                                <!--end::Line-->
+                                            </div>
+                                            <!--end::Step 2-->
+
+                                            <!--begin::Step 3-->
+                                            <div class="stepper-item mark-completed me-5" data-kt-stepper-element="nav">
+                                                <!--begin::Wrapper-->
+                                                <div class="stepper-wrapper">
+                                                    <!--begin::Icon-->
+                                                    <div class="stepper-icon  rounded-3">
+                                                        <i class="stepper-check fas fa-check"></i>
+                                                        <span class="stepper-number">3</span>
+                                                    </div>
+                                                    <!--begin::Icon-->
+                                                    <!--begin::Label-->
+                                                    <div class="stepper-label">
+                                                        <h3 class="stepper-title fs-2">
+                                                            مكتمل
+                                                        </h3>
+
+                                                        <div class="stepper-desc fw-normal">
+                                                            تم إنشاء حسابك
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Label-->
+                                                </div>
+                                                <!--end::Wrapper-->
+                                            </div>
+                                            <!--end::Step 3-->
+                                      </div>
+                                        <!--end::Nav-->
+                                  </div>
+
+                                  <!--end::Header-->
+                                  <!--begin::Illustration-->
+                                  <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-150px min-h-lg-250px" style="background-image: url(../../assets/media/illustrations/sigma-1/16.png)"></div>
+                                  <!--end::Illustration-->
+                              </div>
+                              <!--end::Wrapper-->
+                          </div>
+                          <!--begin::Aside-->
+                          <!--begin::Body-->
+                          <div class="d-flex flex-column flex-lg-row-fluid py-10">
+                              <!--begin::Content-->
+                              <div class="d-flex flex-center flex-column flex-column-fluid">
+                                  <!--begin::Wrapper-->
+                                  <div class="card w-lg-700px p-10 p-lg-15 mx-auto">
+                                      <!--begin::Form-->
+                                        <form  action="{% url 'sign-up' %}" class="form w-lg-500px mx-auto" novalidate="novalidate" method="post">
+                                            {% csrf_token %}
+                                            <!--begin::Group-->
+                                            <div class="mb-5">
+                                                <!--begin::Step 1-->
+                                                <div class="flex-column current" data-kt-stepper-element="content">
+                                                     <div class="mb-3 text-center">
+                                                        <!--begin::Title-->
+                                                        <h1 class="text-dark mb-3">إنشاء حساب</h1>
+                                                        <!--end::Title-->
+                                                        <!--begin::Link-->
+                                                        <div class="text-gray-400 fw-semibold fs-4">هل لديك حساب؟
+                                                        <a href="{% url 'sign-in' %}"  class="link-primary fw-bold">تسجيل الدخول هنا</a></div>
+                                                        <!--end::Link-->
+                                                    </div>
+                                                    <div class="separator my-7"></div>
+                                                    <!--begin::Heading-->
+
+                                                    <!--end::Heading-->
+                                                    <!--begin::Input group-->
+                                                        <div class="mb-0 fv-row">
+                                                            <!--begin::Label-->
+                                                            <label class="d-flex align-items-center form-label mb-5">حدد نوع الحساب
+                                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Monthly billing will be based on your account plan"></i></label>
+                                                            <!--end::Label-->
+                                                        </div>
+                                                        <!--end::Input group-->
+                                                    <!--begin::Radio group-->
+                                                        <div data-kt-buttons="true">
+                                                            <!--begin::Radio button-->
+                                                            <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex flex-stack text-start p-6 mb-5 active">
+                                                                <!--end::Description-->
+                                                                <div class="d-flex align-items-center me-2">
+                                                                    <!--begin::Radio-->
+                                                                    <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
+                                                                        <input class="form-check-input" type="radio" name="user-type" checked="checked" value="Bailiff"/>
+                                                                    </div>
+                                                                    <!--end::Radio-->
+
+                                                                    <!--begin::Info-->
+                                                                    <div class="flex-grow-1">
+                                                                        <h2 class="d-flex align-items-center fs-3 fw-bold flex-wrap">
+                                                                            المحضر القضائي
+
+                                                                        </h2>
+                                                                        <div class="fw-semibold opacity-50">
+                                                                            حساب المسؤول
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end::Info-->
+                                                                </div>
+                                                                <!--end::Description-->
+
+
+                                                            </label>
+                                                            <!--end::Radio button-->
+
+                                                            <!--begin::Radio button-->
+                                                            <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex flex-stack text-start p-6">
+                                                                <!--end::Description-->
+                                                                <div class="d-flex align-items-center me-2">
+                                                                    <!--begin::Radio-->
+                                                                    <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
+                                                                        <input class="form-check-input" type="radio" name="user-type" value="Employee"/>
+                                                                    </div>
+                                                                    <!--end::Radio-->
+
+                                                                    <!--begin::Info-->
+                                                                    <div class="flex-grow-1">
+                                                                        <h2 class="d-flex align-items-center fs-3 fw-bold flex-wrap">
+                                                                            الموظف
+                                                                        </h2>
+                                                                        <div class="fw-semibold opacity-50">
+                                                                              حساب المستخدم
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--end::Info-->
+                                                                </div>
+                                                                <!--end::Description-->
+
+                                                            </label>
+                                                            <!--end::Radio button-->
+                                                        </div>
+                                                        <!--end::Radio group-->
+                                                </div>
+                                                <!--begin::Step 1-->
+
+                                                <!--begin::Step 2-->
+                                                <div class="flex-column" data-kt-stepper-element="content">
+                                                    <div class="pb-10 pb-lg-15">
+                                                        <!--begin::Title-->
+                                                        <h2 class="fw-bold text-dark">معلومات الحساب</h2>
+                                                        <!--end::Title-->
+                                                        <!--begin::Notice-->
+                                                        <div class="text-muted fw-semibold fs-6">مطلوب لإدخال جميع المعلومات
+                                                        </div>
+                                                        <!--end::Notice-->
+                                                    </div>
+
+                                                    <!--begin::Input group-->
+                                                    <div class="row fv-row mb-7">
+                                                        <!--begin::Col-->
+                                                        <div class="col-xl-6">
+                                                            <label class="form-label fw-bold text-dark fs-6">الاسم </label>
+                                                            <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first-name" autocomplete="off" />
+                                                        </div>
+                                                        <!--end::Col-->
+                                                        <!--begin::Col-->
+                                                        <div class="col-xl-6">
+                                                            <label class="form-label fw-bold text-dark fs-6">اللقب</label>
+                                                            <input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last-name" autocomplete="off" />
+                                                        </div>
+                                                        <!--end::Col-->
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-7">
+                                                        <label class="form-label fw-bold text-dark fs-6">البريد الإلكتروني</label>
+                                                        <input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                    <!--begin::Input group-->
+                                                    <div class="mb-10 fv-row" data-kt-password-meter="true">
+                                                        <!--begin::Wrapper-->
+                                                        <div class="mb-1">
+                                                            <!--begin::Label-->
+                                                            <label class="form-label fw-bold text-dark fs-6">كلمة السر</label>
+                                                            <!--end::Label-->
+                                                            <!--begin::Input wrapper-->
+                                                            <div class="position-relative mb-3">
+                                                                <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
+                                                                <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                                                                    <i class="bi bi-eye-slash fs-2"></i>
+                                                                    <i class="bi bi-eye fs-2 d-none"></i>
+                                                                </span>
+                                                            </div>
+                                                            <!--end::Input wrapper-->
+                                                            <!--begin::Meter-->
+                                                            <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+                                                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+                                                                <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+                                                            </div>
+                                                            <!--end::Meter-->
+                                                        </div>
+                                                        <!--end::Wrapper-->
+                                                        <!--begin::Hint-->
+                                                        <div class="text-muted">استخدم 8 أحرف أو أكثر مع مزيج من الأحرف والأرقام والرموز.</div>
+                                                        <!--end::Hint-->
+                                                    </div>
+                                                    <!--end::Input group=-->
+                                                    <!--begin::Input group-->
+                                                    <div class="fv-row mb-5">
+                                                        <label class="form-label fw-bold text-dark fs-6">أكيد كلمة السر</label>
+                                                        <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" />
+                                                    </div>
+                                                    <!--end::Input group-->
+                                                </div>
+                                                <!--end::Step 2-->
+
+                                                <!--begin::Step 3-->
+                                                <div class="flex-column" data-kt-stepper-element="content">
+                                                   <div class="w-100">
+                                                       <div class="pb-8 pb-lg-10">
+                                                            <!--begin::Title-->
+                                                            <h2 class="fw-bold text-dark">انتهيت!</h2>
+                                                            <!--end::Title-->
+                                                            <!--begin::Notice-->
+                                                            <div class="text-muted fw-semibold fs-6">انقر فوق إرسال لإنشاء حسابك.</div>
+                                                            <!--end::Notice-->
+                                                        </div>
+                                                   </div>
+                                                </div>
+                                                <!--end::Step 3-->
 
                                             </div>
-                                        <!--end::Input group-->
+                                            <!--end::Group-->
 
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-7">
-                                                <!--client birthday-->
-                                                <label class="fs-6 fw-semibold mb-2">
-                                                    <span class="required">تاريخ الميلاد</span>
-                                                </label>
-
-                                                <!--input-->
-                                                <input  type="date" class="form-control form-control-solid" placeholder="تاريخ الميلاد" name="birthday" value=""  />
-                                            </div>
-                                            <!--end::Input group-->
-
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-7">
-                                                <!--client lawyer-->
-                                                <label class="fs-6 fw-semibold mb-2">
-                                                    <span class="required">المحامي</span>
-                                                </label>
-
-                                                <!--input-->
-                                                <input type="text" class="form-control form-control-solid" placeholder="" name="lawyer" value=" اسم المحامي" />
-
-                                            </div>
-                                            <!--end::Input group-->
-
-
-                                            <!--begin::Billing form-->
-                                            <div id="kt_modal_add_customer_billing_info" class="collapse show">
-                                                <!--begin::Input group-->
-                                                <div class="d-flex flex-column mb-7 fv-row">
-                                                    <!--client address-->
-                                                    <label class="required fs-6 fw-semibold mb-2">العنوان </label>
-
-                                                    <!--input-->
-                                                    <input class="form-control form-control-solid" placeholder="" name="address" value="101, Collins Street" />
-
+                                            <!--begin::Actions-->
+                                            <div class="d-flex flex-stack">
+                                                <!--begin::Wrapper-->
+                                                <div class="me-2">
+                                                    <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous">
+                                                       رجوع
+                                                    </button>
                                                 </div>
-                                                <!--end::Input group-->
+                                                <!--end::Wrapper-->
 
-                                                <!--begin::Input group-->
-                                                <div class="d-flex flex-column mb-7 fv-row">
-                                                    <!--client Town-->
-                                                    <label class="required fs-6 fw-semibold mb-2">المدينة</label>
-                                                    <!--input-->
-                                                    <input class="form-control form-control-solid" placeholder="" name="town" value="Alger" />
+                                                <!--begin::Wrapper-->
+                                                <div>
+                                                    <button type="sumbit"  class="btn btn-primary" data-kt-stepper-action="submit">
+                                                        <span class="indicator-label">
+                                                           إرسال
+                                                        </span>
+                                                        <span class="indicator-progress">
+                                                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                        </span>
+                                                    </button>
 
+                                                    <button type="button" class="btn btn-primary" data-kt-stepper-action="next">
+                                                       واصل
+                                                    </button>
                                                 </div>
-                                                <!--end::Input group-->
-
+                                                <!--end::Wrapper-->
                                             </div>
-                                            <!--end::Billing form-->
-                                    </div>
-                                    <!--end::Scroll-->
-                                </div>
-                                <!--end::Modal body-->
-                                <!--end::Modal body-->
-                            </div>
-                        </div>
+                                            <!--end::Actions-->
+                                        </form>
 
-                        <!--begin::Modal footer-->
-                        <div class="modal-footer ">
-                            <!--begin::Button-->
-                            <button type="submit" class="btn btn-primary">
-                                <span class="indicator-label">حفظ</span>
-                            </button>
-                            <!--end::Button-->
-                        </div>
-                         <!--end::Modal footer-->
-                    </form>
-                    <!--end add client information-->
+                                      <!--end::Form-->
+                                  </div>
+                                  <!--end::Wrapper-->
+                              </div>
+                              <!--end::Content-->
+
+                          </div>
+                          <!--end::Body-->
+                      </div>
+                    <!--end::Authentication - Multi-steps-->
+
+                     
                 </div>
             </div>
         </div>
