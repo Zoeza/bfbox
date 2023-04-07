@@ -46,7 +46,7 @@ def sign_out(request):
 
 # ------------ user management -------------#
 @login_required
-def manage_user(request, action, first_name):
+def manage_user(request, action, email):
     direction = request.session.get('language')
     try:
         users_list = User.objects.all()
@@ -58,7 +58,7 @@ def manage_user(request, action, first_name):
     if action == "add_user":
         account_actions.add_user(request)
     if action == "delete_user":
-        user_type.objects.get(first_name=first_name).delete()
+        User.objects.get(email=email).delete()
 
     context = {
         "users_list": users_list,
