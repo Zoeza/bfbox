@@ -124,8 +124,13 @@
                             <!--Client Email=-->
                              <td>{{usertype.user.email}}</td>
                             <!--Client Address -->
+                            {% if usertype.is_employee} %}
 
-                                <td>{{usertype.is_employee}}</td>
+
+                            <td>employee</td>
+                             {% endif %}
+                             <td>employee</td>
+
 
 
                             <td>{{usertype.user.date_joined}}</td>
