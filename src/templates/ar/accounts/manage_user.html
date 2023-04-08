@@ -115,7 +115,9 @@
 
                     <!--begin::Table body-->
                     <tbody class="fw-semibold text-gray-600">
-                    {% for user in users_list %}
+                    {% for usertype in usertype_list %}
+
+                        {% for user in usertype.user %}
                         <tr>
                             <!--end::Checkbox-->
                             <!--user first name=-->
@@ -161,6 +163,8 @@
                             <!--end delete client action-->
                         </tr>
                         {% endfor %}
+
+                    {% endfor %}
                     </tbody>
                     <!--end::Table body-->
                      </table>
