@@ -116,21 +116,21 @@
                     <!--begin::Table body-->
                     <tbody class="fw-semibold text-gray-600">
 
-                    {% for user in users_list %}
+                    {% for usertype in usertype_list %}
                         <tr>
                             <!--end::Checkbox-->
                             <!--user first name=-->
-                             <td>{{user.first_name}}  {{user.last_name}}</td>
+                             <td>{{usertype.user.first_name}}  {{usertype.user.last_name}}</td>
                             <!--Client Email=-->
-                             <td>{{user.email}}</td>
+                             <td>{{usertype.user.email}}</td>
                             <!--Client Address -->
 
                                 <td>{{usertype.is_employee}}</td>
 
 
-                            <td>{{user.date_joined}}</td>
+                            <td>{{usertype.user.date_joined}}</td>
 
-                            <td>{{user.last_login}}</td>
+                            <td>{{usertype.user.last_login}}</td>
 
 
                             <!--Client Town -->
