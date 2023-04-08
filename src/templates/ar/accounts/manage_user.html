@@ -117,7 +117,7 @@
                     <tbody class="fw-semibold text-gray-600">
                     {% for usertype in usertype_list %}
 
-                        { user = usertype.user }
+                    {{ user = usertype.user }}
                         <tr>
                             <!--end::Checkbox-->
                             <!--user first name=-->
@@ -162,7 +162,7 @@
                             </td>
                             <!--end delete client action-->
                         </tr>
-                        {% endfor %}
+
 
                     {% endfor %}
                     </tbody>
