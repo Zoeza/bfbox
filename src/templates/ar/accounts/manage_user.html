@@ -101,6 +101,8 @@
                             <th class="min-w-200px">اسم المستخدم</th>
                             <th class="min-w-125px">البريد الإلكتروني</th>
                             <th class="min-w-125px"> نوع الحساب</th>
+                            <th class="min-w-125px"> حالة</th>
+
 
                             <th class="min-w-125px"> تاريخ الإنشاء</th>
                             <th class="min-w-125px">آخر تسجيل دخول</th>
@@ -124,6 +126,17 @@
                             <!--Client Email=-->
                              <td>{{usertype.user.email}}</td>
                             <!--Client Address -->
+                              {% if usertype.is_active %}
+                            
+                           <td><span class="badge badge-light-success">active</span></td>
+
+                             {%else %}
+
+                            <td><span class="badge badge-light-danger">inactivate</span></td>
+
+                             {% endif %}
+
+
                             {% if usertype.is_employee %}
 
                             <td><span class="badge badge-light-warning">موظف</span></td>
