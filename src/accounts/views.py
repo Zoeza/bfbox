@@ -58,7 +58,7 @@ def manage_user(request, action, email):
     if action == "add_user":
         account_actions.add_user(request)
     if action == "delete_user":
-        User.objects.get(email=email).delete()
+        user_type.user.objects.get(email=email).delete()
 
     context = {
         "users_list": users_list,
