@@ -126,7 +126,17 @@
                             <!--Client Email=-->
                              <td>{{usertype.user.email}}</td>
                             <!--Client Address -->
-                              {% if usertype.user.is_active %}
+
+                            {% if usertype.is_employee %}
+
+                            <td><span class="badge badge-light-warning">موظف</span></td>
+
+                            {%else %}
+                            <td><span class="badge badge-light-success">محضر قضائي</span></td>
+
+                             {% endif %}
+
+                            {% if usertype.user.is_active %}
 
                            <td><span class="badge badge-success">active</span></td>
 
@@ -137,14 +147,6 @@
                              {% endif %}
 
 
-                            {% if usertype.is_employee %}
-
-                            <td><span class="badge badge-light-warning">موظف</span></td>
-
-                            {%else %}
-                            <td><span class="badge badge-light-success">محضر قضائي</span></td>
-
-                             {% endif %}
 
 
 
