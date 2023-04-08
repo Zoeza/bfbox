@@ -100,7 +100,7 @@
 
                             <th class="min-w-200px">اسم المستخدم</th>
                             <th class="min-w-125px">البريد الإلكتروني</th>
-                            <th class="min-w-125px"> نوع الحساب</th>
+                            <th class="min-w-125px">وظيفة</th>
                             <th class="min-w-125px"> حالة</th>
 
 
@@ -126,7 +126,6 @@
                             <!--Client Email=-->
                              <td>{{usertype.user.email}}</td>
                             <!--Client Address -->
-
                             {% if usertype.is_employee %}
 
                             <td><span class="badge badge-light-warning">موظف</span></td>
@@ -141,8 +140,7 @@
                            <td><span class="badge badge-success"> activate</span></td>
 
                              {%else %}
-
-                            <td><span class="badge badge-danger">disable</span></td>
+                           <td><span class="badge badge-danger">disable</span></td>
 
                              {% endif %}
 
@@ -357,7 +355,6 @@
                                                             <!--begin::Radio button-->
                                                             <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex flex-stack text-start p-6 mb-5 active">
                                                                 <!--end::Description-->
-                                                                <div class="d-flex align-items-center me-2">
                                                                     <!--begin::Radio-->
                                                                     <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
                                                                         <input class="form-check-input" type="radio" name="user-type" checked="checked" value="Bailiff"/>
@@ -376,7 +373,6 @@
                                                                         </div>
                                                                     </div>
                                                                     <!--end::Info-->
-                                                                </div>
                                                                 <!--end::Description-->
 
 
@@ -386,7 +382,6 @@
                                                             <!--begin::Radio button-->
                                                             <label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex flex-stack text-start p-6">
                                                                 <!--end::Description-->
-                                                                <div class="d-flex align-items-center me-2">
                                                                     <!--begin::Radio-->
                                                                     <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
                                                                         <input class="form-check-input" type="radio" name="user-type" value="Employee"/>
@@ -403,7 +398,6 @@
                                                                         </div>
                                                                     </div>
                                                                     <!--end::Info-->
-                                                                </div>
                                                                 <!--end::Description-->
 
                                                             </label>
