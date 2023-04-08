@@ -100,7 +100,7 @@
 
                             <th class="min-w-200px">اسم المستخدم</th>
                             <th class="min-w-125px">البريد الإلكتروني</th>
-                            <th class="min-w-125px">المنصب</th>
+                            <th class="min-w-125px"> نوع الحساب</th>
 
                             <th class="min-w-125px"> تاريخ الإنشاء</th>
                             <th class="min-w-125px">آخر تسجيل دخول</th>
@@ -126,10 +126,10 @@
                             <!--Client Address -->
                             {% if usertype.is_employee %}
 
-                            <td><span class="badge badge-light-warning">employee</span></td>
+                            <td><span class="badge badge-light-warning">مستخدم</span></td>
 
                             {%else %}
-                            <td><span class="badge badge-light-success">Bailiff</span></td>
+                            <td><span class="badge badge-light-success">مسؤول</span></td>
 
                              {% endif %}
 
@@ -535,12 +535,8 @@
             </div>
         </div>
         <!--end add new client modal-->
-        <!-------------------------------  end client  adding --------------------------------------------->
+        <!-------------------------------  end user  adding --------------------------------------------->
 
-        <!-------------------------------  client  updating ----------------------------------------------->
-
-
-        <!------------------------------- end client  updating -------------------------------------------->
 
 
 
