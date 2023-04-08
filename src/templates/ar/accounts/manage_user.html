@@ -176,7 +176,7 @@
 
                             <!--delete client action-->
                             <td class="text-end">
-                                <a href="{% url 'manage-user' 'delete_user' usertype.user.email %}" class="btn btn-sm btn-light btn-active-light-danger" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="delete client">
+                                <a href="{% url 'manage-user' 'disable_user' usertype.user.email %}" class="btn btn-sm btn-light btn-active-light-danger" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="delete client">
                                     <i class="bi bi-person-slash" style="font-size: 1.5rem;"></i>
 
                                 </a>
@@ -478,7 +478,7 @@
                                                     <!--end::Input group=-->
                                                     <!--begin::Input group-->
                                                     <div class="fv-row mb-5">
-                                                        <label class="form-label fw-bold text-dark fs-6">أكيد كلمة السر</label>
+                                                        <label class="form-label fw-bold text-dark fs-6">تأكيد كلمة السر</label>
                                                         <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm-password" autocomplete="off" />
                                                     </div>
                                                     <!--end::Input group-->
@@ -550,11 +550,6 @@
         </div>
         <!--end add new client modal-->
         <!-------------------------------  end user  adding --------------------------------------------->
-
-
-
-
-
     </div>
     <!--end::Container-->
 </div>

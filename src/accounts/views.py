@@ -57,7 +57,7 @@ def manage_user(request, action, email):
     url = direction + "/accounts/manage_user.html"
     if action == "add_user":
         account_actions.add_user(request)
-    if action == "delete_user":
+    if action == "disable_user":
         user = User.objects.all().get(email=email)
         user.is_active = False
         user.save()
