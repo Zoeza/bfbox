@@ -170,10 +170,10 @@
                                 {% if usertype.user.is_active %}
 
                                 <td class="text-end">
-                                        <div class="form-check form-switch form-check-custom form-check-solid me-10">
-                                            <input class="form-check-input h-15px w-25px" type="checkbox" value="" id="flexSwitch20x30"/>
-
-                                        </div>
+                                    <a href="{% url 'manage-user' 'disable_user' usertype.user.email %}" class="btn btn-sm btn-light btn-active-light-danger" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="disable user">
+                                        <i class="bi bi-toggle-off" style="font-size: 1.5rem;"></i>
+                                    </a>
+                                    
                                 </td>
 
 
