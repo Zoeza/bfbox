@@ -33,7 +33,7 @@ def sign_in(request):
             return redirect('dashboard')  # Go to dashboard
 
         else:
-            messages.error(request, "error email or password is incorrect!")
+            messages.error(request, "error email or password is incorrect or your account is disable!")
 
     return render(request, url, {})
 
@@ -56,8 +56,10 @@ def manage_user(request, action, email):
         raise Http404("No users")
 
     url = direction + "/accounts/manage_user.html"
+
     if action == "add_user":
         account_actions.add_user(request)
+
     if action == "disable_user":
         user = User.objects.all().get(email=email)
         user.is_active = False
