@@ -36,8 +36,8 @@ def sign_in(request):
                 messages.ERROR(request, " User is disable !!")
 
         else:
-            messages.ERROR(request, " Username or password is incorrect!")
-
+            return render(request, url, {'error': 'Username or password is incorrect!'})
+        
     else:
         return render(request, url, {})
 
