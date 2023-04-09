@@ -33,11 +33,11 @@ def sign_in(request):
                 login(request, user)
                 return redirect('dashboard')  # Go to dashboard
             else:
-                messages.ERROR(request, " User is disable !!")
+                messages.error(request, " user is disable!!")
 
         else:
-            return render(request, url, {'error': 'Username or password is incorrect!'})
-        
+            messages.error(request, "error Username or password is incorrect!")
+
     else:
         return render(request, url, {})
 
