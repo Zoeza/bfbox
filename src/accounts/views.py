@@ -32,8 +32,8 @@ def sign_in(request):
             if user.is_active:
                 login(request, user)
                 return redirect('dashboard')  # Go to dashboard
-            else:
-                messages.error(request, " user is disable!!")
+            
+            messages.error(request, " user is disable!!")
 
         else:
             messages.error(request, "error email or password is incorrect!")
