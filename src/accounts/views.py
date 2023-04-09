@@ -29,13 +29,13 @@ def sign_in(request):
     if request.method == 'POST':
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
         if user is not None:
+            if User.objects.all().get(email=request.POST['email']).is_active:
+                login(request, user)
+                return redirect('dashboard')  # Go to dashboard
+            else:
+                messages.error(request, "user blocked")
+                return redirect('sign-in')
 
-            login(request, user)
-            return redirect('dashboard')  # Go to dashboard
-
-        elif not user.is_active:
-            messages.error(request, "user blocked")
-            return redirect('sign-in')
         else:
             messages.error(request, "error email or password is incorrect")
             return redirect('sign-in')
