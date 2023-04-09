@@ -32,8 +32,11 @@ def sign_in(request):
             login(request, user)
             return redirect('dashboard')  # Go to dashboard
 
+        elif not user.is_active:
+            messages.error(request, " your account is disable!")
+
         else:
-            messages.error(request, "error email or password is incorrect or your account is disable!")
+            messages.error(request, "error email or password is incorrect")
 
     return render(request, url, {})
 
