@@ -32,7 +32,7 @@ def sign_in(request):
             if user.is_active:
                 login(request, user)
                 return redirect('dashboard')  # Go to dashboard
-            
+
             messages.error(request, " user is disable!!")
 
         else:
@@ -64,6 +64,11 @@ def manage_user(request, action, email):
     if action == "disable_user":
         user = User.objects.all().get(email=email)
         user.is_active = False
+        user.save()
+
+    if action == "activate_user":
+        user = User.objects.all().get(email=email)
+        user.is_active = True
         user.save()
 
     context = {

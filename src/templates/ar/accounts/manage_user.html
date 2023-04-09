@@ -141,10 +141,9 @@
 
                                  {% endif %}
 
+                               <td>{{usertype.user.date_joined}}</td>
 
-                                <td>{{usertype.user.date_joined}}</td>
-
-                                <td>{{usertype.user.last_login}}</td>
+                               <td>{{usertype.user.last_login}}</td>
 
 
                                 <!--Client Town -->
@@ -168,12 +167,23 @@
                                 <!--end edit client action-->
 
                                 <!--delete client action-->
+                                {% if usertype.user.is_active %}
+
                                 <td class="text-end">
                                     <a href="{% url 'manage-user' 'disable_user' usertype.user.email %}" class="btn btn-sm btn-light btn-active-light-danger" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="disable user">
                                         <i class="bi bi-person-slash" style="font-size: 1.5rem;"></i>
-
                                     </a>
                                 </td>
+
+                                {% else %}
+                                <td class="text-end">
+                                    <a href="{% url 'manage-user' 'activate_user' usertype.user.email %}" class="btn btn-sm btn-light btn-active-light-success" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="disable user">
+                                        <i class="bi bi-person" style="font-size: 1.5rem;"></i>
+                                    </a>
+                                </td>
+
+                                {% endif %}
+
                                 <!--end delete client action-->
                             </tr>
                         {% endfor %}
