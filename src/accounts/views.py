@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -28,11 +29,15 @@ def sign_in(request):
     if request.method == 'POST':
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
         if user is not None:
-            login(request, user)
-            return redirect('dashboard')  # Go to dashboard
+            if user.is_active:
+                login(request, user)
+                return redirect('dashboard')  # Go to dashboard
+            else:
+                messages.ERROR(request, " User is disable !!")
 
         else:
-            return render(request, url, {'error': 'Username or password is incorrect!'})
+            messages.ERROR(request, " Username or password is incorrect!")
+
     else:
         return render(request, url, {})
 
