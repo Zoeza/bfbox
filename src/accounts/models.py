@@ -49,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
     EMAIL_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'password1']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'password1']
 
     objects = UserManager()
 
