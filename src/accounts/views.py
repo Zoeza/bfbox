@@ -29,16 +29,17 @@ def sign_in(request):
     if request.method == 'POST':
         user = authenticate(email=request.POST['email'], password=request.POST['password'])
         if user is not None:
-            login(request, user)
-            return redirect('dashboard')  # Go to dashboard
-
-        elif not user.is_active:
-            messages.error(request, " your account is disable!")
-
+            if user.is_active:
+                login(request, user)
+                return redirect('dashboard')  # Go to dashboard
+            else:
+                messages.error(request, 'User blocked')
+                return redirect('sign-in')
         else:
             messages.error(request, "error email or password is incorrect")
-
-    return render(request, url, {})
+            return redirect('sign-in')
+    else:
+        return render(request, url, {})
 
 
 # ------------ sign out page -------------#
