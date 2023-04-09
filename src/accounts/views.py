@@ -38,8 +38,7 @@ def sign_in(request):
         else:
             messages.error(request, "error Username or password is incorrect!")
 
-    else:
-        return render(request, url, {})
+    return render(request, url, {})
 
 
 # ------------ sign out page -------------#
