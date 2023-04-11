@@ -1,165 +1,37 @@
-{% extends "en/dashboard/base.html" %}
-{% load static %}
-<!------------------------------- title ---------------------------------------------------->
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+  <link href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css" rel="stylesheet">
+</head>
 
-{% block title %}
-<title>
+<div class="container">
+  <h3>Bootstrap-table</h3>
+  <h6>Detail-view with Sub-table</h6>
+<table
+  id="table"
+  data-toggle="table"
+  data-toolbar="#toolbar"
+  data-filter-control="true"
+  data-show-footer="false"
+  data-detail-formatter="detailFormatter"
+  data-detail-view="true"
+  data-hide-unused-select-options="true">
+  <thead>
+    <tr>
+      <th data-field="state" data-checkbox="true"></th>
+      <th data-field="id" data-filter-control="select">Id</th>
+      <th data-field="name" data-filter-control="select">Name</th>
+      <th data-field="city" data-filter-control="select">City</th>
+      <th data-field="age" data-filter-control="select" data-visible="false">Age</th>
+    </tr>
+  </thead>
+</table>
 
-         BFBOX - Bailiff Manager System
-
-</title>
-{% endblock %}
-<!------------------------------- end title ------------------------------------------------>
-
-{% block heading%}
-<!--begin::Heading-->
-    <h1 class="text-dark fw-bold my-1 fs-2"> Report Manager
-    <small class="text-muted fs-6 fw-normal ms-1"></small>
-    </h1>
-    <!--end::Heading-->
-{% endblock %}
-
-{% block breadcrumb%}
-    <!--begin::Breadcrumb-->
-    <ul class="breadcrumb fw-semibold fs-base my-1">
-        <li class="breadcrumb-item text-muted">
-            <a href="../index.html" class="text-muted">Home</a>
-        </li>
-        <li class="breadcrumb-item text-muted">Report Manager/ </li>
-
-
-    </ul>
-    <!--end::Breadcrumb-->
-{% endblock %}
-
-<!---------------------------------  report  management ----------------------------------------------->
-{% block content%}
-<!--begin::Content-->
-<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <!--begin::Container-->
-    <div class="container-xxl" id="kt_content_container">
-        <!--begin::Card-->
-	<div class="pt-10">
-		<div class="py-5">
-			<table class="table align-middle table-row-dashed fs-6 gy-4" id="kt_docs_datatable_subtable">
-			<!--begin::Table head-->
-				<thead>
-				<!--begin::Table row-->
-					<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-					<th class="min-w-100px">Order ID</th>
-					<th class="text-end min-w-100px">Created</th>
-					<th class="text-end min-w-150px">Customer</th>
-					<th class="text-end min-w-100px">Total</th>
-					<th class="text-end min-w-100px">Profit</th>
-					<th class="text-end min-w-50px">Status</th>
-					<th class="text-end"></th>
-				</tr>
-				<!--end::Table row-->
-				</thead>
-			<!--end::Table head-->
-
-			<!--begin::Table body-->
-				<tbody class="fw-bold text-gray-600">
-					<!--begin::SubTable template-->
-						<tr data-kt-docs-datatable-subtable="subtable_template" class="d-none">
-							<td colspan="2">
-								<div class="d-flex align-items-center gap-3">
-									<a href="#" class="symbol symbol-50px bg-secondary bg-opacity-25 rounded">
-										<img src="/html/jet-html-pro/docs/assets/media/stock/ecommerce/" alt="" data-kt-docs-datatable-subtable="template_image" />
-									</a>
-									<div class="d-flex flex-column text-muted">
-										<a href="#" class="text-dark text-hover-primary fw-bold" data-kt-docs-datatable-subtable="template_name">Product name</a>
-										<div class="fs-7" data-kt-docs-datatable-subtable="template_description">Product description</div>
-									</div>
-								</div>
-							</td>
-
-							<td class="text-end">
-								<div class="text-dark fs-7">Cost</div>
-								<div class="text-muted fs-7 fw-bold" data-kt-docs-datatable-subtable="template_cost">1</div>
-							</td>
-
-							<td class="text-end">
-								<div class="text-dark fs-7">Qty</div>
-								<div class="text-muted fs-7 fw-bold" data-kt-docs-datatable-subtable="template_qty">1</div>
-							</td>
-
-							<td class="text-end">
-								<div class="text-dark fs-7">Total</div>
-								<div class="text-muted fs-7 fw-bold" data-kt-docs-datatable-subtable="template_total">name</div>
-							</td>
-
-							<td class="text-end">
-								<div class="text-dark fs-7 me-3">On hand</div>
-								<div class="text-muted fs-7 fw-bold" data-kt-docs-datatable-subtable="template_stock">32</div>
-							</td>
-
-							<td></td>
-						</tr>
-					<!--end::SubTable template-->
-						<tr>
-							<!--begin::Order ID-->
-							<td>
-								<a href="#" class="text-dark text-hover-primary">#XGT-346</a>
-							</td>
-							<!--end::Order ID-->
-
-							<!--begin::Crated date-->
-							<td class="text-end">
-								11 April 2023, 12:41 am	</td>
-							<!--end::Created date-->
-
-							<!--begin::Customer-->
-							<td class="text-end">
-								<a href="" class="text-dark text-hover-primary">Emma Smith</a>
-							</td>
-							<!--end::Customer-->
-
-							<!--begin::Total-->
-							<td class="text-end">
-								$630.00
-							</td>
-							<!--end::Total-->
-
-							<!--begin::Profit-->
-							<td class="text-end">
-								<span class="text-dark fw-bold">$86.70</span>
-							</td>
-							<!--end::Profit-->
-
-							<!--begin::Status-->
-							<td class="text-end">
-								<span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
-							</td>
-							<!--end::Status-->
-
-							<!--begin::Actions-->
-							<td class="text-end">
-								<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-docs-datatable-subtable="expand_row">
-									<!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
-										<span class="svg-icon svg-icon-3 m-0 toggle-off"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor"/>
-										<rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"/>
-										</svg></span>
-										<!--end::Svg Icon-->								<!--begin::Svg Icon | path: icons/duotune/arrows/arr089.svg-->
-										<span class="svg-icon svg-icon-3 m-0 toggle-on"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"/>
-										</svg>
-										</span>
-									<!--end::Svg Icon-->
-								</button>
-							</td>
-							<!--end::Actions-->
-						</tr>
-				</tbody>
-			<!--end::Table body-->
-		</table>
-        </div>
-		</div>
-	</div>
-    <!--end::Container-->
-</div>
-<!--end::Content-->
-{% endblock %}
-
-<!-------------------------------  end report management --------------------------------------------->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+<script src="{% static 'dashboard/assets/js/test.js' %}"></script>
