@@ -1,4 +1,39 @@
-"use strict";
+var data = [{
+  "id": "1",
+  "name": "Jen",
+  "city": "Melbourne",
+  "age": "65"
+}, {
+  "id": "2",
+  "name": "Roger",
+  "city": "Melbourne",
+  "age": "34"
+}, {
+  "id": "3",
+  "name": "Rob",
+  "city": "Sydney",
+  "age": "23"
+}, {
+  "id": "4",
+  "name": "George",
+  "city": "Sydney",
+  "age": "45"
+}, {
+  "id": "5",
+  "name": "Fred",
+  "city": "Perth",
+  "age": "23"
+}, {
+  "id": "6",
+  "name": "Kelly",
+  "city": "Melbourne",
+  "age": "23"
+}, {
+  "id": "7",
+  "name": "Gina",
+  "city": "Perth",
+  "age": "25"
+}];
 
 
  $('#table').bootstrapTable({
