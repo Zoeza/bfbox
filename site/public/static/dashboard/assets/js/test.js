@@ -1,3 +1,4 @@
+"use strict";
 var data = [{
   "id": "1",
   "name": "Jen",
