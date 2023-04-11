@@ -16,7 +16,7 @@ def manage_report(request, action, sku):
     except GeneratedReport.DoesNotExist:
         raise Http404("No reports")
 
-    url = direction + "/reports_manager/manage_report.html"
+    url = direction + "/reports_manager/test.html"
 
     if action == "download_report":
         return report_actions.download_report(sku)
