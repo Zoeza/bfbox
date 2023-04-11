@@ -1,5 +1,5 @@
 "use strict";
-var KTDocsDatatableSubtable = function () {
+
 var table;
 var datatable;
 var template;
@@ -186,4 +186,3 @@ const resetSubtable = () => {
 		}
 	});
 }
-}();
