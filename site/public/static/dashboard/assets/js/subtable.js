@@ -98,7 +98,7 @@ var KTDocsDatatableSubtable = function () {
             total: '200.00',
             stock: '8'
         }
-    ];
+    ]
 
     // Handle action button
     const handleActionButton = () => {
