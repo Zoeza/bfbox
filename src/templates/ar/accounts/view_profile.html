@@ -70,7 +70,7 @@
                                    </div>
 
                             {% endif %}
-                            
+
                             <!--end::Position-->
                             <!--begin::Info-->
                             <!--begin::Info heading-->
@@ -158,11 +158,10 @@
                                     <a href="view.html#" class="text-gray-600 text-hover-primary">{{usertype.user.email}} </a>
                                 </div>
                                 <!--end::Details item-->
-
-
+                                
                                 <!--begin::Details item-->
-                                <div class="fw-bold mt-5">خر تسجيل دخول</div>
-                                <div class="text-gray-600">25 Oct 2022, 11:30 am</div>
+                                <div class="fw-bold mt-5">آخر تسجيل دخول</div>
+                                <div class="text-gray-600">{{usertype.user.last_login}}</div>
                                 <!--end::Details item-->
                             </div>
                         </div>
