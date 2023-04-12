@@ -68,8 +68,7 @@ def manage_user(request, action, email):
     if action == "activate_user":
         url = direction + account_actions.activate_user(email).get('url')
 
-    if action == "view_profile":
-        url = direction + "/accounts/view_profile.html"
+
     context = {
         "users_list": users_list,
         "usertype_list": usertype_list,
