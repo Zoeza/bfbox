@@ -105,7 +105,7 @@ var KTDocsDatatableSubtable = function () {
         const buttons = document.querySelectorAll('[data-kt-docs-datatable-subtable="expand_row"]');
 
         // Sample row items counter --- for demo purpose only, remove this variable in your project
-        const rowItems = [4, 1, 5, 1, 4, 2];
+        const rowItems = [ 1, 2];
 
         buttons.forEach((button, index) => {
             button.addEventListener('click', e => {
