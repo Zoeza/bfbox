@@ -62,42 +62,6 @@ var KTDocsDatatableSubtable = function () {
             total: '500.00',
             stock: '12'
         },
-        {
-            image: '60',
-            name: 'Bose Earbuds',
-            description: 'Top quality earbuds from Bose.',
-            cost: '300.00',
-            qty: '1',
-            total: '300.00',
-            stock: '8'
-        },
-        {
-            image: '211',
-            name: 'Dry-fit Sports T-shirt',
-            description: 'Comfortable sportswear for everyday use.',
-            cost: '89.00',
-            qty: '1',
-            total: '89.00',
-            stock: '18'
-        },
-        {
-            image: '21',
-            name: 'Apple Airpod 3',
-            description: 'Apple\'s latest and most advanced earbuds.',
-            cost: '200.00',
-            qty: '2',
-            total: '400.00',
-            stock: '32'
-        },
-        {
-            image: '83',
-            name: 'Nike Pumps',
-            description: 'Apple\'s latest and most advanced headphones.',
-            cost: '200.00',
-            qty: '1',
-            total: '200.00',
-            stock: '8'
-        }
     ];
 
     // Handle action button
