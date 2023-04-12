@@ -72,6 +72,9 @@ def manage_user(request, action, email):
         user.is_active = True
         user.save()
 
+    if action == "view_profile":
+        url = direction + "/accounts/view_profile.html"
+
     context = {
         "users_list": users_list,
         "usertype_list": usertype_list,

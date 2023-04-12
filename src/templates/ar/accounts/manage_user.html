@@ -36,9 +36,9 @@
 
 {% block content %}
 <!--begin::Content-->
-<div class="content d-flex flex-column flex-column-fluid" id="kt_content" dir="rtl">
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Container-->
-    <div class="container-xxl" id="kt_content_container" dir="rtl">
+    <div class="container-xxl" id="kt_content_container">
         <div class="card card-bordered"  dir="rtl">
             <!--begin::Card header-->
             <div class="card-header ">
@@ -151,7 +151,7 @@
 
                                 <!--view client action-->
                                 <td class="text-end">
-                                    <a href="" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="view user">
+                                    <a href="{% url 'manage-user' 'view_profile' '#' %}" class="btn btn-sm btn-light btn-active-light-primary" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="view user">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                 </td>
