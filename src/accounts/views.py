@@ -81,7 +81,7 @@ def manage_user(request, action, email):
 def view_profile(request, email):
     direction = request.session.get('language')
     url = direction + "/accounts/view_profile.html"
-    usertype_selected = user_type.objects.all().get(email=email)
+    usertype_selected = user_type.user.objects.all().get(email=email)
 
     context = {"usertype": usertype_selected, }
     return render(request, url, context)
