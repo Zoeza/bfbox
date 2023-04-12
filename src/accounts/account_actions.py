@@ -22,3 +22,23 @@ def add_user(request):
             usertype = user_type(user=user, is_employee=True)
 
         usertype.save()
+
+
+def activate_user(email):
+    url = "/accounts/manage_user.html"
+    user_selected = User.objects.all().get(email=email)
+    user_selected.is_active = True
+    user_selected.save()
+    return {
+        'url': url,
+    }
+
+
+def disable_user(email):
+    url = "/accounts/manage_user.html"
+    user_selected = User.objects.all().get(email=email)
+    user_selected.is_active = False
+    user_selected.save()
+    return {
+        'url': url,
+    }

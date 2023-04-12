@@ -63,21 +63,20 @@ def manage_user(request, action, email):
         account_actions.add_user(request)
 
     if action == "disable_user":
-        user = User.objects.all().get(email=email)
-        user.is_active = False
-        user.save()
+        url = direction + account_actions.disable_user(email).get('url')
 
     if action == "activate_user":
-        user = User.objects.all().get(email=email)
-        user.is_active = True
-        user.save()
-
+        url = direction + account_actions.activate_user(email).get('url')
     if action == "view_profile":
         url = direction + "/accounts/view_profile.html"
-
     context = {
         "users_list": users_list,
         "usertype_list": usertype_list,
 
     }
     return render(request, url, context)
+
+
+
+
+
