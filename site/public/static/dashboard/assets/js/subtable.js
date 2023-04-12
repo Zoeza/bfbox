@@ -1,4 +1,3 @@
-"use strict";
 var table;
 var datatable;
 var template;
@@ -60,6 +59,7 @@ const data = [
   stock: '12'
  },
 
+ ...
 ];
 
 // Handle action button
