@@ -60,7 +60,6 @@ const data = [
   stock: '12'
  },
 
- ...
 ];
 
 // Handle action button
