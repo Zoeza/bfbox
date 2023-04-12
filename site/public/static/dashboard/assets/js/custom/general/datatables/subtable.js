@@ -1,3 +1,5 @@
+"use strict";
+
 var table;
 var datatable;
 var template;
