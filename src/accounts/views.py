@@ -67,6 +67,7 @@ def manage_user(request, action, email):
 
     if action == "activate_user":
         url = direction + account_actions.activate_user(email).get('url')
+
     if action == "view_profile":
         url = direction + "/accounts/view_profile.html"
     context = {
@@ -77,6 +78,12 @@ def manage_user(request, action, email):
     return render(request, url, context)
 
 
+@login_required
+def view_profile(request, email):
+    direction = request.session.get('language')
+    url = direction + "/accounts/view_profile.html"
+    user_selected = User.objects.all().get(email=email)
 
-
+    context = {"user": user_selected, }
+    return render(request, url, context)
 
