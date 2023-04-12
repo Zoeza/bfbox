@@ -51,7 +51,7 @@
                         <!--begin::User Info-->
                         <div class="d-flex flex-center flex-column py-5">
                             <!--begin::Name-->
-                            <a href="view.html#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{user.first_name}}  {{user.last_name}}</a>
+                            <a href="view.html#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{usertype.user.first_name}}  {{usertype.user.last_name}}</a>
                             <!--end::Name-->
                             <!--begin::Position-->
                             <div class="mb-9">
@@ -143,16 +143,10 @@
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">البريد الإلكتروني</div>
                                 <div class="text-gray-600">
-                                    <a href="view.html#" class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+                                    <a href="view.html#" class="text-gray-600 text-hover-primary">{{usertype.user.email}} </a>
                                 </div>
                                 <!--end::Details item-->
-
-                                <!--begin::Details item-->
-                                <div class="fw-bold mt-5">Address</div>
-                                <div class="text-gray-600">101 Collin Street,
-                                <br />Melbourne 3000 VIC
-                                <br />Australia</div>
-                                <!--end::Details item-->
+                                
 
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">خر تسجيل دخول</div>
