@@ -78,10 +78,10 @@ def manage_user(request, action, email):
 
 
 @login_required
-def view_profile(request, email):
+def view_profile(request, user):
     direction = request.session.get('language')
     url = direction + "/accounts/view_profile.html"
-    usertype_selected = user_type.user.objects.all().get(email=email)
+    usertype_selected = user_type.objects.all().get(user=user)
 
     context = {"usertype": usertype_selected, }
     return render(request, url, context)
