@@ -105,7 +105,7 @@ var KTDocsDatatableSubtable = function () {
         const buttons = document.querySelectorAll('[data-kt-docs-datatable-subtable="expand_row"]');
 
         // Sample row items counter --- for demo purpose only, remove this variable in your project
-        const rowItems = [ 1, 2];
+        const rowItems = [4, 1, 5, 1, 4, 2];
 
         buttons.forEach((button, index) => {
             button.addEventListener('click', e => {
@@ -140,6 +140,72 @@ var KTDocsDatatableSubtable = function () {
     }
 
     // Populate template with content/data -- content/data can be replaced with relevant data from database or API
+    const populateTemplate = (data, target) => {
+        data.forEach((d, index) => {
+            // Clone template node
+            const newTemplate = template.cloneNode(true);
+
+            // Stock badges
+            const lowStock = `<div class="badge badge-light-warning">Low Stock</div>`;
+            const inStock = `<div class="badge badge-light-success">In Stock</div>`;
+
+            // Select data elements
+            const image = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_image"]');
+            const name = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_name"]');
+            const description = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_description"]');
+            const cost = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_cost"]');
+            const qty = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_qty"]');
+            const total = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_total"]');
+            const stock = newTemplate.querySelector('[data-kt-docs-datatable-subtable="template_stock"]');
+
+            // Populate elements with data
+            const imageSrc = image.getAttribute('src');
+            image.setAttribute('src', imageSrc + d.image + '.gif');
+            name.innerText = d.name;
+            description.innerText = d.description;
+            cost.innerText = d.cost;
+            qty.innerText = d.qty;
+            total.innerText = d.total;
+            if (d.stock > 10) {
+                stock.innerHTML = inStock;
+            } else {
+                stock.innerHTML = lowStock;
+            }
+
+            // New template border controller
+            // When only 1 row is available
+            if (data.length === 1) {
+                let borderClasses = ['rounded', 'rounded-end-0'];
+                newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
+                borderClasses = ['rounded', 'rounded-start-0'];
+                newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
+
+                // Remove bottom border
+                newTemplate.classList.add('border-bottom-0');
+            } else {
+                // When multiple rows detected
+                if (index === (data.length - 1)) { // first row
+                    let borderClasses = ['rounded-start', 'rounded-bottom-0'];
+                    newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
+                    borderClasses = ['rounded-end', 'rounded-bottom-0'];
+                    newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
+                }
+                if (index === 0) { // last row
+                    let borderClasses = ['rounded-start', 'rounded-top-0'];
+                    newTemplate.querySelectorAll('td')[0].classList.add(...borderClasses);
+                    borderClasses = ['rounded-end', 'rounded-top-0'];
+                    newTemplate.querySelectorAll('td')[4].classList.add(...borderClasses);
+
+                    // Remove bottom border on last row
+                    newTemplate.classList.add('border-bottom-0');
+                }
+            }
+
+            // Insert new template into table
+            const tbody = table.querySelector('tbody');
+            tbody.insertBefore(newTemplate, target.nextSibling);
+        });
+    }
 
     // Reset subtable
     const resetSubtable = () => {
