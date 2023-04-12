@@ -60,7 +60,7 @@ const data = [
 	},
 
 	...
-]
+];
 
 // Handle action button
 const handleActionButton = () => {
