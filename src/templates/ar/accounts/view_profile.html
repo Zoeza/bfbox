@@ -54,9 +54,26 @@
                             <a href="view.html#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-3">{{usertype.user.first_name}}  {{usertype.user.last_name}}</a>
                             <!--end::Name-->
                             <!--begin::Position-->
+
+                             {% if usertype.is_employee %}
+
+                                   <div class="mb-9">
+                                        <!--begin::Badge-->
+                                        <div class="badge badge-lg badge-light-primary d-inline">موظف</div>
+                                        <!--begin::Badge-->
+                                   </div>
+                            {%else %}
+                                   <div class="mb-9">
+                                        <!--begin::Badge-->
+                                        <div class="badge badge-lg badge-light-primary d-inline">مسؤول</div>
+                                        <!--begin::Badge-->
+                                   </div>
+
+                            {% endif %}
+
                             <div class="mb-9">
                                 <!--begin::Badge-->
-                                <div class="badge badge-lg badge-light-primary d-inline">Administrator</div>
+                                <div class="badge badge-lg badge-light-primary d-inline">موظف</div>
                                 <!--begin::Badge-->
                             </div>
                             <!--end::Position-->
