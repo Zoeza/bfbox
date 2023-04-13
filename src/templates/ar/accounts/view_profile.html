@@ -32,8 +32,6 @@
     <!--end::Breadcrumb-->
 {% endblock %}
 <!------------------------------- end title ------------------------------------------------>
-
-
 {% block content %}
 <!--begin::Content-->
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -78,21 +76,23 @@
                         <!--begin::Details toggle-->
                         <div class="d-flex flex-stack fs-4 py-3">
                             <div class="fw-bold rotate collapsible" data-bs-toggle="collapse" href="#kt_user_view_details" role="button" aria-expanded="false" aria-controls="kt_user_view_details">تفاصيل
-                            <span class="ms-2 rotate-180">
-                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
-                                <span class="svg-icon svg-icon-3">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
-                                    </svg>
+                                <span class="ms-2 rotate-180">
+                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
+                                    <span class="svg-icon svg-icon-3">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
                                 </span>
-                                <!--end::Svg Icon-->
-                            </span></div>
+                            </div>
+
                             <span class="menu-link menu-center">
                                 <a href="view.html#" class="btn btn-sm btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_update_details" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="edit user">
-
                                     <i class="bi bi-pencil-square" style="font-size: 1.25rem;"></i>
                                 </a>
                             </span>
+
                         </div>
                         <!--end::Details toggle-->
                         <div class="separator"></div>
@@ -1950,7 +1950,7 @@
                     <!--begin::Modal header-->
                     <div class="modal-header">
                         <!--begin::Modal title-->
-                        <h2 class="fw-bold">Update User Role</h2>
+                        <h2 class="fw-bold">تحديث وظيفة المستخدم</h2>
                         <!--end::Modal title-->
                         <!--begin::Close-->
                         <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
@@ -2040,58 +2040,6 @@
                                 <!--end::Input row-->
                                 <div class='separator separator-dashed my-5'></div>
                                 <!--begin::Input row-->
-                                <div class="d-flex">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="2" id="kt_modal_update_role_option_2" />
-                                        <!--end::Input-->
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_2">
-                                            <div class="fw-bold text-gray-800">Analyst</div>
-                                            <div class="text-gray-600">Best for people who need full access to analytics data, but don't need to update business settings</div>
-                                        </label>
-                                        <!--end::Label-->
-                                    </div>
-                                    <!--end::Radio-->
-                                </div>
-                                <!--end::Input row-->
-                                <div class='separator separator-dashed my-5'></div>
-                                <!--begin::Input row-->
-                                <div class="d-flex">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3" />
-                                        <!--end::Input-->
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_3">
-                                            <div class="fw-bold text-gray-800">Support</div>
-                                            <div class="text-gray-600">Best for employees who regularly refund payments and respond to disputes</div>
-                                        </label>
-                                        <!--end::Label-->
-                                    </div>
-                                    <!--end::Radio-->
-                                </div>
-                                <!--end::Input row-->
-                                <div class='separator separator-dashed my-5'></div>
-                                <!--begin::Input row-->
-                                <div class="d-flex">
-                                    <!--begin::Radio-->
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <!--begin::Input-->
-                                        <input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4" />
-                                        <!--end::Input-->
-                                        <!--begin::Label-->
-                                        <label class="form-check-label" for="kt_modal_update_role_option_4">
-                                            <div class="fw-bold text-gray-800">Trial</div>
-                                            <div class="text-gray-600">Best for people who need to preview content data, but don't need to make any updates</div>
-                                        </label>
-                                        <!--end::Label-->
-                                    </div>
-                                    <!--end::Radio-->
-                                </div>
-                                <!--end::Input row-->
                             </div>
                             <!--end::Input group-->
                             <!--begin::Actions-->
