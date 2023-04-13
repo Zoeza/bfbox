@@ -4,6 +4,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import user_type, User
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+
 from . import account_actions
 
 
@@ -84,3 +87,13 @@ def view_profile(request, pk):
 
     context = {"usertype": usertype_selected, }
     return render(request, url, context)
+
+
+@login_required
+def update_password(request):
+    change_password_form = PasswordChangeForm(user=request.user, data=request.POST or None)
+    if change_password_form.is_valid():
+        change_password_form.save()
+        update_session_auth_hash(request, change_password_form.user)
+    return render(request, {'change_password_form': change_password_form})
+
